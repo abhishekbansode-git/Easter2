@@ -1977,7 +1977,6 @@
 
     /* Top-level CSS @page descriptor (Standard CSS Paged Media compliance) */
     @page {
-      size: a4 portrait;
       margin: 0mm;
     }
     @page :left {
@@ -1996,7 +1995,6 @@
         print-color-adjust: exact !important;
       }
       @page {
-        size: a4 portrait;
         margin: 0 !important;
       }
       html, body {
@@ -2054,10 +2052,10 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
         box-sizing: border-box !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        max-width: 100vw !important;
-        max-height: 100vh !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        max-width: 210mm !important;
+        max-height: 297mm !important;
         overflow: hidden !important;
         margin: 0 !important;
         padding: 0 !important;
@@ -2069,106 +2067,138 @@
         break-after: auto !important;
       }
 
-      /* Portrait: Exact mathematical A4 match (1.654 uniform scale) - Zero Gaps, No Distortion */
+      /* Exact physical page sizes per paper selection */
+      .paper-a4.layout-portrait .print-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-width: 210mm !important;
+        max-height: 297mm !important;
+      }
+      .paper-letter.layout-portrait .print-page {
+        width: 8.5in !important;
+        height: 11in !important;
+        max-width: 8.5in !important;
+        max-height: 11in !important;
+      }
+      .paper-a4.layout-landscape .print-page {
+        width: 297mm !important;
+        height: 210mm !important;
+        max-width: 297mm !important;
+        max-height: 210mm !important;
+      }
+      .paper-letter.layout-landscape .print-page {
+        width: 11in !important;
+        height: 8.5in !important;
+        max-width: 11in !important;
+        max-height: 8.5in !important;
+      }
+
+      /* Portrait: Exact 1:1 match with Step 2 Studio Canvas (Full-Bleed, Zero Shift) */
       .portrait-page {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        position: relative !important;
         box-sizing: border-box !important;
         overflow: hidden !important;
-        width: 100vw !important;
-        height: 100vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
       }
       .card-scaler-portrait {
         width: 480px !important;
-        height: 679px !important;
+        height: 678.968px !important;
         max-width: 480px !important;
-        max-height: 679px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        transform: scale(1.654) !important;
-        transform-origin: center center !important;
-        flex-shrink: 0 !important;
-      }
-      .paper-letter .card-scaler-portrait {
-        transform: scale(1.555) !important;
+        max-height: 678.968px !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: scale(1.65354) !important;
+        transform-origin: 0 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
       }
       .paper-a4 .card-scaler-portrait {
-        transform: scale(1.654) !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: scale(1.65354) !important;
+        transform-origin: 0 0 !important;
+      }
+      .paper-letter .card-scaler-portrait {
+        top: 0 !important;
+        left: 50% !important;
+        transform: translateX(-50%) scale(1.55529) !important;
+        transform-origin: top center !important;
       }
       .card-scaler-portrait .clue-card-paper {
         width: 480px !important;
-        height: 679px !important;
+        height: 678.968px !important;
         max-width: 480px !important;
-        max-height: 679px !important;
+        max-height: 678.968px !important;
         box-shadow: none !important;
         border-radius: 0 !important;
         margin: 0 !important;
+        padding: 0 !important;
         position: relative !important;
         overflow: hidden !important;
-        contain: paint !important;
-        clip-path: inset(0) !important;
-        -webkit-clip-path: inset(0) !important;
         background: white !important;
       }
 
       /* Landscape: 2 Cards Side-by-Side (Maximized Size, Balanced Margins, Edge-to-Edge Cut Line) */
       .landscape-page {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        height: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
         box-sizing: border-box !important;
-        align-items: center !important;
-        justify-items: center !important;
         overflow: hidden !important;
-        position: relative !important;
-        width: 100vw !important;
-        height: 100vh !important;
+        background: white !important;
       }
       .landscape-half {
+        flex: 0 0 50% !important;
+        width: 50% !important;
+        height: 100% !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        height: 100% !important;
-        width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
         box-sizing: border-box !important;
         overflow: hidden !important;
+        position: relative !important;
       }
       .card-scaler-landscape {
         width: 480px !important;
-        height: 679px !important;
+        height: 678.968px !important;
         max-width: 480px !important;
-        max-height: 679px !important;
+        max-height: 678.968px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        transform: scale(1.14) !important;
+        transform: scale(1.16) !important;
         transform-origin: center center !important;
         flex-shrink: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
       .paper-letter .card-scaler-landscape {
-        transform: scale(1.11) !important;
+        transform: scale(1.085) !important;
       }
       .paper-a4 .card-scaler-landscape {
-        transform: scale(1.14) !important;
+        transform: scale(1.16) !important;
       }
       .card-scaler-landscape .clue-card-paper {
         width: 480px !important;
-        height: 679px !important;
+        height: 678.968px !important;
         max-width: 480px !important;
-        max-height: 679px !important;
+        max-height: 678.968px !important;
         box-shadow: none !important;
         border-radius: 4px !important;
         margin: 0 !important;
+        padding: 0 !important;
         position: relative !important;
         overflow: hidden !important;
-        contain: paint !important;
-        clip-path: inset(0) !important;
-        -webkit-clip-path: inset(0) !important;
         background: white !important;
       }
       .landscape-cut-guide {
@@ -2185,7 +2215,7 @@
         margin: 0 !important;
       }
 
-            /* High-Definition Print Graphics: Disable filters so Chrome does not downsample to 72 DPI */
+      /* High-Definition Print Graphics: Disable filters so Chrome does not downsample to 72 DPI */
       img,
       .clue1-corner-bunny,
       .clue1-corner-bunny img,
@@ -2209,8 +2239,7 @@
         transform-style: flat !important;
       }
 
-      /* Shared Card Structure (Exact Step 3 Alignment) */
-
+      /* Shared Card Structure (Exact Step 2 Studio Alignment) */
       .clue-card-bg-border {
         position: absolute !important;
         inset: 0 !important;
@@ -2218,8 +2247,11 @@
         height: 100% !important;
         pointer-events: none !important;
         z-index: 1 !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
-      .print-border-img {
+      .print-border-img,
+      .clue-card-bg-border img.print-border-img {
         position: absolute !important;
         inset: 0 !important;
         width: 100% !important;
@@ -2227,6 +2259,8 @@
         object-fit: fill !important;
         pointer-events: none !important;
         display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
       .egg-border-frame {
         position: absolute !important;
@@ -2236,9 +2270,6 @@
         background: transparent !important;
         pointer-events: none !important;
         overflow: hidden !important;
-        contain: paint !important;
-        clip-path: inset(0) !important;
-        -webkit-clip-path: inset(0) !important;
       }
       .egg-sprite {
         position: absolute !important;
@@ -2258,6 +2289,8 @@
         width: 100% !important;
         height: 100% !important;
         z-index: 5 !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
       .card-content-inner {
         position: relative !important;
@@ -11144,7 +11177,7 @@ const EmbeddedAssets = {
       }
       const orientation = PrintState.layout || 'portrait';
       const paper = (PrintState.paperSize === 'letter') ? 'letter' : 'a4';
-      styleEl.textContent = `@page { size: ${paper} ${orientation}; margin: 0mm; }`;
+      styleEl.textContent = `@page { size: ${paper} ${orientation} !important; margin: 0mm !important; }`;
     }
 
     let printWarmState = {

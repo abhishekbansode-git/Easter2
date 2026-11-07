@@ -11337,7 +11337,10 @@ const EmbeddedAssets = {
       const originalTitle = document.title;
 
       try {
-        document.title = isAnswer ? 'Answers' : 'Clues';
+        const modeLabel = isAnswer ? 'Answers' : 'Clues';
+        const designLabel = `Design${AppState.selectedTheme || 1}`;
+        const paperLabel = (PrintState.paperSize === 'letter') ? 'US-Letter' : 'A4';
+        document.title = `Easter-${modeLabel}-${designLabel}-${paperLabel}`;
 
         const activeClues = getActiveHuntClues();
         const isWarm = (

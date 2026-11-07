@@ -2023,6 +2023,16 @@
       #print-sheet-root * {
         visibility: visible;
       }
+      /* Clean Print Vector Graphics: Strip all shadows and filters in print to eliminate PDF square box artifacts */
+      #print-sheet-root,
+      #print-sheet-root *,
+      #print-sheet-root *:before,
+      #print-sheet-root *:after {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+      }
       #print-sheet-root .clue9-slot-char:not(.visible),
       #print-sheet-root .clue11-slot-letter:not(.visible),
       #print-sheet-root .clue12-ans-char:not(.visible),

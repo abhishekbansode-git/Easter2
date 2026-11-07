@@ -2052,10 +2052,10 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
         box-sizing: border-box !important;
-        width: 210mm !important;
-        height: 297mm !important;
-        max-width: 210mm !important;
-        max-height: 297mm !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
         overflow: hidden !important;
         margin: 0 !important;
         padding: 0 !important;
@@ -2073,24 +2073,19 @@
         height: 297mm !important;
         max-width: 210mm !important;
         max-height: 297mm !important;
+        position: relative !important;
+        display: block !important;
       }
       .paper-letter.layout-portrait .print-page {
-        width: 8.5in !important;
-        height: 11in !important;
-        max-width: 8.5in !important;
-        max-height: 11in !important;
-      }
-      .paper-a4.layout-landscape .print-page {
-        width: 297mm !important;
-        height: 210mm !important;
-        max-width: 297mm !important;
-        max-height: 210mm !important;
-      }
-      .paper-letter.layout-landscape .print-page {
-        width: 11in !important;
-        height: 8.5in !important;
-        max-width: 11in !important;
-        max-height: 8.5in !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
       }
 
       /* Portrait: Exact 1:1 match with Step 2 Studio Canvas (Full-Bleed, Zero Shift) */
@@ -2122,11 +2117,22 @@
         transform: scale(1.65354) !important;
         transform-origin: 0 0 !important;
       }
-      .paper-letter .card-scaler-portrait {
-        top: 0 !important;
-        left: 50% !important;
-        transform: translateX(-50%) scale(1.55529) !important;
-        transform-origin: top center !important;
+      .paper-letter.layout-portrait .card-scaler-portrait {
+        position: relative !important;
+        width: 480px !important;
+        height: 679px !important;
+        max-width: 480px !important;
+        max-height: 679px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transform: scale(1.555) !important;
+        transform-origin: center center !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        top: auto !important;
+        left: auto !important;
       }
       .card-scaler-portrait .clue-card-paper {
         width: 480px !important;
@@ -2144,59 +2150,55 @@
 
       /* Landscape: 2 Cards Side-by-Side (Maximized Size, Balanced Margins, Edge-to-Edge Cut Line) */
       .landscape-page {
-        position: relative !important;
-        display: flex !important;
-        flex-direction: row !important;
-        width: 100% !important;
-        height: 100% !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
         padding: 0 !important;
         margin: 0 !important;
         box-sizing: border-box !important;
+        align-items: center !important;
+        justify-items: center !important;
         overflow: hidden !important;
-        background: white !important;
+        position: relative !important;
+        width: 100vw !important;
+        height: 100vh !important;
       }
       .landscape-half {
-        flex: 0 0 50% !important;
-        width: 50% !important;
-        height: 100% !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        height: 100% !important;
+        width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
         box-sizing: border-box !important;
         overflow: hidden !important;
-        position: relative !important;
       }
       .card-scaler-landscape {
         width: 480px !important;
-        height: 678.968px !important;
+        height: 679px !important;
         max-width: 480px !important;
-        max-height: 678.968px !important;
+        max-height: 679px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        transform: scale(1.16) !important;
+        transform: scale(1.14) !important;
         transform-origin: center center !important;
         flex-shrink: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
       }
       .paper-letter .card-scaler-landscape {
-        transform: scale(1.085) !important;
+        transform: scale(1.11) !important;
       }
       .paper-a4 .card-scaler-landscape {
-        transform: scale(1.16) !important;
+        transform: scale(1.14) !important;
       }
       .card-scaler-landscape .clue-card-paper {
         width: 480px !important;
-        height: 678.968px !important;
+        height: 679px !important;
         max-width: 480px !important;
-        max-height: 678.968px !important;
+        max-height: 679px !important;
         box-shadow: none !important;
         border-radius: 4px !important;
         margin: 0 !important;
-        padding: 0 !important;
         position: relative !important;
         overflow: hidden !important;
         background: white !important;
@@ -11177,7 +11179,7 @@ const EmbeddedAssets = {
       }
       const orientation = PrintState.layout || 'portrait';
       const paper = (PrintState.paperSize === 'letter') ? 'letter' : 'a4';
-      styleEl.textContent = `@page { size: ${paper} ${orientation} !important; margin: 0mm !important; }`;
+      styleEl.textContent = `@page { size: ${paper} ${orientation}; margin: 0mm; }`;
     }
 
     let printWarmState = {

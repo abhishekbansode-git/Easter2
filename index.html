@@ -4755,12 +4755,12 @@
       pointer-events: none;
     }
 
-    /* --- CLUE 10 / CLUE 33: PICTURE REBUS (Calibrated from clue33adjuster.html) --- */
+    /* --- CLUE 10 / CLUE 32: PICTURE REBUS (Calibrated from clue33adjuster.html) --- */
     .clue10-pic1-wrap {
       position: absolute;
-      left: 33px;
-      top: 190px;
-      width: 180px;
+      left: 80px;
+      top: 183px;
+      width: 139px;
       height: auto;
       display: flex;
       align-items: center;
@@ -6808,15 +6808,15 @@
     .clue26-wrap .clue26-decoder-table th:last-child, .clue26-wrap .clue26-decoder-table td:last-child {
       border-right: none;
     }
-    /* ===== CLUE 25 (CLUE 22 IN ADJUSTER): SHAPE SIDES ODD/EVEN CODE ===== */
-    .clue25-wrap {
+    /* ===== CLUE 22: SHAPE SIDES ODD/EVEN CODE ===== */
+    .clue22-wrap {
       position: relative;
       width: 100%;
       height: 100%;
       padding: 0 !important;
       overflow: hidden;
     }
-    .clue25-wrap .clue25-shapes-grid {
+    .clue22-wrap .clue22-shapes-grid {
       position: absolute;
       top: 213px;
       left: calc(50% - 29px);
@@ -6828,25 +6828,25 @@
       user-select: none;
       z-index: 10;
     }
-    .clue25-wrap .clue25-shape-row {
+    .clue22-wrap .clue22-shape-row {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 18px;
     }
-    .clue25-wrap .clue25-shape-item {
+    .clue22-wrap .clue22-shape-item {
       position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       user-select: none;
     }
-    .clue25-wrap .clue25-shape-img {
+    .clue22-wrap .clue22-shape-img {
       display: block;
       object-fit: contain;
       pointer-events: none;
     }
-    .clue25-wrap .clue25-shape-letter {
+    .clue22-wrap .clue22-shape-letter {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -6858,7 +6858,7 @@
       text-shadow: 0 0 3px rgba(255, 255, 255, 0.95), 0 0 6px rgba(255, 255, 255, 0.85);
       user-select: none;
     }
-    .clue25-wrap .clue25-shape-crossout {
+    .clue22-wrap .clue22-shape-crossout {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -6872,27 +6872,27 @@
       text-shadow: 0 0 4px rgba(255, 255, 255, 0.95);
       z-index: 5;
     }
-    .clue25-wrap .clue25-shape-item.crossed-out .clue25-shape-img {
+    .clue22-wrap .clue22-shape-item.crossed-out .clue22-shape-img {
       opacity: 0.42;
       filter: grayscale(0.3);
     }
-    .clue25-wrap .clue25-shape-item.crossed-out .clue25-shape-letter {
+    .clue22-wrap .clue22-shape-item.crossed-out .clue22-shape-letter {
       opacity: 0.4;
     }
-    .clue25-wrap .clue25-bunny {
+    .clue22-wrap .clue22-bunny {
       position: absolute;
       z-index: 8;
       user-select: none;
       pointer-events: none;
     }
-    .clue25-wrap .clue25-bunny img {
+    .clue22-wrap .clue22-bunny img {
       display: block;
       width: 100%;
       height: auto;
       object-fit: contain;
       pointer-events: none;
     }
-    .clue25-wrap .clue25-dashes-group {
+    .clue22-wrap .clue22-dashes-group {
       position: absolute;
       top: 605px;
       left: calc(50% + 2px);
@@ -6905,20 +6905,20 @@
       z-index: 10;
       user-select: none;
     }
-    .clue25-wrap .clue25-dashes-row {
+    .clue22-wrap .clue22-dashes-row {
       display: flex;
       align-items: flex-end;
       justify-content: center;
       gap: 5px;
     }
-    .clue25-wrap .clue25-dash-slot {
+    .clue22-wrap .clue22-dash-slot {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
       width: 30px;
     }
-    .clue25-wrap .clue25-dash-letter {
+    .clue22-wrap .clue22-dash-letter {
       font-family: 'Comic Helvetic', var(--font-comic-helvetic), var(--font-title);
       font-size: 22px;
       font-weight: 700;
@@ -6931,135 +6931,21 @@
       text-transform: uppercase;
       transform: translateY(-4px);
     }
-    .clue25-wrap .clue25-dash-bar {
+    .clue22-wrap .clue22-dash-bar {
       width: 100%;
       height: 2px;
       background: #334155;
       border-radius: 1px;
     }
 
-    /* ===== CLUE 25: EGG PICTURE CODE (GRAPHIC ALPHABET DECODER) ===== */
-    .clue25-eggpic-wrap {
+    /* ===== CLUE 25: EASTER COOKIE LETTER SHIFT ===== */
+    .clue25-cookieshift-wrap {
       position: relative;
       width: 100%;
       height: 100%;
       overflow: hidden;
     }
-    .clue25-eggpic-wrap .mystery-group {
-      position: absolute;
-      width: 100%;
-      user-select: none;
-      z-index: 12;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .clue25-eggpic-wrap .mystery-row {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
-    .clue25-eggpic-wrap .mystery-item {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      box-sizing: border-box;
-      flex-shrink: 0;
-    }
-    .clue25-eggpic-wrap .mystery-img-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-    }
-    .clue25-eggpic-wrap .mystery-img {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
-      pointer-events: none;
-      display: block;
-    }
-    .clue25-eggpic-wrap .mystery-dash-slot {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-      width: 100%;
-    }
-    .clue25-eggpic-wrap .mystery-dash-line {
-      background-color: #5a2d16;
-      border-radius: 2px;
-    }
-    .clue25-eggpic-wrap .mystery-solved-letter {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-baskerville);
-      color: #993706;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 1;
-      white-space: nowrap;
-    }
-    .clue25-eggpic-wrap .decoder-table-group {
-      position: absolute;
-      user-select: none;
-      z-index: 13;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .clue25-eggpic-wrap .decoder-table-block {
-      table-layout: fixed;
-      border-collapse: collapse;
-      background-color: #ffffff;
-      box-sizing: border-box;
-      margin: 0 auto;
-    }
-    .clue25-eggpic-wrap .decoder-table-block td {
-      border: 2px solid #5a2d16;
-      text-align: center;
-      vertical-align: middle;
-      padding: 0;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-    .clue25-eggpic-wrap .decoder-table-block .cell-img-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      width: 100%;
-      padding: 2px;
-      box-sizing: border-box;
-    }
-    .clue25-eggpic-wrap .decoder-table-block .cell-icon {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
-      pointer-events: none;
-      display: block;
-    }
-    .clue25-eggpic-wrap .decoder-table-block .cell-letter {
-      font-family: 'Baskerville Bold', var(--font-baskerville);
-      color: #993706;
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-
-    /* ===== CLUE 26: EASTER COOKIE LETTER SHIFT ===== */
-    .clue26-cookieshift-wrap {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    .clue26-cookieshift-wrap .cookie-row-group {
+    .clue25-cookieshift-wrap .cookie-row-group {
       position: absolute;
       width: 100%;
       display: flex;
@@ -7067,13 +6953,13 @@
       align-items: center;
       user-select: none;
     }
-    .clue26-cookieshift-wrap .cookie-letter-item {
+    .clue25-cookieshift-wrap .cookie-letter-item {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .clue26-cookieshift-wrap .cookie-letter-item img {
+    .clue25-cookieshift-wrap .cookie-letter-item img {
       height: 100%;
       width: auto;
       object-fit: contain;
@@ -7081,8 +6967,8 @@
       filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
       pointer-events: none;
     }
-    .clue26-cookieshift-wrap .cookie-letter-item.cookie-letter-text {
-      font-family: var(--font-baskerville) !important;
+    .clue25-cookieshift-wrap .cookie-letter-item.cookie-letter-text {
+      font-family: var(--font-baskerville);
       user-select: none;
       text-align: center;
       line-height: 1;
@@ -7091,7 +6977,13 @@
       justify-content: center;
       paint-order: stroke fill;
     }
-    .clue26-cookieshift-wrap .dashes-group {
+    .clue25-cookieshift-wrap .cookie-letter-item.cookie-letter-text.theme-1 {
+      font-family: var(--font-franklin), 'Franklin Gothic Medium', sans-serif !important;
+    }
+    .clue25-cookieshift-wrap .cookie-letter-item.cookie-letter-text.theme-3 {
+      font-family: var(--font-baskerville) !important;
+    }
+    .clue25-cookieshift-wrap .dashes-group {
       position: absolute;
       width: 100%;
       display: flex;
@@ -7100,7 +6992,7 @@
       user-select: none;
       z-index: 14;
     }
-    .clue26-cookieshift-wrap .dash-slot {
+    .clue25-cookieshift-wrap .dash-slot {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -7108,12 +7000,12 @@
       position: relative;
       flex-shrink: 0;
     }
-    .clue26-cookieshift-wrap .dash-line {
+    .clue25-cookieshift-wrap .dash-line {
       width: 100%;
       background-color: #1e293b;
       border-radius: 1px;
     }
-    .clue26-cookieshift-wrap .dash-solved-letter {
+    .clue25-cookieshift-wrap .dash-solved-letter {
       position: absolute;
       font-family: var(--font-franklin);
       font-weight: 700;
@@ -7240,29 +7132,29 @@
       border-radius: 2px;
     }
 
-    /* ===== CLUE 27: SPOT THE DIFFERENCE ===== */
-    .clue27-spotdiff-wrap {
+    /* ===== CLUE 26: SPOT THE DIFFERENCE ===== */
+    .clue26-spotdiff-wrap {
       position: relative;
       width: 100%;
       height: 100%;
       overflow: hidden;
     }
-    .clue27-spotdiff-wrap .clue-intro-poem {
+    .clue26-spotdiff-wrap .clue-intro-poem {
       font-size: 13px !important;
     }
-    .clue27-spotdiff-wrap .clue27-item-sprite {
+    .clue26-spotdiff-wrap .clue26-item-sprite {
       position: absolute;
       user-select: none;
       z-index: 10;
       pointer-events: none;
     }
-    .clue27-spotdiff-wrap .clue27-item-sprite img {
+    .clue26-spotdiff-wrap .clue26-item-sprite img {
       width: 100%;
       height: auto;
       display: block;
       pointer-events: none;
     }
-    .clue27-spotdiff-wrap .clue27-answer-group {
+    .clue26-spotdiff-wrap .clue26-answer-group {
       position: absolute;
       left: 0;
       width: 100%;
@@ -7271,13 +7163,13 @@
       align-items: flex-end;
       z-index: 15;
     }
-    .clue27-spotdiff-wrap .clue27-dash-slot {
+    .clue26-spotdiff-wrap .clue26-dash-slot {
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
     }
-    .clue27-spotdiff-wrap .clue27-solved-letter {
+    .clue26-spotdiff-wrap .clue26-solved-letter {
       position: absolute;
       bottom: 6px;
       font-family: var(--font-baskerville);
@@ -7287,20 +7179,20 @@
       text-transform: uppercase;
       pointer-events: none;
     }
-    .clue27-spotdiff-wrap .clue27-dash-bar {
+    .clue26-spotdiff-wrap .clue26-dash-bar {
       background: #1e293b;
       border-radius: 1px;
     }
 
-    /* ===== CLUE 28: BUNNY BOARD RIDDLE ===== */
-    .clue28-bunnyboard-wrap {
+    /* ===== CLUE 27: BUNNY BOARD RIDDLE ===== */
+    .clue27-bunnyboard-wrap {
       position: relative;
       width: 100%;
       height: 100%;
       overflow: hidden;
       padding: 0 !important;
     }
-    .clue28-bunnyboard-wrap .bunny-graphic-wrap {
+    .clue27-bunnyboard-wrap .bunny-graphic-wrap {
       position: absolute;
       z-index: 12;
       display: flex;
@@ -7308,14 +7200,14 @@
       justify-content: center;
       pointer-events: none;
     }
-    .clue28-bunnyboard-wrap .bunny-graphic-img {
+    .clue27-bunnyboard-wrap .bunny-graphic-img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       pointer-events: none;
       display: block;
     }
-    .clue28-bunnyboard-wrap .board-text-wrap {
+    .clue27-bunnyboard-wrap .board-text-wrap {
       position: absolute;
       z-index: 15;
       display: flex;
@@ -7327,7 +7219,7 @@
       -webkit-text-size-adjust: none;
       text-size-adjust: none;
     }
-    .clue28-bunnyboard-wrap .board-text-content {
+    .clue27-bunnyboard-wrap .board-text-content {
       width: 100%;
       font-family: var(--font-baskerville);
       font-size: 19px;
@@ -7345,7 +7237,7 @@
       -webkit-text-size-adjust: none;
       text-size-adjust: none;
     }
-    .clue28-bunnyboard-wrap .answer-slots-wrap {
+    .clue27-bunnyboard-wrap .answer-slots-wrap {
       position: absolute;
       z-index: 20;
       display: flex;
@@ -7354,12 +7246,12 @@
       left: 0;
       right: 0;
     }
-    .clue28-bunnyboard-wrap .answer-slot-item {
+    .clue27-bunnyboard-wrap .answer-slot-item {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .clue28-bunnyboard-wrap .answer-slot-letter {
+    .clue27-bunnyboard-wrap .answer-slot-letter {
       font-weight: 700;
       font-family: var(--font-franklin);
       color: #991b1b;
@@ -7369,30 +7261,30 @@
       justify-content: center;
       transition: opacity 0.2s ease;
     }
-    .clue28-bunnyboard-wrap .answer-slot-dash {
+    .clue27-bunnyboard-wrap .answer-slot-dash {
       background: #991b1b;
       border-radius: 1px;
     }
 
-    /* ===== CLUE 30: CROSSWORD RIDDLE ===== */
-    .clue30-crossword-wrap {
+    /* ===== CLUE 29: CROSSWORD RIDDLE ===== */
+    .clue29-crossword-wrap {
       position: relative;
       width: 100%;
       height: 100%;
       overflow: hidden;
     }
-    .clue30-crossword-wrap .crossword-grid-wrap {
+    .clue29-crossword-wrap .crossword-grid-wrap {
       position: absolute;
       z-index: 15;
       user-select: none;
       display: flex;
       flex-direction: column;
     }
-    .clue30-crossword-wrap .crossword-row {
+    .clue29-crossword-wrap .crossword-row {
       display: flex;
       position: relative;
     }
-    .clue30-crossword-wrap .crossword-cell {
+    .clue29-crossword-wrap .crossword-cell {
       position: relative;
       display: flex;
       align-items: center;
@@ -7400,7 +7292,7 @@
       box-sizing: border-box;
       background: #ffffff;
     }
-    .clue30-crossword-wrap .crossword-cell-num {
+    .clue29-crossword-wrap .crossword-cell-num {
       position: absolute;
       top: 1px;
       left: 3px;
@@ -7411,7 +7303,7 @@
       color: #000000;
       pointer-events: none;
     }
-    .clue30-crossword-wrap .crossword-cell-letter {
+    .clue29-crossword-wrap .crossword-cell-letter {
       font-family: var(--font-baskerville);
       font-size: 20px;
       font-weight: 700;
@@ -7421,7 +7313,7 @@
       text-transform: uppercase;
       transition: opacity 0.15s ease;
     }
-    .clue30-crossword-wrap .riddles-list-wrap {
+    .clue29-crossword-wrap .riddles-list-wrap {
       position: absolute;
       z-index: 15;
       user-select: none;
@@ -7429,7 +7321,7 @@
       flex-direction: column;
       text-align: center;
     }
-    .clue30-crossword-wrap .riddle-item {
+    .clue29-crossword-wrap .riddle-item {
       font-family: 'Roboto', sans-serif;
       font-size: 14.5px;
       line-height: 1.35;
@@ -8062,15 +7954,14 @@ const EmbeddedAssets = {
       { puzzleId: 22, name: "Shape Sides Odd/Even Code", location: "Pantry", maxLen: 6, placeholder: "e.g. Pantry" },
       { puzzleId: 23, name: "Lock and Key Cipher", location: "Couch", maxLen: 5, placeholder: "e.g. Couch" },
       { puzzleId: 24, name: "Bunny & Chick Dice Puzzle", location: "Dining Table", maxLen: 12, placeholder: "e.g. Dining Table" },
-      { puzzleId: 25, name: "Egg Picture Code", location: "Sink", maxLen: 4, placeholder: "e.g. Sink" },
-      { puzzleId: 26, name: "Easter Cookie Letter Shift", location: "Laundry", maxLen: 8, placeholder: "e.g. Laundry" },
-      { puzzleId: 27, name: "Spot The Difference", location: "Television", maxLen: 10, placeholder: "Television", isStatic: true },
-      { puzzleId: 28, name: "Bunny Board Riddle", location: "Fridge", maxLen: 6, placeholder: "e.g. Fridge", isStatic: true },
-      { puzzleId: 29, name: "Picture Puzzle", location: "Trash Can", maxLen: 15, placeholder: "e.g. Trash Can", isStatic: true },
-      { puzzleId: 30, name: "Crossword Riddle", location: "Couch", maxLen: 5, placeholder: "e.g. Couch", isStatic: true },
-      { puzzleId: 31, name: "Color Coded", location: "Dining Table", maxLen: 12, placeholder: "Dining Table", isStatic: true },
-      { puzzleId: 32, name: "5x5 Coordinate Word Grid", location: "Door", maxLen: 15, placeholder: "Door", isStatic: true },
-      { puzzleId: 33, name: "Picture Rebus Puzzle", location: "Sink", maxLen: 4, placeholder: "Sink", isStatic: true }
+      { puzzleId: 25, name: "Easter Cookie Letter Shift", location: "Laundry", maxLen: 8, placeholder: "e.g. Laundry" },
+      { puzzleId: 26, name: "Spot The Difference", location: "Television", maxLen: 10, placeholder: "Television", isStatic: true },
+      { puzzleId: 27, name: "Bunny Board Riddle", location: "Fridge", maxLen: 6, placeholder: "e.g. Fridge", isStatic: true },
+      { puzzleId: 28, name: "Picture Puzzle", location: "Trash Can", maxLen: 15, placeholder: "e.g. Trash Can", isStatic: true },
+      { puzzleId: 29, name: "Crossword Riddle", location: "Couch", maxLen: 5, placeholder: "e.g. Couch", isStatic: true },
+      { puzzleId: 30, name: "Color Coded", location: "Dining Table", maxLen: 12, placeholder: "Dining Table", isStatic: true },
+      { puzzleId: 31, name: "5x5 Coordinate Word Grid", location: "Door", maxLen: 15, placeholder: "Door", isStatic: true },
+      { puzzleId: 32, name: "Picture Rebus Puzzle", location: "Sink", maxLen: 4, placeholder: "Sink", isStatic: true }
     ];
 
     const MASTER_DYNAMIC_PUZZLES = [
@@ -8087,7 +7978,7 @@ const EmbeddedAssets = {
       { puzzleId: 21, name: "Arrow Grid Path Code", maxLen: 10 },
       { puzzleId: 3, name: "Grid Decoder", maxLen: 8 },
       { puzzleId: 9, name: "Hidden Word Grid", maxLen: 8 },
-      { puzzleId: 26, name: "Easter Cookie Letter Shift", maxLen: 8 },
+      { puzzleId: 25, name: "Easter Cookie Letter Shift", maxLen: 8 },
       { puzzleId: 16, name: "Strip Puzzle", maxLen: 6 },
       { puzzleId: 10, name: "Egg Arithmetic Cipher", maxLen: 7 },
       { puzzleId: 8, name: "Word Scramble", maxLen: 7 },
@@ -8098,18 +7989,17 @@ const EmbeddedAssets = {
       { puzzleId: 24, name: "Bunny & Chick Dice Puzzle", maxLen: 12 },
       { puzzleId: 23, name: "Lock and Key Cipher", maxLen: 5 },
       { puzzleId: 15, name: "Clock Cipher", maxLen: 5 },
-      { puzzleId: 2, name: "Tangled Paths", maxLen: 5 },
-      { puzzleId: 25, name: "Egg Picture Code", maxLen: 4 }
+      { puzzleId: 2, name: "Tangled Paths", maxLen: 5 }
     ];
 
     const MASTER_STATIC_PUZZLES = [
-      { puzzleId: 27, name: "Spot The Difference", maxLen: 10 },
-      { puzzleId: 28, name: "Bunny Board Riddle", maxLen: 6 },
-      { puzzleId: 29, name: "Picture Puzzle", maxLen: 15 },
-      { puzzleId: 30, name: "Crossword Riddle", maxLen: 5 },
-      { puzzleId: 31, name: "Color Coded", maxLen: 12 },
-      { puzzleId: 32, name: "5x5 Coordinate Word Grid", maxLen: 15 },
-      { puzzleId: 33, name: "Picture Rebus Puzzle", maxLen: 4 }
+      { puzzleId: 26, name: "Spot The Difference", maxLen: 10 },
+      { puzzleId: 27, name: "Bunny Board Riddle", maxLen: 6 },
+      { puzzleId: 28, name: "Picture Puzzle", maxLen: 15 },
+      { puzzleId: 29, name: "Crossword Riddle", maxLen: 5 },
+      { puzzleId: 30, name: "Color Coded", maxLen: 12 },
+      { puzzleId: 31, name: "5x5 Coordinate Word Grid", maxLen: 15 },
+      { puzzleId: 32, name: "Picture Rebus Puzzle", maxLen: 4 }
     ];
 
     const DEFAULT_HIDING_SPOTS = DEFAULT_HUNT_CLUES.map(c => c.location);
@@ -9805,61 +9695,61 @@ const EmbeddedAssets = {
       },
 
       theme1Graphics: {
-        "A": "assets/graphics/theme1/3.png",
+        "A": "assets/graphics/clue13/design1/H.png",
         "B": "assets/graphics/clue13/design1/B.png",
         "C": "assets/graphics/theme1/10.png",
         "D": "assets/graphics/theme3/8(1).png",
         "E": "assets/graphics/theme1/2.png",
         "F": "assets/graphics/clue13/design1/F.png",
         "G": "assets/graphics/theme1/22.png",
-        "H": "assets/graphics/clue13/design1/H.png",
-        "I": "assets/graphics/theme3/11.png",
+        "H": "assets/graphics/theme1/3.png",
+        "I": "assets/graphics/theme1/6.png",
         "J": "assets/graphics/clue13/design1/J.png",
         "K": "assets/graphics/clue11/design1/5.png",
         "L": "assets/graphics/clue13/design1/L.png",
         "M": "assets/graphics/clue13/design1/M.png",
-        "N": "assets/graphics/theme1/6.png",
+        "N": "assets/graphics/theme3/11.png",
+        "O": "assets/graphics/clue13/design1/O.png",
+        "P": "assets/graphics/clue13/design1/P.png",
+        "Q": "assets/graphics/clue13/design1/Q.png",
+        "R": "assets/graphics/theme1/5.png",
+        "S": "assets/graphics/clue13/design1/S.png",
+        "T": "assets/graphics/theme1/4.png",
+        "U": "assets/graphics/theme3/8.png",
+        "V": "assets/graphics/clue13/design1/V.png",
+        "W": "assets/graphics/clue13/design1/W.png",
+        "X": "assets/graphics/clue13/design1/X.png",
+        "Y": "assets/graphics/theme3/12.png",
+        "Z": "assets/graphics/clue13/design1/Z.png"
+      },
+
+      theme3Graphics: {
+        "A": "assets/graphics/clue13/design1/L.png",
+        "B": "assets/graphics/clue13/design1/B.png",
+        "C": "assets/graphics/theme1/10.png",
+        "D": "assets/graphics/theme3/8(1).png",
+        "E": "assets/graphics/theme1/2.png",
+        "F": "assets/graphics/theme1/6.png",
+        "G": "assets/graphics/theme3/11.png",
+        "H": "assets/graphics/theme3/8.png",
+        "I": "assets/graphics/clue13/design1/F.png",
+        "J": "assets/graphics/clue13/design1/J.png",
+        "K": "assets/graphics/clue11/design1/5.png",
+        "L": "assets/graphics/clue13/design1/H.png",
+        "M": "assets/graphics/clue13/design1/M.png",
+        "N": "assets/graphics/theme1/22.png",
         "O": "assets/graphics/clue13/design1/O.png",
         "P": "assets/graphics/clue13/design1/P.png",
         "Q": "assets/graphics/clue13/design1/Q.png",
         "R": "assets/graphics/theme1/5.png",
         "S": "assets/graphics/clue13/design1/S.png",
         "T": "assets/graphics/theme3/12.png",
-        "U": "assets/graphics/theme3/8.png",
+        "U": "assets/graphics/theme1/3.png",
         "V": "assets/graphics/clue13/design1/V.png",
         "W": "assets/graphics/clue13/design1/W.png",
         "X": "assets/graphics/clue13/design1/X.png",
         "Y": "assets/graphics/theme1/4.png",
         "Z": "assets/graphics/clue13/design1/Z.png"
-      },
-
-      theme3Graphics: {
-        "A": "assets/graphics/clue13/design3/1.png",
-        "B": "assets/graphics/clue13/design3/2.png",
-        "C": "assets/graphics/clue13/design3/3.png",
-        "D": "assets/graphics/clue13/design3/4.png",
-        "E": "assets/graphics/clue13/design3/5.png",
-        "F": "assets/graphics/clue13/design3/6.png",
-        "G": "assets/graphics/clue13/design3/7.png",
-        "H": "assets/graphics/clue13/design3/8.png",
-        "I": "assets/graphics/clue13/design3/9.png",
-        "J": "assets/graphics/clue13/design3/10.png",
-        "K": "assets/graphics/clue13/design3/11.png",
-        "L": "assets/graphics/clue13/design3/12.png",
-        "M": "assets/graphics/clue13/design3/13.png",
-        "N": "assets/graphics/clue13/design3/14.png",
-        "O": "assets/graphics/clue13/design3/15.png",
-        "P": "assets/graphics/clue13/design3/16.png",
-        "Q": "assets/graphics/clue13/design3/17.png",
-        "R": "assets/graphics/clue13/design3/18.png",
-        "S": "assets/graphics/clue13/design3/19.png",
-        "T": "assets/graphics/clue13/design3/20.png",
-        "U": "assets/graphics/clue13/design3/21.png",
-        "V": "assets/graphics/clue13/design3/22.png",
-        "W": "assets/graphics/clue13/design3/23.png",
-        "X": "assets/graphics/clue13/design3/24.png",
-        "Y": "assets/graphics/clue13/design3/25.png",
-        "Z": "assets/graphics/clue13/design3/26.png"
       },
 
       decoderRows: [
@@ -10698,64 +10588,6 @@ const EmbeddedAssets = {
       }
     };
 
-    const EggAlphabetCipher = {
-      ALPHABET_DATA: [
-        { letter: 'A', img: 'assets/graphics/clue25/5.png' },
-        { letter: 'B', img: 'assets/graphics/clue25/6.png' },
-        { letter: 'C', img: 'assets/graphics/clue25/7.png' },
-        { letter: 'D', img: 'assets/graphics/clue25/8.png' },
-        { letter: 'E', img: 'assets/graphics/clue25/9.png' },
-        { letter: 'F', img: 'assets/graphics/clue25/10.png' },
-        { letter: 'G', img: 'assets/graphics/clue25/11.png' },
-        { letter: 'H', img: 'assets/graphics/clue25/12.png' },
-        { letter: 'I', img: 'assets/graphics/clue25/2.png' },
-        { letter: 'J', img: 'assets/graphics/clue25/13.png' },
-        { letter: 'K', img: 'assets/graphics/clue25/4.png' },
-        { letter: 'L', img: 'assets/graphics/clue25/14.png' },
-        { letter: 'M', img: 'assets/graphics/clue25/15.png' },
-        { letter: 'N', img: 'assets/graphics/clue25/3.png' },
-        { letter: 'O', img: 'assets/graphics/clue25/16.png' },
-        { letter: 'P', img: 'assets/graphics/clue25/18.png' },
-        { letter: 'Q', img: 'assets/graphics/clue25/22.png' },
-        { letter: 'R', img: 'assets/graphics/clue25/23.png' },
-        { letter: 'S', img: 'assets/graphics/clue25/1.png' },
-        { letter: 'T', img: 'assets/graphics/clue25/24.png' },
-        { letter: 'U', img: 'assets/graphics/clue25/25.png' },
-        { letter: 'V', img: 'assets/graphics/clue25/27.png' },
-        { letter: 'W', img: 'assets/graphics/clue25/28.png' },
-        { letter: 'X', img: 'assets/graphics/clue25/29.png' },
-        { letter: 'Y', img: 'assets/graphics/clue25/30.png' },
-        { letter: 'Z', img: 'assets/graphics/clue25/31.png' }
-      ],
-      getEgg(letter, theme = 1) {
-        const char = (letter || '').toUpperCase();
-        if (theme === 2) {
-          if (char === 'S') return 'assets/theme 2/eggs/E7.png';
-          if (char === 'I') return 'assets/theme 2/eggs/39.png';
-          if (char === 'N') return 'assets/theme 2/eggs/38.png';
-          if (char === 'K') return 'assets/theme 2/eggs/48.png';
-        }
-        if (theme === 3) {
-          if (char === 'S') return 'assets/graphics/theme3/10.png';
-          if (char === 'I') return 'assets/graphics/theme3/11.png';
-          if (char === 'N') return 'assets/graphics/theme3/20.png';
-          if (char === 'K') return 'assets/graphics/theme3/5.png';
-          if (char === 'O') return 'assets/graphics/theme3/8(1).png';
-          if (char === 'B') return 'assets/graphics/theme3/8.png';
-        }
-        if (theme === 4) {
-          if (char === 'S') return 'assets/theme 2/eggs/40.png';
-          if (char === 'I') return 'assets/theme 2/eggs/41.png';
-          if (char === 'N') return 'assets/theme 2/eggs/42.png';
-          if (char === 'K') return 'assets/theme 2/eggs/45.png';
-          if (char === 'D') return 'assets/theme 2/eggs/E8.png';
-          if (char === 'P') return 'assets/theme 2/eggs/49.png';
-          if (char === 'Y') return 'assets/theme 2/eggs/E15.png';
-        }
-        const item = this.ALPHABET_DATA.find(d => d.letter === char);
-        return item ? item.img : 'assets/graphics/clue25/1.png';
-      }
-    };
 
     const BunnyChickDicePuzzle = {
       CURATED_DINING_TABLE: {
@@ -10775,23 +10607,23 @@ const EmbeddedAssets = {
         ],
         rows: [
           [
-            { letter: 'D', left: { type: 'bunny', file: '4.png' }, op: '+', right: { type: 'chicks', file: '2.png' } },
-            { letter: 'I', left: { type: 'chicks', file: '3a.png' }, op: '+', right: { type: 'bunny', file: '1.png' } },
-            { letter: 'N', left: { type: 'chicks', file: '2.png' }, op: '+', right: { type: 'bunny', file: '1.png' } }
+            { letter: 'D', left: { type: 'A', file: '4.png' }, op: '+', right: { type: 'B', file: '2.png' } },
+            { letter: 'I', left: { type: 'B', file: '3.png' }, op: '+', right: { type: 'A', file: '1.png' } },
+            { letter: 'N', left: { type: 'B', file: '2.png' }, op: '+', right: { type: 'A', file: '1.png' } }
           ],
           [
-            { letter: 'I', left: { type: 'chicks', file: '5.png' }, op: '+', right: { type: 'bunny', file: '6.png' } },
-            { letter: 'N', left: { type: 'chicks', file: '5a.png' }, op: '-', right: { type: 'bunny', file: '3.png' } },
-            { letter: 'G', left: { type: 'chicks', file: '1.png' }, op: '+', right: { type: 'bunny', file: '4.png' } }
+            { letter: 'I', left: { type: 'B', file: '5.png' }, op: '+', right: { type: 'A', file: '6.png' } },
+            { letter: 'N', left: { type: 'B', file: '5.png' }, op: '-', right: { type: 'A', file: '3.png' } },
+            { letter: 'G', left: { type: 'B', file: '1.png' }, op: '+', right: { type: 'A', file: '4.png' } }
           ],
           [
-            { letter: 'T', left: { type: 'bunny', file: '6.png' }, op: '+', right: { type: 'chicks', file: '4.png' } },
-            { letter: 'A', left: { type: 'chicks', file: '2.png' }, op: '-', right: { type: 'bunny', file: '1.png' } },
-            { letter: 'B', left: { type: 'bunny', file: '5.png' }, op: '+', right: { type: 'chicks', file: '3.png' } }
+            { letter: 'T', left: { type: 'A', file: '6.png' }, op: '+', right: { type: 'B', file: '4.png' } },
+            { letter: 'A', left: { type: 'B', file: '2.png' }, op: '-', right: { type: 'A', file: '1.png' } },
+            { letter: 'B', left: { type: 'A', file: '5.png' }, op: '+', right: { type: 'B', file: '3.png' } }
           ],
           [
-            { letter: 'L', left: { type: 'chicks', file: '5.png' }, op: '+', right: { type: 'bunny', file: '4.png' } },
-            { letter: 'E', left: { type: 'chicks', file: '2.png' }, op: '+', right: { type: 'bunny', file: '5.png' } }
+            { letter: 'L', left: { type: 'B', file: '5.png' }, op: '+', right: { type: 'A', file: '4.png' } },
+            { letter: 'E', left: { type: 'B', file: '2.png' }, op: '+', right: { type: 'A', file: '5.png' } }
           ]
         ]
       },
@@ -10813,7 +10645,7 @@ const EmbeddedAssets = {
               this.CURATED_DINING_TABLE.rows[2],
               [
                 ...this.CURATED_DINING_TABLE.rows[3],
-                { letter: 'S', left: { type: 'bunny', file: '6a.png' }, op: '+', right: { type: 'chicks', file: '6.png' } }
+                { letter: 'S', left: { type: 'A', file: '6.png' }, op: '+', right: { type: 'B', file: '6.png' } }
               ]
             ]
           };
@@ -10852,12 +10684,12 @@ const EmbeddedAssets = {
               rightVal = 1;
               leftVal = Math.max(1, targetSum - 1);
             }
-            const isBunnyLeft = (idx % 2 === 0);
+            const isALeft = (idx % 2 === 0);
             return {
               letter: ltr,
-              left: { type: isBunnyLeft ? 'bunny' : 'chicks', file: `${leftVal}.png` },
+              left: { type: isALeft ? 'A' : 'B', file: `${leftVal}.png` },
               op: '+',
-              right: { type: isBunnyLeft ? 'chicks' : 'bunny', file: `${rightVal}.png` }
+              right: { type: isALeft ? 'B' : 'A', file: `${rightVal}.png` }
             };
           });
           rows.push(eqRow);
@@ -10919,8 +10751,8 @@ const EmbeddedAssets = {
       'Egg Math Cipher', 'Shape Scramble Decoder',
       'Grid Arrow Decoder', 'Secret Egg Decoder', 'Mirrored Letter Grid', 'Clock Cipher', 'Strip Puzzle', 'Braille Cipher',
       'Hue Match Grid', 'Keypad Tap Code', 'Easter Egg Count Wheel', 'Arrow Grid Path Code', 'Shape Sides Odd/Even Code', 'Lock and Key Cipher',
-      'Dice Math Puzzle', 'Egg Picture Code', 'Cookie Letter Shift',
-      'Upcoming Static Clue', 'Bunny Board Riddle', 'Picture Puzzle', 'Crossword Riddle',
+      'Dice Math Puzzle', 'Cookie Letter Shift',
+      'Spot The Difference', 'Bunny Board Riddle', 'Picture Puzzle', 'Crossword Riddle',
       'Color Coded', 'Coordinate Grid', 'Picture Rebus'
     ];
 
@@ -11273,12 +11105,11 @@ const EmbeddedAssets = {
       // Shared core assets across all themes (loaded once on first theme request)
       if (_preloadedThemeSet.size === 1) {
         urls.push('assets/graphics/clue7.svg');
-        for (let i = 1; i <= 17; i++) urls.push(`assets/graphics/clue22/${i}.png`);
-        ['1a', '6a', '8a', '12a', '13a'].forEach(f => urls.push(`assets/graphics/clue22/${f}.png`));
+        for (let i = 1; i <= 14; i++) urls.push(`assets/graphics/clue22/${i}.png`);
       }
 
       if (themeId === 1) {
-        urls.push('assets/graphics/theme1/20.png');
+        urls.push('assets/graphics/clue32/design1.png');
         for (let i = 1; i <= 3; i++) urls.push(`assets/theme 1/border/Border ${i}.png`);
         for (let i = 1; i <= 26; i++) urls.push(`assets/graphics/theme1/${i}.png`);
         for (let i = 1; i <= 6; i++) urls.push(`assets/graphics/clue11/design1/${i}.png`);
@@ -11289,12 +11120,12 @@ const EmbeddedAssets = {
           urls.push(`assets/graphics/clue23/design1/Lock ${i}.png`);
           urls.push(`assets/graphics/clue23/design1/Key ${i}.png`);
         }
-        urls.push('assets/graphics/clue23/design1/Key 1a.png', 'assets/graphics/clue23/design1/Key 3a.png');
         ['10.png', '10a.png', '24.png', '24a.png', '6.png', '6a.png', 'Cake.png', 'Hairband.png', 'Sofa.png', 'Television.png', 'Tree.png', 'basket.png'].forEach(f => {
-          urls.push(`assets/graphics/clue27/design1/${f}`);
+          urls.push(`assets/graphics/clue26/design1/${f}`);
         });
       } else if (themeId === 2) {
         urls.push('assets/theme 2/eggs/grass.png');
+        urls.push('assets/graphics/clue32/design2.png');
         for (let i = 1; i <= 20; i++) urls.push(`assets/theme 2/eggs/E${i}.png`);
         for (let i = 38; i <= 49; i++) urls.push(`assets/theme 2/eggs/${i}.png`);
         for (let i = 1; i <= 6; i++) urls.push(`assets/graphics/clue20/design2/${i}.png`);
@@ -11306,19 +11137,20 @@ const EmbeddedAssets = {
           urls.push(`assets/graphics/clue23/design2/Key ${i}.png`);
         }
         ['10.png', '10a.png', '24.png', '24a.png', '6.png', '6a.png', 'Cake.png', 'Hairband.png', 'Sofa.png', 'Television.png', 'Tree.png', 'basket.png'].forEach(f => {
-          urls.push(`assets/graphics/clue27/design2/${f}`);
+          urls.push(`assets/graphics/clue26/design2/${f}`);
         });
       } else if (themeId === 3) {
         urls.push('assets/theme 3/border.png');
+        urls.push('assets/graphics/clue32/design3.png');
         for (let i = 1; i <= 20; i++) urls.push(`assets/graphics/theme3/${i}.png`);
         for (let i = 1; i <= 5; i++) urls.push(`assets/graphics/clue10/design3/${i}.png`);
         for (let i = 1; i <= 6; i++) urls.push(`assets/graphics/clue11/design3/${i}.png`);
-        for (let i = 1; i <= 26; i++) urls.push(`assets/graphics/clue13/design3/${i}.png`);
         for (let i = 1; i <= 5; i++) urls.push(`assets/graphics/clue15/design3/${i}.png`);
         urls.push('assets/graphics/clue19/clue19_design3.png');
         for (let i = 1; i <= 6; i++) urls.push(`assets/graphics/clue20/design3/${i}.png`);
         urls.push('assets/graphics/clue20/design3/egg.png');
       } else if (themeId === 4) {
+        urls.push('assets/graphics/clue32/design2.png');
         for (let i = 1; i <= 12; i++) urls.push(`assets/theme 4/border ${i}.png`);
       }
 
@@ -11488,7 +11320,7 @@ const EmbeddedAssets = {
         } else if (theme === 3) {
           return `
             <div class="clue3-graphics-container" style="display:flex; justify-content:center; align-items:center; width:fit-content; max-width:100%; height:348px; min-height:348px; max-height:348px; flex-shrink:0; margin:16px auto; transform: translate(0px, -50px); position:relative; z-index:10;">
-              <img src="assets/graphics/clue27/design1/10a.png" alt="Theme 3 Graphic" style="width:200px; height:auto; max-height:380px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1));" draggable="false">
+              <img src="assets/graphics/clue26/design1/10a.png" alt="Theme 3 Graphic" style="width:200px; height:auto; max-height:380px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1));" draggable="false">
             </div>
           `;
         }
@@ -11541,10 +11373,9 @@ const EmbeddedAssets = {
           case 27: return this.renderClue27(spot, isAnswer, themeId, num);
           case 28: return this.renderClue28(spot, isAnswer, themeId, num);
           case 29: return this.renderClue29(spot, isAnswer, themeId, num);
-          case 30: return this.renderClue30(spot, isAnswer, themeId, num);
-          case 31: return this.renderClue3(spot, isAnswer, themeId, num);
-          case 32: return this.renderClue6(spot, isAnswer, themeId, num);
-          case 33: return this.renderClue10(spot, isAnswer, themeId, num);
+          case 30: return this.renderClue3(spot, isAnswer, themeId, num);
+          case 31: return this.renderClue6(spot, isAnswer, themeId, num);
+          case 32: return this.renderClue10(spot, isAnswer, themeId, num);
           default:
             return `
               <div class="print-card-inner">
@@ -11838,7 +11669,7 @@ const EmbeddedAssets = {
         `;
       },
 
-      renderClue3(spot, isAnswer, themeId, clueNum = 31) {
+      renderClue3(spot, isAnswer, themeId, clueNum = 30) {
         const raw = (spot || '').trim().toUpperCase();
         const answerWord = (raw && !raw.startsWith('LOCATION') && !raw.startsWith('ANSWER')) ? raw : 'DINING TABLE';
         const words = answerWord.split(/\s+/);
@@ -11866,7 +11697,7 @@ const EmbeddedAssets = {
 
         return `
           <div class="clue-card-content" style="justify-content: flex-start;">
-            ${this.renderClueHeader(clueNum || 31, `Here's your next clue for you<br>to inspect. You may take a<br>moment to sit and reflect.`, themeId)}
+            ${this.renderClueHeader(clueNum || 30, `Here's your next clue for you<br>to inspect. You may take a<br>moment to sit and reflect.`, themeId)}
             ${this.getClue3Graphics(themeId)}
 
             <!-- Clue 3 Mirrored Text -->
@@ -12158,7 +11989,7 @@ When it's time to eat.</div>
         `;
       },
 
-      renderClue6(spot, isAnswer, themeId, clueNum = 32) {
+      renderClue6(spot, isAnswer, themeId, clueNum = 31) {
         const theme = parseInt(themeId) || (typeof AppState !== 'undefined' ? AppState.selectedTheme : 1) || 1;
 
         const gridWords = [
@@ -12309,7 +12140,7 @@ When it's time to eat.</div>
 
         return `
           <div class="clue-card-content" style="position: relative; width: 100%; height: 100%;">
-            ${this.renderClueHeader(clueNum || 32, `Use the grid and answer you will see,<br> will show where your next clue will be`, theme)}
+            ${this.renderClueHeader(clueNum || 31, `Use the grid and answer you will see,<br> will show where your next clue will be`, theme)}
 
             <!-- 5x5 Coordinate Word Grid -->
             <div class="clue6-grid-wrap">
@@ -12776,7 +12607,7 @@ When it's time to eat.</div>
         `;
       },
 
-      renderClue10(spot, isAnswer, themeId, clueNum = 33) {
+      renderClue10(spot, isAnswer, themeId, clueNum = 32) {
         const theme = parseInt(themeId) || (typeof AppState !== 'undefined' ? AppState.selectedTheme : 1) || 1;
         const textColor = (theme === 2 || theme === 4) ? '#1e293b' : '#3d2314';
         const targetWord = this.cleanLetters(spot || 'SINK') || 'SINK';
@@ -12839,16 +12670,21 @@ When it's time to eat.</div>
           `;
         }).join('');
 
+        const clue32Design = (theme === 3) ? 'design3' : ((theme === 2 || theme === 4) ? 'design2' : 'design1');
+        const pic1Style = (theme === 1)
+          ? 'left: 80px; top: 183px; width: 139px;'
+          : 'left: 62px; top: 183px; width: 167px;';
+
         return `
           <div class="clue-card-content" style="position:relative; width:100%; height:100%; padding:0; display:block;">
             <!-- Header Group -->
             <div style="position:absolute; top:62.4px; left:0; width:100%;">
-              ${this.renderClueHeader(clueNum || 33, `You're moving too fast<br>solve this picture puzzle<br>and have a blast!`, theme)}
+              ${this.renderClueHeader(clueNum || 32, `You're moving too fast<br>solve this picture puzzle<br>and have a blast!`, theme)}
             </div>
 
             <!-- Picture 1 (Singing Bunny) -->
-            <div class="clue10-pic1-wrap">
-              <img src="assets/graphics/theme1/20.png" alt="Singing Bunny" draggable="false">
+            <div class="clue10-pic1-wrap" style="${pic1Style}">
+              <img src="assets/graphics/clue32/${clue32Design}.png" alt="Singing Bunny" draggable="false">
             </div>
 
             <!-- Word 1 Letters Row (SING) -->
@@ -14515,48 +14351,20 @@ When it's time to eat.</div>
         const activeKeyIds = LOCK_TO_KEY_ID.slice(0, count);
         const activeKeys = LockAndKeyCipher.KEY_DATA.filter(k => activeKeyIds.includes(k.id));
 
-        const isTheme1 = (theme === 1);
-        const keyGap = 9.5;
         let keysHtml = '';
         for (let i = 0; i < activeKeys.length; i++) {
           const k = activeKeys[i];
-          const isAltKey = (theme === 3) && (k.id === 1 || k.id === 3);
-          const keyFileName = isAltKey ? `Key ${k.id}a.png` : `Key ${k.id}.png`;
-          const keyImg = `assets/graphics/clue23/${designFolder}/${keyFileName}`;
-
-          if (isTheme1 && count === 5) {
-            keysHtml += `
-              <div class="clue26-key-item" style="height: 183px; transform: translate(${k.offsetX}px, ${k.offsetY}px); margin: 0 ${keyGap / 2}px;">
-                <img class="clue26-key-img" src="${keyImg}" alt="Key ${k.id}">
-                <div class="clue26-key-number-badge" style="left: ${k.stemX}%; top: ${k.stemY}%; font-size: 16px;">
-                  ${k.number}
-                </div>
+          const keyImg = `assets/graphics/clue23/${designFolder}/Key ${k.id}.png`;
+          const stemX = (k.id === 3) ? 55 : ((k.id === 1) ? 50 : k.stemX);
+          const stemY = (k.id === 3) ? 22 : ((k.id === 1) ? 19 : k.stemY);
+          keysHtml += `
+            <div class="clue26-key-item" style="width: ${lockWidth}px; height: 183px; margin: 0 ${lockGap / 2}px;">
+              <img class="clue26-key-img" src="${keyImg}" alt="Key ${k.id}">
+              <div class="clue26-key-number-badge" style="left: ${stemX}%; top: ${stemY}%; font-size: 16px;">
+                ${k.number}
               </div>
-            `;
-          } else if (isTheme1 && count < 5) {
-            const shiftX = (k.id === 1) ? -26.5 : (k.id === 3 ? 26.5 : (k.id === 2 ? 2 : 0));
-            keysHtml += `
-              <div class="clue26-key-item" style="width: ${lockWidth}px; height: 183px; margin: 0 ${lockGap / 2}px; display: inline-flex; justify-content: center; align-items: flex-start; position: relative;">
-                <div style="position: relative; height: 100%; display: inline-flex; transform: translateX(${shiftX}px);">
-                  <img class="clue26-key-img" src="${keyImg}" alt="Key ${k.id}" style="height: 100%; width: auto; display: block;">
-                  <div class="clue26-key-number-badge" style="left: ${k.stemX}%; top: ${k.stemY}%; font-size: 16px;">
-                    ${k.number}
-                  </div>
-                </div>
-              </div>
-            `;
-          } else {
-            const stemX = (k.id === 3) ? 55 : ((k.id === 1) ? 50 : k.stemX);
-            const stemY = (k.id === 3) ? 22 : ((k.id === 1) ? 19 : k.stemY);
-            keysHtml += `
-              <div class="clue26-key-item" style="width: ${lockWidth}px; height: 183px; margin: 0 ${lockGap / 2}px;">
-                <img class="clue26-key-img" src="${keyImg}" alt="Key ${k.id}">
-                <div class="clue26-key-number-badge" style="left: ${stemX}%; top: ${stemY}%; font-size: 16px;">
-                  ${k.number}
-                </div>
-              </div>
-            `;
-          }
+            </div>
+          `;
         }
 
         const decoderData = LockAndKeyCipher.computeDecoderData(word);
@@ -14612,7 +14420,7 @@ When it's time to eat.</div>
             </div>
 
             <!-- Keys Row at Y: 345px -->
-            <div class="clue26-keys-group" ${(!isTheme1 || count < 5) ? 'style="left: calc(50% - 1px);"' : ''}>
+            <div class="clue26-keys-group" style="left: calc(50% - 1px);">
               <div class="clue26-keys-row">
                 ${keysHtml}
               </div>
@@ -14642,22 +14450,22 @@ When it's time to eat.</div>
         const lowercaseShapeIds = new Set([4, 5, 11, 13]);
 
         const shapeDefs = [
-          { id: 1, sides: 4, isOdd: false, defaultLetter: 'B', slotSize: 90, imgSize: isTheme1 ? 90 : 71, ox: 15, oy: -17, lox: 7, loy: 12, lfs: 46 },
+          { id: 1, sides: 4, isOdd: false, defaultLetter: 'B', slotSize: 90, imgSize: 71, ox: 15, oy: -17, lox: 7, loy: 12, lfs: 46 },
           { id: 2, sides: 3, isOdd: true,  wordIdx: 0, defaultLetter: 'P', slotSize: 75, imgSize: 75, ox: 18, oy: -10, lox: 0, loy: -11, lfs: 30 },
           { id: 3, sides: 7, isOdd: true,  wordIdx: 4, defaultLetter: 'R', slotSize: 71, imgSize: 71, ox: 31, oy: -10, lox: 0, loy: 3, lfs: 46 },
           { id: 4, sides: 3, isOdd: true,  wordIdx: 3, defaultLetter: 't', slotSize: 81, imgSize: 81, ox: 35, oy: -14, lox: -2, loy: 9, lfs: 46 },
 
           { id: 5, sides: 8, isOdd: false, defaultLetter: 'k', slotSize: 75, imgSize: 75, ox: 34, oy: -14, lox: 1, loy: 4, lfs: 46 },
-          { id: 6, sides: 6, isOdd: false, defaultLetter: 'T', slotSize: 94, imgSize: isTheme1 ? 94 : 74, ox: 33, oy: -24, lox: 0, loy: 17, lfs: 46 },
+          { id: 6, sides: 6, isOdd: false, defaultLetter: 'T', slotSize: 94, imgSize: 74, ox: 33, oy: -24, lox: 0, loy: 17, lfs: 46 },
           { id: 7, sides: 10, isOdd: false, defaultLetter: 'M', slotSize: 74, imgSize: 74, ox: 34, oy: -15, lox: 0, loy: 0, lfs: 46 },
-          { id: 8, sides: 9, isOdd: true,  wordIdx: 2, defaultLetter: 'N', slotSize: 90, imgSize: isTheme1 ? 90 : 75, ox: 30, oy: -25, lox: 0, loy: 11, lfs: 46 },
+          { id: 8, sides: 9, isOdd: true,  wordIdx: 2, defaultLetter: 'N', slotSize: 90, imgSize: 75, ox: 30, oy: -25, lox: 0, loy: 11, lfs: 46 },
 
           { id: 9, sides: 4, isOdd: false, defaultLetter: 'O', slotSize: 70, imgSize: 70, ox: 31, oy: -18, lox: 0, loy: 3, lfs: 46 },
           { id: 10, sides: 4, isOdd: false, defaultLetter: 'D', slotSize: 83, imgSize: 83, ox: 44, oy: -19, lox: 0, loy: 0, lfs: 46 },
           { id: 11, sides: 5, isOdd: true,  wordIdx: 1, defaultLetter: 'a', slotSize: 73, imgSize: 73, ox: 48, oy: -27, lox: 0, loy: 2, lfs: 46 },
-          { id: 12, sides: 4, isOdd: false, defaultLetter: 'P', slotSize: 92, imgSize: isTheme1 ? 92 : 58, ox: 44, oy: -39, lox: -5, loy: 19, lfs: 46 },
+          { id: 12, sides: 4, isOdd: false, defaultLetter: 'P', slotSize: 92, imgSize: 58, ox: 44, oy: -39, lox: -5, loy: 19, lfs: 46 },
 
-          { id: 13, sides: 8, isOdd: false, defaultLetter: 'c', slotSize: 83, imgSize: isTheme1 ? 83 : 64, ox: 24, oy: -32, lox: 0, loy: 9, lfs: 46 },
+          { id: 13, sides: 8, isOdd: false, defaultLetter: 'c', slotSize: 83, imgSize: 64, ox: 24, oy: -32, lox: 0, loy: 9, lfs: 46 },
           { id: 14, sides: 5, isOdd: true,  wordIdx: 5, defaultLetter: 'Y', slotSize: 77, imgSize: 77, ox: 33, oy: -25, lox: 0, loy: 4, lfs: 46 }
         ];
 
@@ -14679,66 +14487,72 @@ When it's time to eat.</div>
             letter = lowercaseShapeIds.has(shape.id) ? letter.toLowerCase() : letter.toUpperCase();
 
             const isCrossed = isAnswer && !shape.isOdd;
-            const isAlt = !isTheme1 && [1, 6, 8, 12, 13].includes(shape.id);
-            const imgSrc = isAlt ? `assets/graphics/clue22/${shape.id}a.png` : `assets/graphics/clue22/${shape.id}.png`;
+            const isAlt = [1, 6, 8, 12, 13].includes(shape.id);
+            const imgSrc = `assets/graphics/clue22/${shape.id}.png`;
             itemsHtml += `
-              <div class="clue25-shape-item ${isCrossed ? 'crossed-out' : ''}" style="width:${shape.slotSize}px; height:${shape.slotSize}px; transform: translate(${shape.ox}px, ${shape.oy}px);">
-                <img class="clue25-shape-img" src="${imgSrc}" style="width:${shape.imgSize}px; height:${shape.imgSize}px; ${isAlt ? `transform: translate(${shape.lox}px, ${shape.loy}px);` : ''}" alt="Shape ${shape.id}">
-                <span class="clue25-shape-letter" style="font-size:${shape.lfs}px; transform: translate(calc(-50% + ${shape.lox}px), calc(-50% + ${shape.loy}px));">${escapeHtml(letter)}</span>
-                ${isCrossed ? `<div class="clue25-shape-crossout" style="transform: translate(calc(-50% + ${shape.lox}px), calc(-50% + ${shape.loy}px));">✕</div>` : ''}
+              <div class="clue22-shape-item ${isCrossed ? 'crossed-out' : ''}" style="width:${shape.slotSize}px; height:${shape.slotSize}px; transform: translate(${shape.ox}px, ${shape.oy}px);">
+                <img class="clue22-shape-img" src="${imgSrc}" style="width:${shape.imgSize}px; height:${shape.imgSize}px; ${isAlt ? `transform: translate(${shape.lox}px, ${shape.loy}px);` : ''}" alt="Shape ${shape.id}">
+                <span class="clue22-shape-letter" style="font-size:${shape.lfs}px; transform: translate(calc(-50% + ${shape.lox}px), calc(-50% + ${shape.loy}px));">${escapeHtml(letter)}</span>
+                ${isCrossed ? `<div class="clue22-shape-crossout" style="transform: translate(calc(-50% + ${shape.lox}px), calc(-50% + ${shape.loy}px));">✕</div>` : ''}
               </div>
             `;
           });
-          rowsHtml += `<div class="clue25-shape-row">${itemsHtml}</div>`;
+          rowsHtml += `<div class="clue22-shape-row">${itemsHtml}</div>`;
         });
 
         let dashesHtml = '';
         for (let i = 0; i < 6; i++) {
           const char = (word && i < word.length) ? word[i] : '';
           dashesHtml += `
-            <div class="clue25-dash-slot">
-              <span class="clue25-dash-letter" style="${isAnswer ? '' : 'visibility: hidden;'}">
+            <div class="clue22-dash-slot">
+              <span class="clue22-dash-letter" style="${isAnswer ? '' : 'visibility: hidden;'}">
                 ${escapeHtml(char)}
               </span>
-              <div class="clue25-dash-bar"></div>
+              <div class="clue22-dash-bar"></div>
             </div>
           `;
         }
 
         const poem = `Count the sides of each shape.<br>Cross out shapes with an even number of sides.<br>Keep shapes with an odd number of sides<br>to find the next clue.`;
 
+        let bottomGfxHtml = '';
+        if (theme === 1) {
+          bottomGfxHtml = `
+            <div class="clue8-corner-graphic" style="width: 119px; left: -5px; bottom: 7px; transform: rotate(0deg) scaleX(1); transform-origin: center center; z-index: 8;">
+              <img src="assets/graphics/theme1/4.png" alt="Clue 22 Left Graphic" style="width: 100%; height: auto; display: block;">
+            </div>
+            <div class="clue8-corner-graphic" style="width: 101px; right: -9px; bottom: -6px; transform: rotate(0deg) scaleX(-1); transform-origin: center center; z-index: 8;">
+              <img src="assets/graphics/theme1/9.png" alt="Clue 22 Right Graphic (Mirrored)" style="width: 100%; height: auto; display: block;">
+            </div>
+          `;
+        } else if (theme === 3) {
+          bottomGfxHtml = `
+            <div class="clue8-corner-graphic" style="width: 123px; left: -3px; bottom: 9px; transform: rotate(9deg) scaleX(1); transform-origin: center center; z-index: 8;">
+              <img src="assets/graphics/theme3/13.png" alt="Clue 22 Left Graphic" style="width: 100%; height: auto; display: block;">
+            </div>
+            <div class="clue8-corner-graphic" style="width: 76px; right: 10px; bottom: 5px; transform: rotate(0deg) scaleX(1); transform-origin: center center; z-index: 8;">
+              <img src="assets/graphics/theme3/11.png" alt="Clue 22 Right Graphic" style="width: 100%; height: auto; display: block;">
+            </div>
+          `;
+        }
+
         return `
-          <div class="clue-card-content clue25-wrap">
+          <div class="clue-card-content clue22-wrap">
             <!-- Header Group -->
             <div style="position:absolute; top:62.4px; left:0; width:100%; text-align:center; z-index:15;">
               ${this.renderClueHeader(clueNum || 22, poem, theme)}
             </div>
 
             <!-- Shapes Grid at Y: 213px -->
-            <div class="clue25-shapes-grid">
+            <div class="clue22-shapes-grid">
               ${rowsHtml}
             </div>
 
-            ${isTheme1 ? `
-            <!-- Left Bunny (15.png) -->
-            <div class="clue25-bunny" style="left:20px; top:513px; width:112px;">
-              <img src="assets/graphics/clue22/15.png" alt="Left Bunny">
-            </div>
-
-            <!-- Right Bunny (16.png - flipped horizontally) -->
-            <div class="clue25-bunny" style="left:367px; top:524px; width:75px; transform:scaleX(-1);">
-              <img src="assets/graphics/clue22/16.png" alt="Right Bunny">
-            </div>
-
-            <!-- Egg Basket (17.png - beside right bunny) -->
-            <div class="clue25-bunny" style="left:426px; top:605px; width:44px; z-index:9;">
-              <img src="assets/graphics/clue22/17.png" alt="Egg Basket">
-            </div>
-            ` : ''}
+            ${bottomGfxHtml}
 
             <!-- Answer Dashes Row at Y: 605px -->
-            <div class="clue25-dashes-group">
-              <div class="clue25-dashes-row">
+            <div class="clue22-dashes-group">
+              <div class="clue22-dashes-row">
                 ${dashesHtml}
               </div>
             </div>
@@ -14784,7 +14598,7 @@ When it's time to eat.</div>
         `).join('');
 
         const clue24Folder = (theme === 3) ? 'design3' : ((theme === 2 || theme === 4) ? 'design2' : 'design1');
-        const resolveDiceFile = (file) => (clue24Folder === 'design3' || clue24Folder === 'design2') ? `${parseInt(file, 10)}.png` : file;
+        const resolveDiceFile = (file) => `${parseInt(file, 10)}.png`;
         const equationsHtml = puzzleData.rows.map(row => `
           <div class="clue24-equation-row" style="gap: ${cfg.colGap}px; margin-bottom: ${cfg.rowGap}px;">
             ${row.map(eq => `
@@ -14839,112 +14653,6 @@ When it's time to eat.</div>
       renderClue25(spot, isAnswer, themeId, clueNum = 25) {
         const theme = parseInt(themeId) || (typeof AppState !== 'undefined' ? AppState.selectedTheme : 1) || 1;
         const cleaned = this.cleanLetters(spot);
-        const target = (cleaned && !cleaned.startsWith('LOCATION') && !cleaned.startsWith('ANSWER')) ? cleaned.slice(0, 4) : 'SINK';
-        const letters = target.toUpperCase().split('');
-
-        const itemW = 78.5;
-        const gap = 26;
-        const imgH = 102;
-        const dashY = 49;
-        const dashW = 82;
-        const dashH = 3;
-        const solvedSize = 32;
-        const solvedOffsetY = 6;
-        const solvedWeight = 700;
-
-        const mysteryHtml = letters.map(letter => {
-          const imgSrc = EggAlphabetCipher.getEgg(letter, theme);
-          const solvedHtml = isAnswer
-            ? `<div class="mystery-solved-letter" style="bottom:${solvedOffsetY}px; font-size:${solvedSize}px; font-weight:${solvedWeight};">${escapeHtml(letter)}</div>`
-            : '';
-
-          return `
-            <div class="mystery-item" style="width:${itemW}px; margin:0 ${gap / 2}px;">
-              <div class="mystery-img-wrap" style="height:${imgH}px;">
-                <img class="mystery-img" src="${imgSrc}" style="max-height:${imgH}px; max-width:${Math.max(itemW, imgH)}px;" alt="${escapeHtml(letter)}">
-              </div>
-              <div class="mystery-dash-slot" style="margin-top:${dashY}px;">
-                ${solvedHtml}
-                <div class="mystery-dash-line" style="width:${dashW}px; height:${dashH}px;"></div>
-              </div>
-            </div>
-          `;
-        }).join('');
-
-        const rowsData = [
-          ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
-          ['J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'],
-          ['S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-        ];
-        const bWidth = 2;
-        const bColor = '#5a2d16';
-        const cellImgH = 38;
-        const cellLetterH = 38;
-        const iconSize = 32;
-        const letterSize = 26;
-        const letterWeight = 700;
-        const rowGap = 16;
-
-        const tablesHtml = rowsData.map((rowLetters, rIdx) => {
-          const colCount = rowLetters.length;
-          const colWidthPct = (100 / colCount).toFixed(4);
-          const isLastRow = rIdx === rowsData.length - 1;
-          const marginBottom = isLastRow ? 0 : rowGap;
-          const rowWidth = colCount === 8 ? `${((colCount / 9) * 100).toFixed(2)}%` : '100%';
-
-          const imgCells = rowLetters.map(letter => {
-            const imgSrc = EggAlphabetCipher.getEgg(letter, theme);
-            return `
-              <td style="width:${colWidthPct}%; height:${cellImgH}px; border:${bWidth}px solid ${bColor};">
-                <div class="cell-img-wrap">
-                  <img class="cell-icon" src="${imgSrc}" style="max-height:${iconSize}px; max-width:${iconSize}px;" alt="${escapeHtml(letter)}">
-                </div>
-              </td>
-            `;
-          }).join('');
-
-          const letterCells = rowLetters.map(letter => `
-            <td style="width:${colWidthPct}%; height:${cellLetterH}px; border:${bWidth}px solid ${bColor};">
-              <div class="cell-letter" style="font-size:${letterSize}px; font-weight:${letterWeight};">
-                ${escapeHtml(letter)}
-              </div>
-            </td>
-          `).join('');
-
-          return `
-            <table class="decoder-table-block" style="width:${rowWidth}; margin-bottom:${marginBottom}px; border:${bWidth}px solid ${bColor};">
-              <tbody>
-                <tr>${imgCells}</tr>
-                <tr>${letterCells}</tr>
-              </tbody>
-            </table>
-          `;
-        }).join('');
-
-        const poem = `Crack the picture code.<br>Write the letters in order.<br>And read your secret clue!`;
-
-        return `
-          <div class="clue-card-content clue25-eggpic-wrap">
-            ${this.renderClueHeader(clueNum || 25, poem, theme)}
-
-            <!-- Mystery Group at Y: 174.5px -->
-            <div class="mystery-group" style="top:174.5px; left:calc(50% + 1px); transform:translateX(-50%);">
-              <div class="mystery-row">
-                ${mysteryHtml}
-              </div>
-            </div>
-
-            <!-- Decoder Table at Y: 358px -->
-            <div class="decoder-table-group" style="top:358px; left:50%; transform:translateX(-50%); width:400px;">
-              ${tablesHtml}
-            </div>
-          </div>
-        `;
-      },
-
-      renderClue26(spot, isAnswer, themeId, clueNum = 26) {
-        const theme = parseInt(themeId) || (typeof AppState !== 'undefined' ? AppState.selectedTheme : 1) || 1;
-        const cleaned = this.cleanLetters(spot);
         const target = (cleaned && !cleaned.startsWith('LOCATION') && !cleaned.startsWith('ANSWER')) ? cleaned.slice(0, 8) : 'LAUNDRY';
         const word = target.toUpperCase();
         const letters = word.split('');
@@ -14966,10 +14674,24 @@ When it's time to eat.</div>
 
         const folder = (theme === 2 || theme === 4) ? 'design2' : 'design1';
         const letterGap = 10;
+        const isTheme1 = (theme === 1);
         const isTheme3 = (theme === 3);
         const textWeight = 700;
         const textLetterSize = 117;
         const strokeThickness = ((textWeight - 400) / 100 * 0.45).toFixed(2);
+
+        const theme1Colors = [
+          'rgb(128, 141, 206)',
+          'rgb(198, 211, 160)',
+          'rgb(251, 205, 115)',
+          'rgb(153, 223, 251)',
+          'rgb(236, 185, 165)',
+          'rgb(251, 114, 159)',
+          'rgb(120, 213, 203)'
+        ];
+        const getTheme1LetterColor = (globalIdx) => {
+          return theme1Colors[globalIdx % theme1Colors.length];
+        };
 
         const theme3Colors = [
           'rgb(130, 142, 206)', // 1: k
@@ -15004,40 +14726,62 @@ When it's time to eat.</div>
         const totalChars = row1Chars.length + row2Chars.length;
 
         const row1Html = row1Chars.map((ch, i) => {
+          if (isTheme1) {
+            const letterColor = getTheme1LetterColor(i);
+            const strokeStyle = (strokeThickness > 0)
+              ? `-webkit-text-stroke: ${strokeThickness}px ${letterColor}; paint-order: stroke fill;`
+              : '';
+            return `
+              <div class="cookie-letter-item cookie-letter-text theme-1" style="height:104px; margin:0 ${letterGap / 2}px; font-size:${textLetterSize}px; font-weight:${textWeight}; font-family:var(--font-franklin), 'Franklin Gothic Medium', sans-serif !important; color:${letterColor}; ${strokeStyle}">
+                ${escapeHtml(ch)}
+              </div>
+            `;
+          }
           if (isTheme3) {
             const letterColor = getTheme3LetterColor(ch, i, totalChars);
             const strokeStyle = (strokeThickness > 0)
               ? `-webkit-text-stroke: ${strokeThickness}px ${letterColor}; paint-order: stroke fill;`
               : '';
             return `
-              <div class="cookie-letter-item cookie-letter-text" style="height:104px; margin:0 ${letterGap / 2}px; font-size:${textLetterSize}px; font-weight:${textWeight}; color:${letterColor}; ${strokeStyle}">
+              <div class="cookie-letter-item cookie-letter-text theme-3" style="height:104px; margin:0 ${letterGap / 2}px; font-size:${textLetterSize}px; font-weight:${textWeight}; font-family:var(--font-baskerville) !important; color:${letterColor}; ${strokeStyle}">
                 ${escapeHtml(ch)}
               </div>
             `;
           }
           return `
             <div class="cookie-letter-item" style="height:104px; margin:0 ${letterGap / 2}px;">
-              <img src="assets/graphics/clue26/${folder}/${ch}.png" alt="${ch}">
+              <img src="assets/graphics/clue25/${folder}/${ch}.png" alt="${ch}">
             </div>
           `;
         }).join('');
 
         const row2Html = row2Chars.map((ch, i) => {
+          const globalIdx = row1Chars.length + i;
+          if (isTheme1) {
+            const letterColor = getTheme1LetterColor(globalIdx);
+            const strokeStyle = (strokeThickness > 0)
+              ? `-webkit-text-stroke: ${strokeThickness}px ${letterColor}; paint-order: stroke fill;`
+              : '';
+            return `
+              <div class="cookie-letter-item cookie-letter-text theme-1" style="height:108px; margin:0 ${letterGap / 2}px; font-size:${textLetterSize}px; font-weight:${textWeight}; font-family:var(--font-franklin), 'Franklin Gothic Medium', sans-serif !important; color:${letterColor}; ${strokeStyle}">
+                ${escapeHtml(ch)}
+              </div>
+            `;
+          }
           if (isTheme3) {
-            const globalIdx = row1Chars.length + i;
             const letterColor = getTheme3LetterColor(ch, globalIdx, totalChars);
             const strokeStyle = (strokeThickness > 0)
               ? `-webkit-text-stroke: ${strokeThickness}px ${letterColor}; paint-order: stroke fill;`
               : '';
             return `
-              <div class="cookie-letter-item cookie-letter-text" style="height:108px; margin:0 ${letterGap / 2}px; font-size:${textLetterSize}px; font-weight:${textWeight}; color:${letterColor}; ${strokeStyle}">
+              <div class="cookie-letter-item cookie-letter-text theme-3" style="height:108px; margin:0 ${letterGap / 2}px; font-size:${textLetterSize}px; font-weight:${textWeight}; font-family:var(--font-baskerville) !important; color:${letterColor}; ${strokeStyle}">
                 ${escapeHtml(ch)}
               </div>
             `;
           }
           return `
             <div class="cookie-letter-item" style="height:108px; margin:0 ${letterGap / 2}px;">
-              <img src="assets/graphics/clue26/${folder}/${ch}.png" alt="${ch}">
+              <img src="assets/graphics/clue25/${folder}/${ch}.png" alt="${ch}">
             </div>
           `;
         }).join('');
@@ -15056,8 +14800,8 @@ When it's time to eat.</div>
         const poem = `Each letter is standing one place<br>behind where it belongs. Let them step<br>forward to find your next clue.`;
 
         return `
-          <div class="clue-card-content clue26-cookieshift-wrap">
-            ${this.renderClueHeader(clueNum || 26, poem, theme)}
+          <div class="clue-card-content clue25-cookieshift-wrap">
+            ${this.renderClueHeader(clueNum || 25, poem, theme)}
 
             <!-- Row 1 Letters at Y: 218px -->
             <div class="cookie-row-group" style="top:218px; left:0; display:${row1Chars.length > 0 ? 'flex' : 'none'}; z-index:12;">
@@ -15077,7 +14821,7 @@ When it's time to eat.</div>
         `;
       },
 
-      renderClue27(spot, isAnswer, themeId, clueNum = 27) {
+      renderClue26(spot, isAnswer, themeId, clueNum = 26) {
         const theme = parseInt(themeId) || (typeof AppState !== 'undefined' ? AppState.selectedTheme : 1) || 1;
         const cleaned = this.cleanLetters(spot);
         const targetWord = (cleaned && !cleaned.startsWith('LOCATION') && !cleaned.startsWith('ANSWER') && cleaned !== 'LIVINGROOM') ? cleaned.replace(/[^A-Z]/g, '') : 'TELEVISION';
@@ -15190,8 +14934,8 @@ When it's time to eat.</div>
         }
 
         const itemsHtml = items.map(item => `
-          <div class="clue27-item-sprite" style="left:${item.x}px; top:${item.y}px; width:${item.w}px; transform:rotate(${item.rot || 0}deg) scaleY(${item.scaleY || 1}); transform-origin:center center;">
-            <img src="assets/graphics/clue27/${designFolder}/${item.file}" alt="${item.id}">
+          <div class="clue26-item-sprite" style="left:${item.x}px; top:${item.y}px; width:${item.w}px; transform:rotate(${item.rot || 0}deg) scaleY(${item.scaleY || 1}); transform-origin:center center;">
+            <img src="assets/graphics/clue26/${designFolder}/${item.file}" alt="${item.id}">
           </div>
         `).join('');
 
@@ -15202,35 +14946,35 @@ When it's time to eat.</div>
         const letterOffsetY = 6;
 
         const slotsHtml = letters.map(letter => `
-          <div class="clue27-dash-slot" style="width:${dashW}px;">
-            ${isAnswer ? `<span class="clue27-solved-letter" style="font-size:${letterSize}px; bottom:${letterOffsetY}px;">${escapeHtml(letter)}</span>` : ''}
-            <div class="clue27-dash-bar" style="width:${dashW}px; height:${dashH}px;"></div>
+          <div class="clue26-dash-slot" style="width:${dashW}px;">
+            ${isAnswer ? `<span class="clue26-solved-letter" style="font-size:${letterSize}px; bottom:${letterOffsetY}px;">${escapeHtml(letter)}</span>` : ''}
+            <div class="clue26-dash-bar" style="width:${dashW}px; height:${dashH}px;"></div>
           </div>
         `).join('');
 
         const poem = `Look closely at each pair,<br>one thing isn't quite fair.<br>Spot what's not the same,<br>to find your next hiding place.`;
 
         return `
-          <div class="clue-card-content clue27-spotdiff-wrap" style="position:relative; width:100%; height:100%;">
+          <div class="clue-card-content clue26-spotdiff-wrap" style="position:relative; width:100%; height:100%;">
             <!-- Header Group at Y: 54px -->
             <div style="position:absolute; top:54px; left:0; width:100%; text-align:center; z-index:15;">
-              ${this.renderClueHeader(clueNum || 27, poem, theme)}
+              ${this.renderClueHeader(clueNum || 26, poem, theme)}
             </div>
 
             <!-- 17 Items Scattered Layer -->
-            <div class="clue27-items-layer" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none;">
+            <div class="clue26-items-layer" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none;">
               ${itemsHtml}
             </div>
 
             <!-- Answer Dashes at Y: 625px -->
-            <div class="clue27-answer-group" style="position:absolute; top:625px; left:0; width:100%; display:flex; justify-content:center; align-items:flex-end; gap:${slotsGap}px; z-index:20;">
+            <div class="clue26-answer-group" style="position:absolute; top:625px; left:0; width:100%; display:flex; justify-content:center; align-items:flex-end; gap:${slotsGap}px; z-index:20;">
               ${slotsHtml}
             </div>
           </div>
         `;
       },
 
-      renderClue28(spot, isAnswer, themeId, clueNum = 28) {
+      renderClue27(spot, isAnswer, themeId, clueNum = 27) {
         const theme = parseInt(themeId) || (typeof AppState !== 'undefined' ? AppState.selectedTheme : 1) || 1;
         const cleaned = this.cleanLetters(spot);
         const targetWord = (cleaned && !cleaned.startsWith('LOCATION') && !cleaned.startsWith('ANSWER')) ? cleaned.slice(0, 10) : 'FRIDGE';
@@ -15244,9 +14988,9 @@ When it's time to eat.</div>
 
         const isDesign2 = (theme === 2 || theme === 4);
         const isDesign3 = (theme === 3);
-        const clue28Design = isDesign3 ? 'design3' : (isDesign2 ? 'design2' : 'design1');
+        const clue27Design = isDesign3 ? 'design3' : (isDesign2 ? 'design2' : 'design1');
 
-        let bunnyX, bunnyY, bunnyW, textX, textY, textW, color;
+        let bunnyX, bunnyY, bunnyW, textX, textY, textW, textFontSize, color;
         if (isDesign3) {
           bunnyW = 400;
           bunnyX = 40; // (480 - 400) / 2 = 40px (centered on X axis)
@@ -15254,6 +14998,7 @@ When it's time to eat.</div>
           textW = 260;
           textX = 110; // (480 - 260) / 2 = 110px (centered on X axis)
           textY = 377.9;
+          textFontSize = 19;
           color = '#991b1b';
         } else if (isDesign2) {
           bunnyW = 407;
@@ -15262,14 +15007,16 @@ When it's time to eat.</div>
           textW = 260;
           textX = 77.6; // shifted with bunny centering (-13.93px)
           textY = 319.3;
+          textFontSize = 19;
           color = '#000000'; // black text for design 2
         } else {
           bunnyW = 453;
           bunnyX = 13.5; // (480 - 453) / 2 = 13.5px (centered on X axis)
-          bunnyY = 146.5;
+          bunnyY = 154.5;
           textW = 260;
           textX = 110;
-          textY = 355.4;
+          textY = 413.4;
+          textFontSize = 17.5;
           color = '#991b1b';
         }
 
@@ -15288,20 +15035,20 @@ When it's time to eat.</div>
         const riddleText = isAnswer ? solvedRiddle : puzzleRiddle;
 
         return `
-          <div class="clue-card-content clue28-bunnyboard-wrap" style="position:relative; width:100%; height:100%; padding:0 !important; justify-content:flex-start;">
+          <div class="clue-card-content clue27-bunnyboard-wrap" style="position:relative; width:100%; height:100%; padding:0 !important; justify-content:flex-start;">
             <!-- Header Group at Y: 54px -->
             <div style="position:absolute; top:54px; left:0; width:100%; text-align:center; z-index:15;">
-              ${this.renderClueHeader(clueNum || 28, poem, theme)}
+              ${this.renderClueHeader(clueNum || 27, poem, theme)}
             </div>
 
             <!-- Bunny Graphic (Centered on X axis) -->
             <div class="bunny-graphic-wrap" style="position:absolute; left:${bunnyX}px; top:${bunnyY}px; width:${bunnyW}px; height:${bunnyW}px; z-index:12; pointer-events:none; display:flex; align-items:center; justify-content:center;">
-              <img src="assets/graphics/clue28/${clue28Design}.png" alt="Bunny with Board" class="bunny-graphic-img" style="width:100%; height:100%; object-fit:contain; display:block;" onerror="this.src='assets/graphics/clue28.png';" />
+              <img src="assets/graphics/clue27/${clue27Design}.png" alt="Bunny with Board" class="bunny-graphic-img" style="width:100%; height:100%; object-fit:contain; display:block;" onerror="this.src='assets/graphics/clue27.png';" />
             </div>
 
             <!-- Board Riddle Text (Centered on X axis) -->
             <div class="board-text-wrap" style="position:absolute; left:${textX}px; top:${textY}px; width:${textW}px; z-index:15; text-align:center; pointer-events:none; display:flex; align-items:center; justify-content:center; max-height:999999px; -webkit-text-size-adjust:none; text-size-adjust:none;">
-              <div class="board-text-content" style="width:100%; font-family:var(--font-baskerville); font-size:19px; line-height:1.35; font-weight:600; color:${color}; white-space:pre-line; -webkit-text-stroke:0.35px ${color}; paint-order:stroke fill; text-shadow:0 0.5px 0.5px rgba(255,255,255,0.8); user-select:none; max-height:999999px; -webkit-text-size-adjust:none; text-size-adjust:none;">${riddleText}</div>
+              <div class="board-text-content" style="width:100%; font-family:var(--font-baskerville); font-size:${textFontSize}px; line-height:1.35; font-weight:600; color:${color}; white-space:pre-line; -webkit-text-stroke:0.35px ${color}; paint-order:stroke fill; text-shadow:0 0.5px 0.5px rgba(255,255,255,0.8); user-select:none; max-height:999999px; -webkit-text-size-adjust:none; text-size-adjust:none;">${riddleText}</div>
             </div>
 
             <!-- Answer Slots -->
@@ -15312,7 +15059,7 @@ When it's time to eat.</div>
         `;
       },
 
-      renderClue29(spot, isAnswer, themeId, clueNum = 29) {
+      renderClue28(spot, isAnswer, themeId, clueNum = 28) {
         const theme = parseInt(themeId) || (typeof AppState !== 'undefined' ? AppState.selectedTheme : 1) || 1;
         const w1Chars = ['T', 'R', 'A', 'S', 'H'];
         const w2Chars = ['C', 'A', 'N'];
@@ -15337,7 +15084,7 @@ When it's time to eat.</div>
 
         return `
           <div class="clue-card-content" style="position:relative; width:100%; height:100%; justify-content: flex-start;">
-            ${this.renderClueHeader(clueNum || 29, `You're moving too fast<br>solve this picture puzzle<br>and have a blast!`, theme)}
+            ${this.renderClueHeader(clueNum || 28, `You're moving too fast<br>solve this picture puzzle<br>and have a blast!`, theme)}
 
             <!-- Picture 1 (Trash Bag: assets/graphics/theme3/19.png) -->
             <div style="position:absolute; left:50px; top:226px; width:180px; z-index:10; pointer-events:none;">
@@ -15362,7 +15109,7 @@ When it's time to eat.</div>
         `;
       },
 
-      renderClue30(spot, isAnswer, themeId, clueNum = 30) {
+      renderClue29(spot, isAnswer, themeId, clueNum = 29) {
         const theme = parseInt(themeId) || (typeof AppState !== 'undefined' ? AppState.selectedTheme : 3) || 3;
 
         const crosswordData = [
@@ -15437,8 +15184,8 @@ When it's time to eat.</div>
         const poem = `Find the answer, it's up to you,<br>solve it right, and here's your clue!`;
 
         return `
-          <div class="clue-card-content clue30-crossword-wrap" style="position:relative; width:100%; height:100%; justify-content:flex-start;">
-            ${this.renderClueHeader(clueNum || 30, poem, theme)}
+          <div class="clue-card-content clue29-crossword-wrap" style="position:relative; width:100%; height:100%; justify-content:flex-start;">
+            ${this.renderClueHeader(clueNum || 29, poem, theme)}
 
             <!-- Crossword Grid at (44, 172) - centered -->
             <div class="crossword-grid-wrap" style="position:absolute; left:50%; transform:translateX(-50%); top:172px; z-index:15; user-select:none; display:flex; flex-direction:column;">
@@ -15576,15 +15323,14 @@ When it's time to eat.</div>
       22: 49,  // Shape Sides Odd/Even Code -> 49.png
       23: 0,   // Lock and Key Cipher -> no egg
       24: 0,   // Bunny & Chick Dice Puzzle -> no egg
-      25: 0,   // Egg Picture Code -> no egg
-      26: 0,   // Easter Cookie Letter Shift -> no egg
-      27: 0,   // Spot The Difference -> no egg
-      28: 0,   // Bunny Board Riddle -> no egg
-      29: 0,   // Picture Puzzle -> no egg
-      30: 8,   // Crossword Riddle -> E8.png
-      31: 0,   // Color Coded -> no egg
-      32: 0,   // 5x5 Coordinate Word Grid -> no egg
-      33: 0    // Picture Rebus Puzzle -> no egg
+      25: 0,   // Easter Cookie Letter Shift -> no egg
+      26: 0,   // Spot The Difference -> no egg
+      27: 0,   // Bunny Board Riddle -> no egg
+      28: 19,  // Picture Puzzle -> E19.png
+      29: 8,   // Crossword Riddle -> E8.png
+      30: 0,   // Color Coded -> no egg
+      31: 0,   // 5x5 Coordinate Word Grid -> no egg
+      32: 0    // Picture Rebus Puzzle -> no egg
     };
 
     function getThemeCardBorderHtml(index) {

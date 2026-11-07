@@ -2030,6 +2030,8 @@
       #print-sheet-root *:after {
         box-shadow: none !important;
         text-shadow: none !important;
+      }
+      #print-sheet-root *:not(.maze-render-svg) {
         filter: none !important;
         -webkit-filter: none !important;
       }
@@ -2228,7 +2230,7 @@
       }
 
       /* High-Definition Print Graphics: Disable filters so Chrome does not downsample to 72 DPI */
-      img,
+      img:not(.maze-render-svg),
       .clue1-corner-bunny,
       .clue1-corner-bunny img,
       .theme-clue-graphic-wrap,
@@ -2243,6 +2245,18 @@
         image-rendering: high-quality !important;
         -webkit-backface-visibility: hidden !important;
         backface-visibility: hidden !important;
+      }
+
+      /* Preserve SVG color filter on Egg Maze (clue7.svg) so colors match theme in print */
+      .theme-style-1 .maze-render-svg,
+      .theme-style-3 .maze-render-svg {
+        filter: url(#eggmaze-filter-warm-brown) !important;
+        -webkit-filter: url(#eggmaze-filter-warm-brown) !important;
+      }
+      .theme-style-2 .maze-render-svg,
+      .theme-style-4 .maze-render-svg {
+        filter: url(#eggmaze-filter-grey) grayscale(1) brightness(0.72) !important;
+        -webkit-filter: url(#eggmaze-filter-grey) grayscale(1) brightness(0.72) !important;
       }
       .card-scaler-portrait,
       .card-scaler-landscape {
@@ -12710,7 +12724,7 @@ When it's time to eat.</div>
         }
 
         return `
-          <div class="clue-card-content" style="position: relative; width: 100%; height: 100%;">
+          <div class="clue-card-content theme-style-${theme}" style="position: relative; width: 100%; height: 100%;">
             ${this.renderClueHeader(clueNum || 7, `Solve this maze to find the clue<br>and see where it leads you!`, theme)}
 
             <!-- Egg Maze Container -->
@@ -12740,7 +12754,7 @@ When it's time to eat.</div>
               </svg>
 
               <div class="maze-inner-box">
-                <img src="assets/graphics/clue7.svg" alt="Egg Maze" class="maze-render-svg" style="filter: ${mazeFilter};">
+                <img src="assets/graphics/clue7.svg" alt="Egg Maze" class="maze-render-svg" style="filter: ${mazeFilter} !important; -webkit-filter: ${mazeFilter} !important;">
                 ${solutionSvgHtml}
                 <div class="maze-letters-layer">
                   ${lettersHtml}

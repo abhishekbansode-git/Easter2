@@ -7734,7 +7734,7 @@
     }
 
     .guide-header-row {
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: flex-start;
     }
@@ -7894,6 +7894,9 @@
     }
 
     @media (max-width: 860px) {
+      .guide-header-row {
+        display: flex;
+      }
       .guide-steps-list {
         grid-template-columns: 1fr;
       }
@@ -7967,16 +7970,16 @@
 
         <!-- 3 Main Menu Options -->
         <div class="main-menu-options">
-          <!-- Option 1: Make Your Own Hiding Spots -->
+          <!-- Option 1: How to Use -->
           <button type="button" class="menu-card-btn menu-card-howto" onclick="openHowToGuide()">
             <div class="menu-card-icon-box" style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); color: #7c3aed;">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
               </svg>
             </div>
             <div class="menu-card-text">
-              <span class="menu-card-title">Make Your Own Hiding Spots</span>
+              <span class="menu-card-title">How to Use</span>
               <span class="menu-card-desc">Learn how the 3-step creator works with step-by-step instructions</span>
             </div>
             <div class="menu-card-arrow">
@@ -8032,7 +8035,7 @@
         </div>
       </div>
 
-      <!-- VIEW 2: HOW-TO GUIDE ("Make Your Own Hiding Spots") -->
+      <!-- VIEW 2: HOW-TO GUIDE ("How to Use") -->
       <div id="main-menu-guide" class="main-menu-guide" style="display: none;">
         <div class="guide-header-row">
           <button type="button" class="btn-text-action guide-back-btn" id="guide-back-btn" onclick="closeHowToGuide()">
@@ -8217,7 +8220,7 @@
               </button>
             </div>
           </div>
-          <p class="panel-subtitle" style="margin: 2px 0 0; text-align: left;">Edit, reorder or remove a hiding spot</p>
+          <p class="panel-subtitle" style="margin: 2px 0 0; text-align: left;">Edit, reorder or remove any hiding spot</p>
         </div>
 
         <button type="button" class="btn-primary step1-top-next-btn" onclick="proceedToStep2()">
@@ -8459,7 +8462,7 @@
                 <span class="theme-title" style="font-size: 1.18rem; font-weight: 700;">1 Clue Per Page</span>
                 <span class="sheet-count-pill" id="sheet-count-portrait">24 Sheets</span>
               </div>
-              <p class="theme-desc" style="margin: 0 0 8px; font-size: 0.9rem; color: #64748b;">Full page • A4</p>
+              <p class="theme-desc" style="margin: 0 0 8px; font-size: 0.9rem; color: #64748b;">Full page</p>
             </div>
             <div class="card-footer" style="margin-top: auto; padding-top: 8px; border-top: 1px solid #f1f5f9; display: flex; justify-content: flex-end;">
               <span class="select-indicator" id="layout-indicator-portrait">✓ Selected</span>
@@ -8501,7 +8504,7 @@
                 <span class="theme-title" style="font-size: 1.18rem; font-weight: 700;">2 Clues Per Page</span>
                 <span class="sheet-count-pill" id="sheet-count-landscape">12 Sheets</span>
               </div>
-              <p class="theme-desc" style="margin: 0 0 8px; font-size: 0.9rem; color: #64748b;">2 cards per page • A4</p>
+              <p class="theme-desc" style="margin: 0 0 8px; font-size: 0.9rem; color: #64748b;">2 cards per page</p>
             </div>
             <div class="card-footer" style="margin-top: auto; padding-top: 8px; border-top: 1px solid #f1f5f9; display: flex; justify-content: flex-end;">
               <span class="select-indicator" id="layout-indicator-landscape">Select</span>
@@ -8773,7 +8776,7 @@ const EmbeddedAssets = {
       { puzzleId: 24, name: "Bunny & Chick Dice Puzzle", location: "Dining Table", maxLen: 12, placeholder: "e.g. Dining Table" },
       { puzzleId: 25, name: "Easter Cookie Letter Shift", location: "Laundry", maxLen: 8, placeholder: "e.g. Laundry" },
       { puzzleId: 26, name: "Spot The Difference", location: "Television", maxLen: 10, placeholder: "Television", isStatic: true },
-      { puzzleId: 27, name: "Bunny Board Riddle", location: "Fridge", maxLen: 6, placeholder: "e.g. Fridge", isStatic: true },
+      { puzzleId: 27, name: "Bunny Board Riddle", location: "Fridge", maxLen: 12, placeholder: "e.g. Fridge", isStatic: true },
       { puzzleId: 28, name: "Picture Puzzle", location: "Trash Can", maxLen: 15, placeholder: "e.g. Trash Can", isStatic: true },
       { puzzleId: 29, name: "Crossword Riddle", location: "Couch", maxLen: 5, placeholder: "e.g. Couch", isStatic: true },
       { puzzleId: 30, name: "Color Coded", location: "Dining Table", maxLen: 12, placeholder: "Dining Table", isStatic: true },
@@ -8810,13 +8813,13 @@ const EmbeddedAssets = {
     ];
 
     const MASTER_STATIC_PUZZLES = [
-      { puzzleId: 26, name: "Spot The Difference", maxLen: 10 },
-      { puzzleId: 27, name: "Bunny Board Riddle", maxLen: 6 },
-      { puzzleId: 28, name: "Picture Puzzle", maxLen: 15 },
-      { puzzleId: 29, name: "Crossword Riddle", maxLen: 5 },
-      { puzzleId: 30, name: "Color Coded", maxLen: 12 },
-      { puzzleId: 31, name: "5x5 Coordinate Word Grid", maxLen: 15 },
-      { puzzleId: 32, name: "Picture Rebus Puzzle", maxLen: 4 }
+      { puzzleId: 26, name: "Spot The Difference", location: "TELEVISION", aliases: ["TELEVISION", "TV"], maxLen: 10, isStatic: true },
+      { puzzleId: 27, name: "Bunny Board Riddle", location: "FRIDGE", aliases: ["FRIDGE", "REFRIGERATOR"], maxLen: 12, isStatic: true },
+      { puzzleId: 28, name: "Picture Puzzle", location: "TRASH CAN", aliases: ["TRASH CAN"], maxLen: 15, isStatic: true },
+      { puzzleId: 29, name: "Crossword Riddle", location: "COUCH", aliases: ["COUCH"], maxLen: 5, isStatic: true },
+      { puzzleId: 30, name: "Color Coded", location: "DINING TABLE", aliases: ["DINING TABLE"], maxLen: 12, isStatic: true },
+      { puzzleId: 31, name: "5x5 Coordinate Word Grid", location: "DOOR", aliases: ["DOOR"], maxLen: 15, isStatic: true },
+      { puzzleId: 32, name: "Picture Rebus Puzzle", location: "SINK", aliases: ["SINK"], maxLen: 4, isStatic: true }
     ];
 
     const DEFAULT_HIDING_SPOTS = DEFAULT_HUNT_CLUES.map(c => c.location);
@@ -8903,16 +8906,16 @@ const EmbeddedAssets = {
       return result;
     }
 
-    function getMaxAvailableCapacityForSpot(slotIndex) {
+    function getMaxAvailableCapacityForSpot(slotIndex, testValue) {
       if (typeof slotIndex !== 'number' || !huntClues[slotIndex] || huntClues[slotIndex].disabled) {
         return 15;
       }
-      if (huntClues[slotIndex].isStatic) {
-        return huntClues[slotIndex].maxLen || 11;
-      }
 
-      const currentLoc = (huntClues[slotIndex].location || '').trim().toUpperCase();
-      const staticMatch = MASTER_STATIC_PUZZLES.find(sp => sp.location === currentLoc);
+      const locToCheck = typeof testValue === 'string' ? testValue : (huntClues[slotIndex].location || '');
+      const currentLoc = locToCheck.trim().toUpperCase();
+      const staticMatch = MASTER_STATIC_PUZZLES.find(sp => 
+        sp.location === currentLoc || (sp.aliases && sp.aliases.includes(currentLoc))
+      );
       if (staticMatch) return staticMatch.maxLen;
 
       const activeClues = huntClues.filter(c => !c.disabled);
@@ -8922,7 +8925,7 @@ const EmbeddedAssets = {
         if (origIdx === slotIndex) return;
         const loc = (c.location || '').trim();
         if (!loc) return;
-        if (MASTER_STATIC_PUZZLES.some(sp => sp.location === loc.toUpperCase())) return;
+        if (MASTER_STATIC_PUZZLES.some(sp => sp.location === loc.toUpperCase() || (sp.aliases && sp.aliases.includes(loc.toUpperCase())))) return;
         const ll = getLetterCount(loc);
         if (ll > 0) otherWords.push(ll);
       });
@@ -8954,96 +8957,61 @@ const EmbeddedAssets = {
       const activeClues = huntClues.filter(c => !c.disabled);
       if (!activeClues.length) return;
 
-      const defaultEnabled = DEFAULT_HUNT_CLUES.filter(c => !c.disabled);
-      const isPristineDefault = activeClues.length === defaultEnabled.length && activeClues.every((c, i) => {
-        return defaultEnabled[i] && c.location === defaultEnabled[i].location && (!c.isStatic || c.staticChecked !== false);
-      });
-
-      if (isPristineDefault) {
-        activeClues.forEach((c, i) => {
-          const def = defaultEnabled[i];
-          c.puzzleId = def.puzzleId;
-          c.name = def.name;
-          c.maxLen = def.maxLen;
-          c.placeholder = def.placeholder;
-        });
-        return;
-      }
-
       const availDynamic = MASTER_DYNAMIC_PUZZLES.map(p => ({ ...p }));
       const availStatic = MASTER_STATIC_PUZZLES.map(p => ({ ...p }));
       const assigned = new Map(); // clue -> puzzle
 
+      // PREFERENCE 1: Static Puzzle Matching (Exact location or alias match)
+      // PREFERENCE 1: Static Puzzle Matching (Exact location or alias match)
+      // In index.html, static puzzles correspond to the fixed static slots (indices 25-31 with checkboxes)
       activeClues.forEach(c => {
-        if (c.isStatic && c.staticChecked === false) return;
+        const origDef = DEFAULT_HUNT_CLUES[huntClues.indexOf(c)];
+        if (!origDef || !origDef.isStatic) return;
+        if (c.staticChecked === false) return;
         const cleanLoc = (c.location || '').trim().toUpperCase();
         if (!cleanLoc) return;
-        const sIdx = availStatic.findIndex(sp => sp.location === cleanLoc);
+        const sIdx = availStatic.findIndex(sp => 
+          sp.location === cleanLoc || (sp.aliases && sp.aliases.includes(cleanLoc))
+        );
         if (sIdx !== -1) {
           assigned.set(c, availStatic[sIdx]);
+          c.isStatic = true;
           availStatic.splice(sIdx, 1);
+        } else {
+          c.isStatic = false;
         }
       });
 
-      function isFeasible(wordsLens, pool) {
-        const wSorted = [...wordsLens].sort((a, b) => b - a);
-        const pSorted = pool.map(p => p.maxLen).sort((a, b) => b - a);
-        if (wSorted.length > pSorted.length) return false;
-        for (let i = 0; i < wSorted.length; i++) {
-          if (pSorted[i] < wSorted[i]) return false;
-        }
-        return true;
-      }
+      // PREFERENCE 2: Dynamic Puzzle Freeflow Matching (Smallest available puzzle first, no preservation)
+      availDynamic.sort((a, b) => a.maxLen - b.maxLen || a.puzzleId - b.puzzleId);
 
       const wordsInfo = [];
       activeClues.forEach(c => {
         if (assigned.has(c)) return;
-        if (c.isStatic) return;
         const wlen = getLetterCount(c.location);
         if (wlen > 0) {
-          wordsInfo.push({ clue: c, len: wlen, curPid: c.puzzleId });
+          wordsInfo.push({ clue: c, len: wlen, origIndex: huntClues.indexOf(c) });
         }
       });
-      wordsInfo.sort((a, b) => b.len - a.len);
 
+      // Sort words ASCENDING by length (small to large) to assign smallest available puzzles first;
+      // keep original slot order for ties.
+      wordsInfo.sort((a, b) => a.len - b.len || a.origIndex - b.origIndex);
+
+      // Best-fit (smallest maxLen >= wlen) for every word, with zero puzzle preservation
       wordsInfo.forEach(item => {
-        const curPid = item.curPid;
-        const wlen = item.len;
-        const pCandIdx = availDynamic.findIndex(p => p.puzzleId === curPid && p.maxLen >= wlen);
-        if (pCandIdx !== -1) {
-          const pCand = availDynamic[pCandIdx];
-          const poolAfter = [...availDynamic];
-          poolAfter.splice(pCandIdx, 1);
-          const remWords = wordsInfo
-            .filter(w => w.clue !== item.clue && !assigned.has(w.clue))
-            .map(w => w.len);
-          if (isFeasible(remWords, poolAfter)) {
-            assigned.set(item.clue, pCand);
-            availDynamic.splice(pCandIdx, 1);
-          }
-        }
-      });
-
-      const unassignedWords = wordsInfo.filter(w => !assigned.has(w.clue));
-      unassignedWords.forEach(item => {
         if (!availDynamic.length) return;
         const wlen = item.len;
         let chosenIdx = -1;
-        let bestFitLen = 999;
         for (let i = 0; i < availDynamic.length; i++) {
-          if (availDynamic[i].maxLen >= wlen && availDynamic[i].maxLen < bestFitLen) {
-            bestFitLen = availDynamic[i].maxLen;
+          if (availDynamic[i].maxLen >= wlen) {
             chosenIdx = i;
+            break;
           }
         }
         if (chosenIdx === -1) {
-          let largestLen = -1;
-          for (let i = 0; i < availDynamic.length; i++) {
-            if (availDynamic[i].maxLen > largestLen) {
-              largestLen = availDynamic[i].maxLen;
-              chosenIdx = i;
-            }
-          }
+          // If word exceeds all available puzzle sizes, choose the largest available
+          chosenIdx = availDynamic.length - 1;
         }
         if (chosenIdx !== -1) {
           assigned.set(item.clue, availDynamic[chosenIdx]);
@@ -9051,24 +9019,25 @@ const EmbeddedAssets = {
         }
       });
 
-      const emptyClues = activeClues.filter(c => !assigned.has(c) && !c.isStatic);
+      // Pass 3: Empty clues (no location entered yet)
+      const emptyClues = activeClues.filter(c => !assigned.has(c));
       emptyClues.forEach(c => {
-        const defPid = c.puzzleId;
-        const pIdx = availDynamic.findIndex(p => p.puzzleId === defPid);
-        if (pIdx !== -1) {
-          assigned.set(c, availDynamic[pIdx]);
-          availDynamic.splice(pIdx, 1);
-        } else if (availDynamic.length > 0) {
+        if (availDynamic.length > 0) {
           assigned.set(c, availDynamic.shift());
+        } else if (availStatic.length > 0) {
+          assigned.set(c, availStatic.shift());
+          c.isStatic = true;
         }
       });
 
+      // Apply assignments to huntClues
       activeClues.forEach(c => {
         const p = assigned.get(c);
         if (p) {
           c.puzzleId = p.puzzleId;
           c.name = p.name;
           c.maxLen = p.maxLen;
+          c.isStatic = !!p.isStatic;
         }
         const idx = huntClues.indexOf(c);
         if (!c.placeholder || c.placeholder.includes('Missing') || c.placeholder.includes('Decoder') || c.placeholder.includes('Cipher') || c.placeholder.includes('Maze') || c.placeholder.includes('Scramble') || c.placeholder.includes('Paths')) {
@@ -9257,22 +9226,29 @@ const EmbeddedAssets = {
         }
       }
 
-      if (!e.key || e.key.length !== 1 || e.ctrlKey || e.metaKey || e.altKey) {
+      if (!e.key || e.ctrlKey || e.metaKey || e.altKey) {
         return;
       }
 
-      if (e.key === ' ') {
+      // Block number keys (0-9) completely from hiding spot inputs
+      if (/^[0-9]$/.test(e.key)) {
+        e.preventDefault();
+        if (typeof showMappingToast === 'function') {
+          showMappingToast("Numbers are not allowed in hiding spots. Use letters only.");
+        }
         return;
       }
 
-      if (!/^[a-zA-Z]$/.test(e.key)) {
+      if (e.key.length !== 1 || e.key === ' ' || !/^[a-zA-Z]$/.test(e.key)) {
         return;
       }
 
-      const maxCap = isStep2 ? maxLen : ((typeof slotIndex === 'number') ? getMaxAvailableCapacityForSpot(slotIndex) : maxLen);
       const currentVal = e.target.value || '';
       const selStart = e.target.selectionStart || 0;
       const selEnd = e.target.selectionEnd || 0;
+      const nextVal = currentVal.substring(0, selStart) + e.key + currentVal.substring(selEnd);
+      const maxCap = isStep2 ? maxLen : ((typeof slotIndex === 'number') ? getMaxAvailableCapacityForSpot(slotIndex, nextVal) : maxLen);
+
       const selectedText = currentVal.substring(selStart, selEnd);
       const selectedLetters = getLetterCount(selectedText);
       const currentLetters = getLetterCount(currentVal);
@@ -9460,7 +9436,10 @@ const EmbeddedAssets = {
       const item = huntClues[index];
       if (!item) return;
 
-      const maxCap = getMaxAvailableCapacityForSpot(index);
+      // Strip numbers if pasted or typed
+      value = (value || '').replace(/[0-9]/g, '');
+
+      const maxCap = getMaxAvailableCapacityForSpot(index, value);
       const input = document.getElementById(`spot-input-${index}`);
       
       let wasTruncated = false;
@@ -11744,6 +11723,7 @@ const EmbeddedAssets = {
     }
 
     function handleLiveSpotInput(val) {
+      val = (val || '').replace(/[0-9]/g, '');
       const idx = currentPreviewClue - 1;
       const activeClues = getActiveHuntClues();
       const item = activeClues[idx] || huntClues[idx] || DEFAULT_HUNT_CLUES[idx];
@@ -15794,20 +15774,21 @@ When it's time to eat.</div>
       renderClue27(spot, isAnswer, themeId, clueNum = 27) {
         const theme = parseInt(themeId) || (typeof AppState !== 'undefined' ? AppState.selectedTheme : 1) || 1;
         const cleaned = this.cleanLetters(spot);
-        const targetWord = (cleaned && !cleaned.startsWith('LOCATION') && !cleaned.startsWith('ANSWER')) ? cleaned.slice(0, 10) : 'FRIDGE';
+        const targetWord = (cleaned && !cleaned.startsWith('LOCATION') && !cleaned.startsWith('ANSWER')) ? cleaned.slice(0, 12) : 'FRIDGE';
         const letters = targetWord.toUpperCase().split('');
 
-        const dW = 38;
+        const count = letters.length;
+        const dW = count > 8 ? 26 : 38;
         const dH = 2.5;
-        const slotGap = 10;
-        const letterSize = 24;
+        const slotGap = count > 8 ? 6 : 10;
+        const letterSize = count > 8 ? 20 : 24;
         const letterGap = 4;
 
         const isDesign2 = (theme === 2 || theme === 4);
         const isDesign3 = (theme === 3);
         const clue27Design = isDesign3 ? 'design3' : (isDesign2 ? 'design2' : 'design1');
 
-        let bunnyX, bunnyY, bunnyW, textX, textY, textW, textFontSize, color;
+        let bunnyX, bunnyY, bunnyW, textX, textY, textW, textFontSize, color, slotsY;
         if (isDesign3) {
           bunnyW = 400;
           bunnyX = 40; // (480 - 400) / 2 = 40px (centered on X axis)
@@ -15817,6 +15798,7 @@ When it's time to eat.</div>
           textY = 377.9;
           textFontSize = 19;
           color = '#991b1b';
+          slotsY = 600;
         } else if (isDesign2) {
           bunnyW = 407;
           bunnyX = 36.5; // (480 - 407) / 2 = 36.5px (centered on X axis)
@@ -15826,6 +15808,7 @@ When it's time to eat.</div>
           textY = 319.3;
           textFontSize = 19;
           color = '#000000'; // black text for design 2
+          slotsY = 600;
         } else {
           bunnyW = 453;
           bunnyX = 13.5; // (480 - 453) / 2 = 13.5px (centered on X axis)
@@ -15835,6 +15818,7 @@ When it's time to eat.</div>
           textY = 413.4;
           textFontSize = 17.5;
           color = '#991b1b';
+          slotsY = 616;
         }
 
         const slotsHtml = letters.map(ch => `
@@ -15869,7 +15853,7 @@ When it's time to eat.</div>
             </div>
 
             <!-- Answer Slots -->
-            <div class="answer-slots-wrap" style="position:absolute; top:600px; left:0; right:0; display:flex; align-items:flex-end; justify-content:center; gap:${slotGap}px; z-index:20;">
+            <div class="answer-slots-wrap" style="position:absolute; top:${slotsY}px; left:0; right:0; display:flex; align-items:flex-end; justify-content:center; gap:${slotGap}px; z-index:20;">
               ${slotsHtml}
             </div>
           </div>

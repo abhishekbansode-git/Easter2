@@ -327,6 +327,71 @@
     }
 
     /* Sidebar YouTube Tutorial Link (Placed Before Workflow Steps) */
+    .sidebar-menu-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-title);
+      padding: 8px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      box-sizing: border-box;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .sidebar-menu-btn:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      transform: translateY(-1.5px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .sidebar-menu-btn:active {
+      transform: translateY(0);
+    }
+
+    .menu-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(100, 116, 139, 0.28);
+      transition: transform 0.2s ease;
+      color: #ffffff;
+    }
+
+    .sidebar-menu-btn:hover .menu-circle {
+      transform: scale(1.08);
+    }
+
+    .menu-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .menu-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.2;
+      transition: color 0.2s ease;
+    }
+
+    .sidebar-menu-btn:hover .menu-name {
+      color: #0f172a;
+    }
+
     .sidebar-guide-btn {
       display: flex;
       align-items: center;
@@ -719,6 +784,8 @@
     .btn-answer-key:active,
     .preview-stage-nav-btn:active,
     .deck-action-btn:active,
+    .sidebar-menu-btn:active,
+    .sidebar-guide-btn:active,
     .sidebar-tutorial-btn:active,
     .step3-theme-btn:active,
     .preview-mode-btn:active,
@@ -737,20 +804,17 @@
         max-width: 100%;
         height: auto;
         position: static;
-        padding: 10px 16px;
+        padding: 10px 14px 12px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: auto auto;
-        align-items: center;
-        gap: 8px 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
       }
       .sidebar-brand {
-        grid-column: 1;
-        grid-row: 1;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         gap: 8px;
         padding: 0;
         border: none;
@@ -764,74 +828,86 @@
       .sidebar-section-title {
         display: none !important;
       }
-      .sidebar-footer {
-        grid-column: 2;
-        grid-row: 1;
+      .sidebar-stepper {
         display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: flex-end;
-        gap: 6px;
+        justify-content: center;
+        gap: 20px;
+        padding: 2px 0;
         margin: 0;
-        padding: 0;
-        border: none;
+        overflow: visible;
       }
-      .sidebar-guide-btn {
-        width: auto;
+      .sidebar-footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin: 2px 0 0;
+        padding: 8px 0 0;
+        border-top: 1px solid #f1f5f9;
+        width: 100%;
+      }
+      .sidebar-menu-btn,
+      .sidebar-guide-btn,
+      .sidebar-tutorial-btn {
+        flex: 1 1 0;
+        min-width: 0;
         height: 32px;
-        padding: 0 10px 0 4px;
+        padding: 0 8px 0 4px;
         border-radius: 999px;
         display: inline-flex;
         align-items: center;
-        gap: 6px;
+        justify-content: center;
+        gap: 5px;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+      .sidebar-menu-btn {
+        background: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      }
+      .sidebar-guide-btn {
         background: #ffffff;
         border: 1.5px solid #ede9fe;
-        box-shadow: 0 1px 4px rgba(124, 58, 237, 0.1);
-        text-decoration: none;
+        box-shadow: 0 1px 4px rgba(124, 58, 237, 0.08);
       }
-      .sidebar-guide-btn .guide-info {
+      .sidebar-tutorial-btn {
+        background: #ffffff;
+        border: 1.5px solid #fee2e2;
+        box-shadow: 0 1px 4px rgba(239, 68, 68, 0.08);
+      }
+      .sidebar-menu-btn .menu-info,
+      .sidebar-guide-btn .guide-info,
+      .sidebar-tutorial-btn .tutorial-info {
         display: inline-flex !important;
+        min-width: 0;
       }
-      .sidebar-guide-btn .guide-name {
-        font-size: 0.78rem;
+      .sidebar-menu-btn .menu-name,
+      .sidebar-guide-btn .guide-name,
+      .sidebar-tutorial-btn .tutorial-name {
+        font-size: 0.76rem;
         font-weight: 700;
         color: #1e293b;
         line-height: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
-      .guide-circle {
-        width: 24px;
-        height: 24px;
+      .menu-circle,
+      .guide-circle,
+      .tutorial-circle {
+        width: 22px;
+        height: 22px;
         box-shadow: none;
+        flex-shrink: 0;
       }
+      .menu-circle svg,
       .guide-circle svg {
         width: 12px;
         height: 12px;
-      }
-      .sidebar-tutorial-btn {
-        width: auto;
-        height: 32px;
-        padding: 0 10px 0 4px;
-        border-radius: 999px;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: #ffffff;
-        border: 1.5px solid #fee2e2;
-        box-shadow: 0 1px 4px rgba(239, 68, 68, 0.1);
-        text-decoration: none;
-      }
-      .sidebar-tutorial-btn .tutorial-info {
-        display: inline-flex !important;
-      }
-      .sidebar-tutorial-btn .tutorial-name {
-        font-size: 0.78rem;
-        font-weight: 700;
-        color: #1e293b;
-        line-height: 1;
-      }
-      .tutorial-circle {
-        width: 24px;
-        height: 24px;
-        box-shadow: none;
       }
       .tutorial-circle svg {
         width: 11px;
@@ -840,17 +916,8 @@
       .tutorial-desktop-prefix {
         display: none !important;
       }
-      .sidebar-stepper {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        padding: 4px 0;
-        margin: 0;
-        overflow: visible;
+      .step-panel-menu-btn {
+        display: none !important;
       }
       .step-item {
         position: relative;
@@ -8094,6 +8161,18 @@
 
       <!-- Sidebar Footer (After Workflow Steps) -->
       <div class="sidebar-footer">
+        <button type="button" class="sidebar-menu-btn" id="btn-sidebar-menu" onclick="returnToMainMenu()" title="Back to Main Menu">
+          <span class="menu-circle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </span>
+          <div class="menu-info">
+            <span class="menu-name">Main Menu</span>
+          </div>
+        </button>
+
         <button type="button" class="sidebar-guide-btn" id="btn-sidebar-howto" onclick="openHowToGuideFromApp()" title="How to Make Your Hunt">
           <span class="guide-circle">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -8108,7 +8187,7 @@
 
         <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="sidebar-tutorial-btn" id="btn-youtube-tutorial" title="Watch Video Tutorial">
           <span class="tutorial-circle">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffffff" style="margin-left: 2px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#ffffff" style="margin-left: 2px;">
               <polygon points="5,3 19,12 5,21"/>
             </svg>
           </span>
@@ -8130,9 +8209,6 @@
           <div class="step1-title-row">
             <h2><span class="panel-step-label">Step 1:</span> Select Hiding Spots</h2>
             <div class="step1-header-actions" style="display: flex; align-items: center; gap: 8px;">
-              <button type="button" class="btn-text-action step1-menu-btn" onclick="returnToMainMenu()" title="Return to Main Menu">
-                🏠 Main Menu
-              </button>
               <button type="button" class="btn-text-action step1-clear-btn" onclick="clearAllSpots()" title="Clear all locations to start blank">
                 🗑️ Clear All
               </button>
@@ -8211,11 +8287,8 @@
         <div class="step3-control-column">
 
           <!-- Step 2 Heading (Left-aligned) -->
-          <div class="step2-panel-header" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <div class="step2-panel-header">
             <h2><span class="panel-step-label">Step 2:</span> Choose a Design</h2>
-            <button type="button" class="btn-text-action" onclick="returnToMainMenu()" title="Return to Main Menu">
-              🏠 Main Menu
-            </button>
           </div>
 
           <!-- 1. Card Design Selector -->
@@ -8362,9 +8435,6 @@
     <main class="step-panel" id="panel-step-3" style="display:none;">
       <div class="panel-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
         <h2><span class="panel-step-label">Step 3:</span> Download</h2>
-        <button type="button" class="btn-text-action" onclick="returnToMainMenu()" title="Return to Main Menu">
-          🏠 Main Menu
-        </button>
       </div>
 
       <div class="print-options-grid">

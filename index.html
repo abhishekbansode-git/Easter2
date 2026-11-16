@@ -12,7 +12,7 @@
   <!-- Google Fonts: Roboto & Nunito -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Great+Vibes&family=Nunito:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     /* Candy Christmas Font */
     @font-face {
@@ -7965,7 +7965,6 @@
         <!-- Hero Branding -->
         <div class="main-menu-hero">
           <h1 class="menu-hero-title">Easter Hunt <span class="brand-title-accent">Creator</span></h1>
-          <p class="menu-hero-subtitle">Design, customize and print your personalized Easter scavenger hunt in minutes!</p>
         </div>
 
         <!-- 3 Main Menu Options -->
@@ -7980,7 +7979,6 @@
             </div>
             <div class="menu-card-text">
               <span class="menu-card-title">How to Use</span>
-              <span class="menu-card-desc">Learn how the 3-step creator works with step-by-step instructions</span>
             </div>
             <div class="menu-card-arrow">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -7998,7 +7996,6 @@
             </div>
             <div class="menu-card-text">
               <span class="menu-card-title">Tutorial</span>
-              <span class="menu-card-desc">Watch a quick walkthrough video on building your hunt</span>
             </div>
             <div class="menu-card-arrow">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -8015,11 +8012,7 @@
               </svg>
             </div>
             <div class="menu-card-text">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <span class="menu-card-title" style="color: #7c3aed; font-size: 1.25rem;">Start</span>
-                <span class="menu-card-pill">Default Clues Ready</span>
-              </div>
-              <span class="menu-card-desc">Jump straight in with 24 pre-filled clues ready to customize and print</span>
+              <span class="menu-card-title" style="color: #7c3aed; font-size: 1.25rem;">Start</span>
             </div>
             <div class="menu-card-arrow start-arrow">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -8028,10 +8021,6 @@
               </svg>
             </div>
           </button>
-        </div>
-
-        <div class="main-menu-footer-note">
-          🐰 24 Interactive Puzzles • 4 Easter Themes • Print Ready
         </div>
       </div>
 
@@ -8513,13 +8502,13 @@
         </div>
       </div>
 
-      <!-- Download Guidance Box -->
-      <div class="print-instructions-box">
-        <div class="print-instructions-icon">💡</div>
+      <!-- Copyright Notice Box -->
+      <div class="print-instructions-box copyright-notice-box">
+        <div class="print-instructions-icon">🔒</div>
         <div>
-          <div class="print-instructions-title">Save as PDF</div>
-          <div class="print-instructions-desc">
-            Choose <strong>1 or 2 clues per page</strong>, and click <strong>Download</strong>.
+          <div class="print-instructions-title">Copyright</div>
+          <div class="print-instructions-desc" style="font-size: 0.88rem; line-height: 1.5; color: #475569;">
+            This design, printable game, and web application are copyrighted. Your purchase of this product is for personal use only. Commercial or public use of any kind is strictly prohibited. Reselling, sharing, reproducing, or distributing this product or it's result, either in part or in full, with or without modifications, is prohibited.
           </div>
         </div>
       </div>
@@ -8954,94 +8943,17 @@ const EmbeddedAssets = {
     }
 
     function recalculateDynamicClueMapping() {
-      const activeClues = huntClues.filter(c => !c.disabled);
-      if (!activeClues.length) return;
-
-      const availDynamic = MASTER_DYNAMIC_PUZZLES.map(p => ({ ...p }));
-      const availStatic = MASTER_STATIC_PUZZLES.map(p => ({ ...p }));
-      const assigned = new Map(); // clue -> puzzle
-
-      // PREFERENCE 1: Static Puzzle Matching (Exact location or alias match)
-      // PREFERENCE 1: Static Puzzle Matching (Exact location or alias match)
-      // In index.html, static puzzles correspond to the fixed static slots (indices 25-31 with checkboxes)
-      activeClues.forEach(c => {
-        const origDef = DEFAULT_HUNT_CLUES[huntClues.indexOf(c)];
-        if (!origDef || !origDef.isStatic) return;
-        if (c.staticChecked === false) return;
-        const cleanLoc = (c.location || '').trim().toUpperCase();
-        if (!cleanLoc) return;
-        const sIdx = availStatic.findIndex(sp => 
-          sp.location === cleanLoc || (sp.aliases && sp.aliases.includes(cleanLoc))
-        );
-        if (sIdx !== -1) {
-          assigned.set(c, availStatic[sIdx]);
-          c.isStatic = true;
-          availStatic.splice(sIdx, 1);
-        } else {
-          c.isStatic = false;
-        }
-      });
-
-      // PREFERENCE 2: Dynamic Puzzle Freeflow Matching (Smallest available puzzle first, no preservation)
-      availDynamic.sort((a, b) => a.maxLen - b.maxLen || a.puzzleId - b.puzzleId);
-
-      const wordsInfo = [];
-      activeClues.forEach(c => {
-        if (assigned.has(c)) return;
-        const wlen = getLetterCount(c.location);
-        if (wlen > 0) {
-          wordsInfo.push({ clue: c, len: wlen, origIndex: huntClues.indexOf(c) });
-        }
-      });
-
-      // Sort words ASCENDING by length (small to large) to assign smallest available puzzles first;
-      // keep original slot order for ties.
-      wordsInfo.sort((a, b) => a.len - b.len || a.origIndex - b.origIndex);
-
-      // Best-fit (smallest maxLen >= wlen) for every word, with zero puzzle preservation
-      wordsInfo.forEach(item => {
-        if (!availDynamic.length) return;
-        const wlen = item.len;
-        let chosenIdx = -1;
-        for (let i = 0; i < availDynamic.length; i++) {
-          if (availDynamic[i].maxLen >= wlen) {
-            chosenIdx = i;
-            break;
+      // In index.html (internal clue catalog viewer), puzzles are strictly 1:1 fixed to their default number (Clue 1 = Puzzle 1 Cipher, Clue 2 = Puzzle 2, etc.)
+      huntClues.forEach((c, idx) => {
+        const def = DEFAULT_HUNT_CLUES[idx];
+        if (def) {
+          c.puzzleId = def.puzzleId;
+          c.name = def.name;
+          c.maxLen = def.maxLen;
+          c.isStatic = !!def.isStatic;
+          if (!c.placeholder || c.placeholder.includes('Missing') || c.placeholder.includes('Decoder') || c.placeholder.includes('Cipher') || c.placeholder.includes('Maze') || c.placeholder.includes('Scramble') || c.placeholder.includes('Paths')) {
+            c.placeholder = def.placeholder || `Location #${idx + 1}`;
           }
-        }
-        if (chosenIdx === -1) {
-          // If word exceeds all available puzzle sizes, choose the largest available
-          chosenIdx = availDynamic.length - 1;
-        }
-        if (chosenIdx !== -1) {
-          assigned.set(item.clue, availDynamic[chosenIdx]);
-          availDynamic.splice(chosenIdx, 1);
-        }
-      });
-
-      // Pass 3: Empty clues (no location entered yet)
-      const emptyClues = activeClues.filter(c => !assigned.has(c));
-      emptyClues.forEach(c => {
-        if (availDynamic.length > 0) {
-          assigned.set(c, availDynamic.shift());
-        } else if (availStatic.length > 0) {
-          assigned.set(c, availStatic.shift());
-          c.isStatic = true;
-        }
-      });
-
-      // Apply assignments to huntClues
-      activeClues.forEach(c => {
-        const p = assigned.get(c);
-        if (p) {
-          c.puzzleId = p.puzzleId;
-          c.name = p.name;
-          c.maxLen = p.maxLen;
-          c.isStatic = !!p.isStatic;
-        }
-        const idx = huntClues.indexOf(c);
-        if (!c.placeholder || c.placeholder.includes('Missing') || c.placeholder.includes('Decoder') || c.placeholder.includes('Cipher') || c.placeholder.includes('Maze') || c.placeholder.includes('Scramble') || c.placeholder.includes('Paths')) {
-          c.placeholder = (DEFAULT_HUNT_CLUES[idx] && DEFAULT_HUNT_CLUES[idx].placeholder) ? DEFAULT_HUNT_CLUES[idx].placeholder : `Location #${idx + 1}`;
         }
       });
     }
@@ -9581,7 +9493,7 @@ const EmbeddedAssets = {
 
     function updateStep3SheetCounts() {
       const activeClues = getActiveHuntClues();
-      const count = activeClues.length > 0 ? activeClues.length : 1;
+      const count = (activeClues.length > 0 ? activeClues.length : 1) + 2;
       const halfCount = Math.ceil(count / 2);
       const portCountEl = document.getElementById('sheet-count-portrait');
       const landCountEl = document.getElementById('sheet-count-landscape');
@@ -11972,7 +11884,7 @@ const EmbeddedAssets = {
       });
     }
 
-    async function triggerDownloadAndPrint(mode = 'game') {
+    function triggerDownloadAndPrint(mode = 'game') {
       const isAnswer = (mode === 'answer');
       const btnId = isAnswer ? 'btn-download-answer' : 'btn-download-print';
       const btn = document.getElementById(btnId);
@@ -12006,43 +11918,6 @@ const EmbeddedAssets = {
             theme: AppState.selectedTheme,
             cluesCount: activeClues.length
           };
-        }
-
-        const root = document.getElementById('print-sheet-root');
-        if (root) {
-          const imgs = Array.from(root.querySelectorAll('img'));
-          const pendingImgs = imgs.filter(img => !img.complete || img.naturalHeight === 0);
-
-          if (pendingImgs.length > 0) {
-            if (btn) {
-              btn.disabled = true;
-              btn.style.opacity = '0.85';
-              btn.innerHTML = `
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 0.8s linear infinite; display: inline-block; vertical-align: middle; margin-right: 8px;">
-                  <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
-                  <path d="M12 2a10 10 0 0 1 10 10"></path>
-                </svg>
-                <span>Preparing ${isAnswer ? 'Answers...' : 'Clues...'}</span>
-              `;
-            }
-
-            const imgPromises = pendingImgs.map(img => {
-              return new Promise(resolve => {
-                const onDone = () => resolve();
-                img.addEventListener('load', onDone, { once: true });
-                img.addEventListener('error', onDone, { once: true });
-                if (img.decode) {
-                  img.decode().then(resolve).catch(resolve);
-                }
-                setTimeout(resolve, 300);
-              });
-            });
-
-            await Promise.race([
-              Promise.all(imgPromises),
-              new Promise(r => setTimeout(r, 450))
-            ]);
-          }
         }
 
         window.print();
@@ -16031,20 +15906,246 @@ When it's time to eat.</div>
       return ScavengerHuntClues.renderPuzzle(puzzleId, locText, isAnswer, AppState.selectedTheme, clueNum);
     }
 
+    function getIntroPage1BorderHtml() {
+      const theme = AppState.selectedTheme || 1;
+      if (theme === 1) {
+        const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme1Borders) ? EmbeddedAssets.theme1Borders[1] : 'assets/theme 1/border/Border 1.png';
+        return `<img class="print-border-img" src="${src}" alt="Border">`;
+      } else if (theme === 2) {
+        return `<div class="egg-border-frame" style="--global-egg-width: 12%; background: transparent; display: block;">${EggBorderGenerator.renderFrameHtml(15)}</div>`;
+      } else if (theme === 3) {
+        const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme3Border) ? EmbeddedAssets.theme3Border : 'assets/theme 3/border.png';
+        return `<img class="print-border-img" src="${src}" alt="Border">`;
+      } else if (theme === 4) {
+        const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme4Borders) ? EmbeddedAssets.theme4Borders[1] : 'assets/theme 4/border 1.png';
+        return `<img class="print-border-img" src="${src}" alt="Border">`;
+      }
+      return '';
+    }
+
+    function getIntroPage2BorderHtml() {
+      const theme = AppState.selectedTheme || 1;
+      if (theme === 1) {
+        const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme1Borders) ? EmbeddedAssets.theme1Borders[2] : 'assets/theme 1/border/Border 2.png';
+        return `<img class="print-border-img" src="${src}" alt="Border">`;
+      } else if (theme === 2) {
+        return `<div class="egg-border-frame" style="--global-egg-width: 12%; background: transparent; display: block;">${EggBorderGenerator.renderFrameHtml(10)}</div>`;
+      } else if (theme === 3) {
+        const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme3Border) ? EmbeddedAssets.theme3Border : 'assets/theme 3/border.png';
+        return `<img class="print-border-img" src="${src}" alt="Border">`;
+      } else if (theme === 4) {
+        const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme4Borders) ? EmbeddedAssets.theme4Borders[2] : 'assets/theme 4/border 2.png';
+        return `<img class="print-border-img" src="${src}" alt="Border">`;
+      }
+      return '';
+    }
+
+    function renderHidingOrderCardInnerHtml() {
+      const activeClues = getActiveHuntClues();
+      const count = activeClues.length > 0 ? activeClues.length : 12;
+      const isTwoCol = count > 12;
+
+      const firstLead = (activeClues[0] && activeClues[0].location && activeClues[0].location.trim()) ? activeClues[0].location.trim() : 'television';
+      const giftLead = (activeClues[count - 1] && activeClues[count - 1].location && activeClues[count - 1].location.trim()) ? activeClues[count - 1].location.trim() : 'cupboard';
+
+      let listHtml = '';
+      if (!isTwoCol) {
+        listHtml = `<div style="display:flex; flex-direction:column; gap:10px;">`;
+        listHtml += `
+          <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
+            <span style="font-weight:700; margin-right:4px;">CLUE 1-</span>
+            <span style="font-weight:700;">Give with Letter</span>
+          </div>
+        `;
+        for (let i = 2; i <= count; i++) {
+          const loc = (activeClues[i - 2] && activeClues[i - 2].location && activeClues[i - 2].location.trim()) ? activeClues[i - 2].location.trim() : `Location ${i}`;
+          listHtml += `
+            <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
+              <span style="font-weight:700; margin-right:4px;">CLUE ${i}-</span>
+              <span style="font-weight:700;">${loc}</span>
+            </div>
+          `;
+        }
+        listHtml += `
+          <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25; margin-top:6px;">
+            <span style="font-weight:700; margin-right:4px;">GIFT LOCATION-</span>
+            <span style="font-weight:700;">${giftLead}</span>
+          </div>
+        `;
+        listHtml += `</div>`;
+      } else {
+        const half = Math.ceil(count / 2);
+        listHtml = `<div style="display:flex; flex-direction:row; gap:24px;">`;
+        // Col 1
+        listHtml += `<div style="display:flex; flex-direction:column; gap:10px;">`;
+        listHtml += `
+          <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
+            <span style="font-weight:700; margin-right:4px;">CLUE 1-</span>
+            <span style="font-weight:700;">Give with Letter</span>
+          </div>
+        `;
+        for (let i = 2; i <= half; i++) {
+          const loc = (activeClues[i - 2] && activeClues[i - 2].location && activeClues[i - 2].location.trim()) ? activeClues[i - 2].location.trim() : `Location ${i}`;
+          listHtml += `
+            <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
+              <span style="font-weight:700; margin-right:4px;">CLUE ${i}-</span>
+              <span style="font-weight:700;">${loc}</span>
+            </div>
+          `;
+        }
+        listHtml += `</div>`;
+
+        // Col 2
+        listHtml += `<div style="display:flex; flex-direction:column; gap:10px;">`;
+        for (let i = half + 1; i <= count; i++) {
+          const loc = (activeClues[i - 2] && activeClues[i - 2].location && activeClues[i - 2].location.trim()) ? activeClues[i - 2].location.trim() : `Location ${i}`;
+          listHtml += `
+            <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
+              <span style="font-weight:700; margin-right:4px;">CLUE ${i}-</span>
+              <span style="font-weight:700;">${loc}</span>
+            </div>
+          `;
+        }
+        listHtml += `
+          <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25; margin-top:6px;">
+            <span style="font-weight:700; margin-right:4px;">GIFT LOCATION-</span>
+            <span style="font-weight:700;">${giftLead}</span>
+          </div>
+        `;
+        listHtml += `</div></div>`;
+      }
+
+      const listX = isTwoCol ? 56 : 136;
+
+      return `
+        <div style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; font-family:var(--font-franklin);">
+          <!-- Title -->
+          <div style="position:absolute; top:53px; left:0; width:100%; text-align:center; font-family:var(--font-baskerville); font-size:37px; font-weight:700; letter-spacing:1.5px; color:#2c1810; line-height:1.1; text-transform:uppercase;">
+            HIDING ORDER!
+          </div>
+
+          <!-- Instructions -->
+          <div style="position:absolute; top:118px; left:40px; width:400px; font-family:var(--font-franklin); font-size:16px; font-weight:400; line-height:1.4; color:#2c1810; text-align:left;">
+            Give CLUE 1 with the letter. Hide the remaining clues in the locations listed below. (CLUE 1's answer will lead them to the ${firstLead.toLowerCase()}, etc.) Clue ${count} will lead them to the ${giftLead.toLowerCase()} and the gift.
+          </div>
+
+          <!-- Clue List -->
+          <div style="position:absolute; top:246px; left:${listX}px; font-family:var(--font-franklin); font-size:14px; color:#2c1810;">
+            ${listHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderHappyEasterCardInnerHtml() {
+      const letterColors = [
+        "#5fa88a", // H
+        "#f87171", // a
+        "#fb923c", // p
+        "#a855f7", // p
+        "#f59e0b", // y
+        "transparent", // space
+        "#ec4899", // E
+        "#38bdf8", // a
+        "#84cc16", // s
+        "#f97316", // t
+        "#f43f5e", // e
+        "#10b981", // r
+        "#c026d3"  // !
+      ];
+
+      const titleChars = Array.from("Happy Easter!");
+      let titleSpans = "";
+      titleChars.forEach((ch, idx) => {
+        if (ch === " ") {
+          titleSpans += `<span style="display:inline-block; width:0.35em;">&nbsp;</span>`;
+        } else {
+          const col = letterColors[idx % letterColors.length] || "#7c3aed";
+          titleSpans += `<span style="color:${col}; display:inline-block;">${ch}</span>`;
+        }
+      });
+
+      return `
+        <div style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none;">
+          <!-- Title -->
+          <div style="position:absolute; top:49px; left:0; width:100%; text-align:center; font-family:var(--font-baskerville); font-size:43px; font-weight:700; letter-spacing:2.5px; line-height:1.1;">
+            ${titleSpans}
+          </div>
+
+          <!-- Poem Body -->
+          <div style="position:absolute; top:118px; left:40px; width:400px; font-family:var(--font-roboto); font-size:22px; font-weight:500; line-height:1.5; color:#4a4542; text-align:center; display:flex; flex-direction:column; gap:6px;">
+            <div style="white-space:pre-line;">I am the Easter Bunny.
+I've been hopping all around.
+Hiding Easter goodies, just
+waiting to be found.</div>
+
+            <div style="white-space:pre-line;">Some are easy, some are hard.
+They are hidden all around
+your house.</div>
+
+            <div style="white-space:pre-line;">Look up and look down below.
+Where they lie, you do not know.
+Until you have found every one,
+keep on searching till you're done.
+I hope you find this poem funny.
+From your friend</div>
+          </div>
+
+          <!-- Signature Block -->
+          <div style="position:absolute; top:592px; left:0; width:100%; text-align:center;">
+            <div style="font-family:'Great Vibes', cursive; font-size:27px; font-weight:400; color:#2c1810; line-height:1.1; letter-spacing:0.5px;">
+              The Easter Bunny
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     function preparePrintDocument(isAnswerMode = false) {
       const root = document.getElementById('print-sheet-root');
       if (!root) return;
       root.className = `print-root layout-${PrintState.layout} paper-${PrintState.paperSize || 'a4'}`;
 
       const cluesToPrint = getActiveHuntClues();
+      const fontClass = (AppState.selectedTheme === 2 || AppState.selectedTheme === 4) ? "theme-font-baskerville" : "theme-font-franklin";
 
       if (PrintState.layout === 'portrait') {
-        root.innerHTML = cluesToPrint.map((item, i) => {
+        const page1Html = `
+          <div class="print-page portrait-page">
+            <div class="card-scaler-portrait">
+              <div class="clue-card-paper ${fontClass}">
+                <div class="clue-card-bg-border">
+                  ${getIntroPage1BorderHtml()}
+                </div>
+                <div class="clue-card-content-wrap">
+                  ${renderHidingOrderCardInnerHtml()}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const page2Html = `
+          <div class="print-page portrait-page">
+            <div class="card-scaler-portrait">
+              <div class="clue-card-paper ${fontClass}">
+                <div class="clue-card-bg-border">
+                  ${getIntroPage2BorderHtml()}
+                </div>
+                <div class="clue-card-content-wrap">
+                  ${renderHappyEasterCardInnerHtml()}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const cluesHtml = cluesToPrint.map((item, i) => {
           const locText = (item.location && item.location.trim() !== '') ? item.location : '';
           return `
           <div class="print-page portrait-page">
             <div class="card-scaler-portrait">
-              <div class="clue-card-paper ${(AppState.selectedTheme === 2 || AppState.selectedTheme === 4) ? "theme-font-baskerville" : "theme-font-franklin"}">
+              <div class="clue-card-paper ${fontClass}">
                 <div class="clue-card-bg-border">
                   ${getThemeCardBorderHtml(i)}
                 </div>
@@ -16056,8 +16157,42 @@ When it's time to eat.</div>
           </div>
         `;
         }).join('');
+
+        root.innerHTML = page1Html + page2Html + cluesHtml;
       } else {
-        let pagesHtml = '';
+        // Landscape layout (2 cards per sheet)
+        // Sheet 1: Left = Page 1 (Hiding Order), Right = Page 2 (Happy Easter)
+        let pagesHtml = `
+          <div class="print-page landscape-page">
+            <div class="landscape-half">
+              <div class="card-scaler-landscape">
+                <div class="clue-card-paper ${fontClass}">
+                  <div class="clue-card-bg-border">
+                    ${getIntroPage1BorderHtml()}
+                  </div>
+                  <div class="clue-card-content-wrap">
+                    ${renderHidingOrderCardInnerHtml()}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="landscape-cut-guide"></div>
+            <div class="landscape-half">
+              <div class="card-scaler-landscape">
+                <div class="clue-card-paper ${fontClass}">
+                  <div class="clue-card-bg-border">
+                    ${getIntroPage2BorderHtml()}
+                  </div>
+                  <div class="clue-card-content-wrap">
+                    ${renderHappyEasterCardInnerHtml()}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Followed by pairs of clue cards
         for (let i = 0; i < cluesToPrint.length; i += 2) {
           const item1 = cluesToPrint[i];
           const item2 = (i + 1 < cluesToPrint.length) ? cluesToPrint[i + 1] : null;
@@ -16067,7 +16202,7 @@ When it's time to eat.</div>
             <div class="print-page landscape-page">
               <div class="landscape-half">
                 <div class="card-scaler-landscape">
-                  <div class="clue-card-paper ${(AppState.selectedTheme === 2 || AppState.selectedTheme === 4) ? "theme-font-baskerville" : "theme-font-franklin"}">
+                  <div class="clue-card-paper ${fontClass}">
                     <div class="clue-card-bg-border">
                       ${getThemeCardBorderHtml(i)}
                     </div>
@@ -16081,7 +16216,7 @@ When it's time to eat.</div>
               <div class="landscape-half">
                 ${item2 ? `
                   <div class="card-scaler-landscape">
-                    <div class="clue-card-paper ${(AppState.selectedTheme === 2 || AppState.selectedTheme === 4) ? "theme-font-baskerville" : "theme-font-franklin"}">
+                    <div class="clue-card-paper ${fontClass}">
                       <div class="clue-card-bg-border">
                         ${getThemeCardBorderHtml(i + 1)}
                       </div>

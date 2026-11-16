@@ -710,20 +710,26 @@
         border: none;
       }
       .sidebar-tutorial-btn {
-        width: 32px;
+        width: auto;
         height: 32px;
-        padding: 0;
-        border-radius: 50%;
+        padding: 0 10px 0 4px;
+        border-radius: 999px;
         display: inline-flex;
         align-items: center;
-        justify-content: center;
+        gap: 6px;
         background: #ffffff;
         border: 1.5px solid #fee2e2;
         box-shadow: 0 1px 4px rgba(239, 68, 68, 0.1);
         text-decoration: none;
       }
       .sidebar-tutorial-btn .tutorial-info {
-        display: none !important;
+        display: inline-flex !important;
+      }
+      .sidebar-tutorial-btn .tutorial-name {
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #1e293b;
+        line-height: 1;
       }
       .tutorial-circle {
         width: 24px;
@@ -733,6 +739,9 @@
       .tutorial-circle svg {
         width: 11px;
         height: 11px;
+      }
+      .tutorial-desktop-prefix {
+        display: none !important;
       }
       .sidebar-stepper {
         grid-column: 1 / -1;
@@ -935,6 +944,10 @@
       flex-shrink: 0;
       border-radius: 10px;
       box-shadow: 0 4px 14px rgba(124, 58, 237, 0.2);
+    }
+
+    .step1-bottom-actions {
+      display: none;
     }
 
     .btn-text-action {
@@ -2980,6 +2993,19 @@
         width: 100%;
         justify-content: center;
       }
+      .step1-bottom-actions {
+        display: flex;
+        width: 100%;
+        margin-top: 14px;
+        padding-bottom: 8px;
+      }
+      .step1-bottom-next-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        border-radius: 12px;
+      }
       .spots-scroll-viewport {
         overflow: visible;
         display: block;
@@ -3022,6 +3048,12 @@
         text-align: left !important;
       }
 
+      #step3-theme-card {
+        order: 1;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
       .step3-card-column {
         order: 2;
         position: static;
@@ -3037,26 +3069,20 @@
         box-sizing: border-box;
       }
 
-      #step3-theme-card {
+      #step3-location-card {
         order: 3;
         width: 100%;
         box-sizing: border-box;
       }
 
-      #step3-location-card {
+      #step3-mode-card {
         order: 4;
         width: 100%;
         box-sizing: border-box;
       }
 
-      #step3-mode-card {
-        order: 5;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
       #step3-actions-card {
-        order: 6;
+        order: 5;
         width: 100%;
         box-sizing: border-box;
       }
@@ -3126,7 +3152,7 @@
       }
 
       .step3-download-btns-wrap {
-        flex-direction: column;
+        flex-direction: column-reverse;
         width: 100%;
         gap: 10px;
       }
@@ -7316,7 +7342,7 @@
             </svg>
           </span>
           <div class="tutorial-info">
-            <span class="tutorial-name">Watch Tutorial</span>
+            <span class="tutorial-name"><span class="tutorial-desktop-prefix">Watch </span>Tutorial</span>
           </div>
         </a>
       </div>
@@ -7341,9 +7367,7 @@
               </button>
             </div>
           </div>
-          <p class="panel-subtitle" style="margin: 2px 0 0; text-align: left;">
-            <span id="spots-count">24</span> clues ready for your Easter hunt • Edit, reorder or clear any clue
-          </p>
+          <p class="panel-subtitle" style="margin: 2px 0 0; text-align: left;">Edit, reorder or remove a hiding spot</p>
         </div>
 
         <button type="button" class="btn-primary step1-top-next-btn" onclick="proceedToStep2()">
@@ -7359,6 +7383,16 @@
         <div class="spots-scroll-viewport" id="spots-scroll-viewport">
           <div class="spots-list" id="spots-list"></div>
         </div>
+      </div>
+
+      <!-- Step 1 Bottom Action Bar (Visible on mobile / small screens) -->
+      <div class="step1-bottom-actions">
+        <button type="button" class="btn-primary step1-bottom-next-btn" onclick="proceedToStep2()">
+          <span>Next: Choose a Design</span>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L13.586 11H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+        </button>
       </div>
 
       <!-- Toast Notification for Dynamic Puzzle Capacity -->
@@ -7393,7 +7427,6 @@
                 <div class="step3-theme-icon-box">🌸</div>
                 <div class="step3-theme-text">
                   <span class="step3-theme-name">Spring Pastel</span>
-                  <span class="step3-theme-sub">3 Floral</span>
                 </div>
               </button>
 
@@ -7402,7 +7435,6 @@
                 <div class="step3-theme-icon-box">🥚</div>
                 <div class="step3-theme-text">
                   <span class="step3-theme-name">Watercolor Eggs</span>
-                  <span class="step3-theme-sub">20 Eggs</span>
                 </div>
               </button>
 
@@ -7411,7 +7443,6 @@
                 <div class="step3-theme-icon-box">🍭</div>
                 <div class="step3-theme-text">
                   <span class="step3-theme-name">Pastel Stripes</span>
-                  <span class="step3-theme-sub">Clean</span>
                 </div>
               </button>
 
@@ -7420,7 +7451,6 @@
                 <div class="step3-theme-icon-box">🥕</div>
                 <div class="step3-theme-text">
                   <span class="step3-theme-name">Easter Variety</span>
-                  <span class="step3-theme-sub">12 Borders</span>
                 </div>
               </button>
             </div>
@@ -7451,7 +7481,7 @@
           <!-- 3. Preview Mode Switch -->
           <div class="step3-deck-card" id="step3-mode-card">
             <div class="deck-card-header">
-              <span class="deck-tag">Card View Mode</span>
+              <span class="deck-tag">View Mode</span>
             </div>
             <div class="deck-mode-switch">
               <button type="button" class="preview-mode-btn active" id="btn-mode-game" onclick="setCluePreviewMode('game')">
@@ -7529,11 +7559,6 @@
     <main class="step-panel" id="panel-step-3" style="display:none;">
       <div class="panel-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
         <h2><span class="panel-step-label">Step 3:</span> Download</h2>
-        <div class="paper-size-picker">
-          <span style="font-size: 0.8rem; font-weight: 700; color: #64748b; padding-left: 6px;">Size:</span>
-          <button type="button" class="paper-size-btn active" id="paper-btn-a4" onclick="selectPaperSize('a4')" title="A4 (210 × 297 mm)">A4</button>
-          <button type="button" class="paper-size-btn" id="paper-btn-letter" onclick="selectPaperSize('letter')" title="US Letter (8.5 × 11 in)">US Letter</button>
-        </div>
       </div>
 
       <div class="print-options-grid">
@@ -7558,7 +7583,7 @@
                 <span class="theme-title" style="font-size: 1.18rem; font-weight: 700;">1 Clue Per Page</span>
                 <span class="sheet-count-pill" id="sheet-count-portrait">24 Sheets</span>
               </div>
-              <p class="theme-desc" style="margin: 0 0 8px; font-size: 0.9rem; color: #64748b;">Full page • A4 or US Letter</p>
+              <p class="theme-desc" style="margin: 0 0 8px; font-size: 0.9rem; color: #64748b;">Full page • A4</p>
             </div>
             <div class="card-footer" style="margin-top: auto; padding-top: 8px; border-top: 1px solid #f1f5f9; display: flex; justify-content: flex-end;">
               <span class="select-indicator" id="layout-indicator-portrait">✓ Selected</span>
@@ -7600,7 +7625,7 @@
                 <span class="theme-title" style="font-size: 1.18rem; font-weight: 700;">2 Clues Per Page</span>
                 <span class="sheet-count-pill" id="sheet-count-landscape">12 Sheets</span>
               </div>
-              <p class="theme-desc" style="margin: 0 0 8px; font-size: 0.9rem; color: #64748b;">2 cards per page • A4 or US Letter</p>
+              <p class="theme-desc" style="margin: 0 0 8px; font-size: 0.9rem; color: #64748b;">2 cards per page • A4</p>
             </div>
             <div class="card-footer" style="margin-top: auto; padding-top: 8px; border-top: 1px solid #f1f5f9; display: flex; justify-content: flex-end;">
               <span class="select-indicator" id="layout-indicator-landscape">Select</span>
@@ -7615,7 +7640,7 @@
         <div>
           <div class="print-instructions-title">Save as PDF</div>
           <div class="print-instructions-desc">
-            Select your paper size (<strong>A4</strong> or <strong>US Letter</strong>), choose <strong>1 or 2 clues per page</strong>, and click <strong>Download</strong>.
+            Choose <strong>1 or 2 clues per page</strong>, and click <strong>Download</strong>.
           </div>
         </div>
       </div>
@@ -10552,14 +10577,14 @@ const EmbeddedAssets = {
         input.disabled = isStatic;
         if (isStatic) {
           input.classList.add('is-static-locked');
-          input.title = "This clue has a fixed riddle/illustration and cannot be customized.";
+          input.title = "Go back to hiding spots step to edit";
         } else {
           input.classList.remove('is-static-locked');
           input.title = "";
         }
       }
       if (label) {
-        label.textContent = isStatic ? `Answer #${clueNum} (Fixed):` : `Answer #${clueNum}:`;
+        label.textContent = isStatic ? `Answer #${clueNum} (Go back to hiding spots step to edit):` : `Answer #${clueNum}:`;
       }
       hideLimitNotice(document.getElementById('preview-clue-limit-badge'), input);
 

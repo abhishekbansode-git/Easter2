@@ -15700,29 +15700,30 @@ When it's time to eat.</div>
 
       const firstLead = (activeClues[0] && activeClues[0].location && activeClues[0].location.trim()) ? activeClues[0].location.trim() : 'television';
       const giftLead = (activeClues[count - 1] && activeClues[count - 1].location && activeClues[count - 1].location.trim()) ? activeClues[count - 1].location.trim() : 'cupboard';
+      const clueWeight = 450;
 
       let listHtml = '';
       if (!isTwoCol) {
         listHtml = `<div style="display:flex; flex-direction:column; gap:10px;">`;
         listHtml += `
           <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
-            <span style="font-weight:700; margin-right:4px;">CLUE 1-</span>
-            <span style="font-weight:700;">Give with Letter</span>
+            <span style="font-weight:${clueWeight}; margin-right:4px;">CLUE 1-</span>
+            <span style="font-weight:${clueWeight};">Give with Letter</span>
           </div>
         `;
         for (let i = 2; i <= count; i++) {
           const loc = (activeClues[i - 2] && activeClues[i - 2].location && activeClues[i - 2].location.trim()) ? activeClues[i - 2].location.trim() : `Location ${i}`;
           listHtml += `
             <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
-              <span style="font-weight:700; margin-right:4px;">CLUE ${i}-</span>
-              <span style="font-weight:700;">${loc}</span>
+              <span style="font-weight:${clueWeight}; margin-right:4px;">CLUE ${i}-</span>
+              <span style="font-weight:${clueWeight};">${loc}</span>
             </div>
           `;
         }
         listHtml += `
           <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25; margin-top:6px;">
-            <span style="font-weight:700; margin-right:4px;">GIFT LOCATION-</span>
-            <span style="font-weight:700;">${giftLead}</span>
+            <span style="font-weight:${clueWeight}; margin-right:4px;">GIFT LOCATION-</span>
+            <span style="font-weight:${clueWeight};">${giftLead}</span>
           </div>
         `;
         listHtml += `</div>`;
@@ -15733,16 +15734,16 @@ When it's time to eat.</div>
         listHtml += `<div style="display:flex; flex-direction:column; gap:10px;">`;
         listHtml += `
           <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
-            <span style="font-weight:700; margin-right:4px;">CLUE 1-</span>
-            <span style="font-weight:700;">Give with Letter</span>
+            <span style="font-weight:${clueWeight}; margin-right:4px;">CLUE 1-</span>
+            <span style="font-weight:${clueWeight};">Give with Letter</span>
           </div>
         `;
         for (let i = 2; i <= half; i++) {
           const loc = (activeClues[i - 2] && activeClues[i - 2].location && activeClues[i - 2].location.trim()) ? activeClues[i - 2].location.trim() : `Location ${i}`;
           listHtml += `
             <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
-              <span style="font-weight:700; margin-right:4px;">CLUE ${i}-</span>
-              <span style="font-weight:700;">${loc}</span>
+              <span style="font-weight:${clueWeight}; margin-right:4px;">CLUE ${i}-</span>
+              <span style="font-weight:${clueWeight};">${loc}</span>
             </div>
           `;
         }
@@ -15754,18 +15755,46 @@ When it's time to eat.</div>
           const loc = (activeClues[i - 2] && activeClues[i - 2].location && activeClues[i - 2].location.trim()) ? activeClues[i - 2].location.trim() : `Location ${i}`;
           listHtml += `
             <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25;">
-              <span style="font-weight:700; margin-right:4px;">CLUE ${i}-</span>
-              <span style="font-weight:700;">${loc}</span>
+              <span style="font-weight:${clueWeight}; margin-right:4px;">CLUE ${i}-</span>
+              <span style="font-weight:${clueWeight};">${loc}</span>
             </div>
           `;
         }
         listHtml += `
           <div style="display:flex; align-items:baseline; white-space:nowrap; line-height:1.25; margin-top:6px;">
-            <span style="font-weight:700; margin-right:4px;">GIFT LOCATION-</span>
-            <span style="font-weight:700;">${giftLead}</span>
+            <span style="font-weight:${clueWeight}; margin-right:4px;">GIFT LOCATION-</span>
+            <span style="font-weight:${clueWeight};">${giftLead}</span>
           </div>
         `;
         listHtml += `</div></div>`;
+      }
+
+      let cornerGfxHtml = '';
+      if (theme === 1) {
+        cornerGfxHtml = `
+          <!-- Bottom Corner Graphics (Design 1) -->
+          <div style="position:absolute; inset:0; pointer-events:none; z-index:15; overflow:hidden;">
+            <div style="position:absolute; left:-20px; bottom:35px; width:145px; transform:rotate(19deg); transform-origin:bottom left;">
+              <img src="assets/graphics/theme1/3.png" alt="Left Graphic" style="width:100%; height:auto; display:block;">
+            </div>
+            <div style="position:absolute; right:-11px; bottom:22px; width:89px; transform:rotate(-16deg); transform-origin:bottom right;">
+              <img src="assets/graphics/theme1/5.png" alt="Right Graphic" style="width:100%; height:auto; display:block;">
+            </div>
+          </div>
+        `;
+      } else if (theme === 3) {
+        cornerGfxHtml = `
+          <!-- Bottom Corner Graphics (Design 3) -->
+          <div style="position:absolute; inset:0; pointer-events:none; z-index:15; overflow:hidden;">
+            <div style="position:absolute; left:6px; bottom:7px; width:97px; transform:rotate(-1deg); transform-origin:bottom left;">
+              <img src="assets/graphics/theme3/1.png" alt="Left Behind Graphic" style="position:absolute; left:11px; bottom:15px; width:65px; z-index:1; display:block;">
+              <img src="assets/graphics/theme3/13.png" alt="Left Graphic" style="position:relative; width:100%; height:auto; z-index:2; display:block;">
+            </div>
+            <div style="position:absolute; right:98px; bottom:-5px; width:99px; transform:rotate(-6deg) scaleX(-1); transform-origin:bottom right;">
+              <img src="assets/graphics/theme3/16.png" alt="Right Graphic" style="width:100%; height:auto; display:block;">
+            </div>
+          </div>
+        `;
       }
 
       return `
@@ -15776,7 +15805,7 @@ When it's time to eat.</div>
           </div>
 
           <!-- Instructions -->
-          <div style="position:absolute; top:118px; left:40px; width:400px; font-family:var(--font-roboto); font-size:16px; font-weight:400; line-height:1.4; color:#2c1810; text-align:left;">
+          <div style="position:absolute; top:122px; left:40px; width:400px; font-family:var(--font-roboto); font-size:16px; font-weight:400; line-height:1.4; color:#2c1810; text-align:left;">
             Give CLUE 1 with the letter. Hide the remaining clues in the locations listed below. (CLUE 1's answer will lead them to the ${firstLead.toLowerCase()}, etc.) Clue ${count} will lead them to the ${giftLead.toLowerCase()} and the gift.
           </div>
 
@@ -15784,6 +15813,8 @@ When it's time to eat.</div>
           <div style="position:absolute; top:246px; left:0; width:100%; display:flex; justify-content:center; font-family:var(--font-franklin); font-size:14px; color:#2c1810;">
             ${listHtml}
           </div>
+
+          ${cornerGfxHtml}
         </div>
       `;
     }
@@ -15798,19 +15829,19 @@ When it's time to eat.</div>
         titleSpans = `<span style="color:#2c1810; display:inline-block;">Happy Easter!</span>`;
       } else {
         const letterColors = [
-          "#5fa88a", // H
-          "#f87171", // a
-          "#fb923c", // p
-          "#a855f7", // p
-          "#f59e0b", // y
+          "#74bf92", // H - green
+          "#d864a0", // a - pink
+          "#8e73b1", // p - purple
+          "#ea9e38", // p - yellow
+          "#6c96a7", // y
           "transparent", // space
-          "#ec4899", // E
-          "#38bdf8", // a
-          "#84cc16", // s
-          "#f97316", // t
-          "#f43f5e", // e
-          "#10b981", // r
-          "#c026d3"  // !
+          "#74bf92", // E - green
+          "#d864a0", // a - pink
+          "#8e73b1", // s - purple
+          "#6c96a7", // t
+          "#ea9e38", // e - yellow
+          "#74bf92", // r - green
+          "#d864a0"  // ! - pink
         ];
 
         const titleChars = Array.from("Happy Easter!");
@@ -15822,6 +15853,52 @@ When it's time to eat.</div>
             titleSpans += `<span style="color:${col}; display:inline-block;">${ch}</span>`;
           }
         });
+      }
+
+      let cornerGfxHtml = '';
+      if (theme === 1) {
+        cornerGfxHtml = `
+          <!-- Bottom Corner Graphics (Design 1) -->
+          <div style="position:absolute; inset:0; pointer-events:none; z-index:15; overflow:hidden;">
+            <div style="position:absolute; left:-6px; bottom:1px; width:86px; transform:rotate(13deg); transform-origin:bottom left;">
+              <img src="assets/graphics/theme1/9.png" alt="Left Graphic" style="width:100%; height:auto; display:block;">
+            </div>
+            <div style="position:absolute; right:-10px; bottom:3px; width:96px; transform:rotate(0deg); transform-origin:bottom right;">
+              <img src="assets/graphics/theme1/21.png" alt="Right Graphic" style="width:100%; height:auto; display:block;">
+            </div>
+          </div>
+        `;
+      } else if (theme === 3) {
+        cornerGfxHtml = `
+          <!-- Bottom Corner Graphics (Design 3) -->
+          <div style="position:absolute; inset:0; pointer-events:none; z-index:15; overflow:hidden;">
+            <div style="position:absolute; left:6px; bottom:5px; width:85px; transform:rotate(0deg); transform-origin:bottom left;">
+              <img src="assets/graphics/theme3/11.png" alt="Left Graphic" style="width:100%; height:auto; display:block;">
+            </div>
+            <div style="position:absolute; right:10px; bottom:6px; width:71px; transform:rotate(0deg); transform-origin:bottom right;">
+              <img src="assets/graphics/theme3/2.png" alt="Right Graphic" style="width:100%; height:auto; display:block;">
+            </div>
+          </div>
+        `;
+      }
+
+      let butterflyHtml = '';
+      if (theme === 1) {
+        butterflyHtml = `
+          <!-- Butterflies (Design 1) -->
+          <div style="position:absolute; inset:0; pointer-events:none; z-index:20;">
+            <img src="assets/graphics/happyeaster/design1/butterfly1.png" alt="Butterfly 1" style="position:absolute; left:56px; top:218px; width:26px; height:auto; display:block;">
+            <img src="assets/graphics/happyeaster/design1/butterfly2.png" alt="Butterfly 2" style="position:absolute; left:387px; top:340px; width:26px; height:auto; display:block;">
+          </div>
+        `;
+      } else if (theme === 3) {
+        butterflyHtml = `
+          <!-- Butterflies (Design 3) -->
+          <div style="position:absolute; inset:0; pointer-events:none; z-index:20;">
+            <img src="assets/graphics/happyeaster/design3/butterfly1.png" alt="Butterfly 1" style="position:absolute; left:55px; top:223px; width:32px; height:auto; display:block;">
+            <img src="assets/graphics/happyeaster/design3/butterfly2.png" alt="Butterfly 2" style="position:absolute; left:403px; top:340px; width:32px; height:auto; display:block;">
+          </div>
+        `;
       }
 
       return `
@@ -15856,6 +15933,9 @@ From your friend</div>
               The Easter Bunny
             </div>
           </div>
+
+          ${cornerGfxHtml}
+          ${butterflyHtml}
         </div>
       `;
     }

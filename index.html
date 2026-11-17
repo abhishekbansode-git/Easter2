@@ -7720,194 +7720,157 @@
       letter-spacing: 0.2px;
     }
 
-    /* How-To Guide View Styles (Single-Page No-Scroll Layout) */
-    .main-menu-guide {
+    /* How-To Use Modal Popup Overlay */
+    .how-to-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+      animation: modalOverlayFadeIn 0.2s ease-out;
+    }
+
+    @keyframes modalOverlayFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .how-to-modal-card {
+      position: relative;
       background: #ffffff;
       border: 1.5px solid #ede9fe;
       border-radius: 20px;
-      padding: clamp(16px, 2.5vw, 24px);
-      box-shadow: 0 20px 45px -10px rgba(124, 58, 237, 0.12);
+      width: 100%;
+      max-width: 480px;
+      padding: 24px 22px 20px;
+      box-shadow: 0 24px 50px -12px rgba(124, 58, 237, 0.25), 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+      box-sizing: border-box;
+      animation: modalPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      animation: menuFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 16px;
     }
 
-    .guide-header-row {
-      display: none;
-      align-items: center;
-      justify-content: flex-start;
+    @keyframes modalPopIn {
+      from {
+        opacity: 0;
+        transform: scale(0.93) translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
     }
 
-    .guide-back-btn {
-      font-size: 0.84rem;
-      padding: 6px 12px;
-    }
-
-    .guide-hero {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      margin-top: -4px;
-    }
-
-    .guide-hero-title {
-      font-family: var(--font-title);
-      font-size: clamp(1.4rem, 2.8vw, 1.75rem);
-      font-weight: 800;
-      color: #1e1b4b;
-      margin: 0;
-      line-height: 1.2;
-    }
-
-    .guide-hero-subtitle {
-      font-size: 0.88rem;
-      color: #64748b;
-      margin: 0;
-      max-width: 580px;
-      line-height: 1.35;
-    }
-
-    .guide-steps-list {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin: 2px 0;
-    }
-
-    .guide-step-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background: #f8fafc;
+    .how-to-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
       border: 1.5px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 14px;
-      text-align: left;
-    }
-
-    .guide-step-card-header {
+      background: #f8fafc;
+      color: #64748b;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
+      justify-content: center;
+      transition: all 0.18s ease;
+      padding: 0;
     }
 
-    .guide-step-number {
-      font-family: var(--font-title);
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      color: #7c3aed;
+    .how-to-modal-close:hover {
       background: #ede9fe;
-      padding: 3px 8px;
-      border-radius: 6px;
-      flex-shrink: 0;
+      color: #7c3aed;
+      border-color: #c4b5fd;
+      transform: scale(1.08);
     }
 
-    .guide-step-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .how-to-modal-header {
+      padding-right: 36px;
     }
 
-    .guide-step-icon {
-      font-size: 1.3rem;
-      line-height: 1;
-    }
-
-    .guide-step-title {
+    .how-to-modal-title {
       font-family: var(--font-title);
-      font-size: 0.98rem;
+      font-size: 1.35rem;
       font-weight: 800;
       color: #1e1b4b;
       margin: 0;
       line-height: 1.25;
     }
 
-    .guide-step-body {
-      font-size: 0.83rem;
-      color: #475569;
+    .how-to-modal-subtitle {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 4px 0 0;
       line-height: 1.35;
-      margin: 0;
     }
 
-    .guide-step-bullets {
-      margin: 2px 0 0;
-      padding-left: 16px;
+    .how-to-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .how-to-step-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #f8fafc;
+      border: 1.5px solid #ede9fe;
+      border-radius: 12px;
+      padding: 10px 14px;
+      transition: all 0.15s ease;
+    }
+
+    .how-to-step-card:hover {
+      background: #f5f3ff;
+      border-color: #ddd6fe;
+    }
+
+    .how-to-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      color: #ffffff;
+      font-family: var(--font-title);
+      font-size: 0.86rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(124, 58, 237, 0.28);
+    }
+
+    .how-to-step-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .how-to-step-title {
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #1e1b4b;
+      line-height: 1.25;
+    }
+
+    .how-to-step-desc {
       font-size: 0.8rem;
       color: #64748b;
       line-height: 1.35;
-    }
-
-    .guide-step-bullets li {
-      margin-bottom: 3px;
-    }
-
-    .guide-step-bullets li:last-child {
-      margin-bottom: 0;
-    }
-
-    .guide-step-bullets li strong {
-      color: #334155;
-    }
-
-    .guide-themes-preview {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin: 2px 0;
-    }
-
-    .guide-theme-chip {
-      font-size: 0.72rem;
-      font-weight: 700;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      color: #334155;
-      padding: 2px 6px;
-      border-radius: 5px;
-    }
-
-    .guide-footer-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 4px;
-      padding-top: 12px;
-      border-top: 1px solid #e2e8f0;
-      flex-wrap: wrap;
-    }
-
-    .guide-footer-back {
-      padding: 9px 16px;
-    }
-
-    .guide-footer-start {
-      padding: 10px 20px;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 860px) {
-      .guide-header-row {
-        display: flex;
-      }
-      .guide-steps-list {
-        grid-template-columns: 1fr;
-      }
-      .guide-step-card {
-        flex-direction: row;
-        gap: 12px;
-      }
-      .guide-step-card-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      margin: 0;
     }
 
     @media (max-width: 600px) {
@@ -7915,8 +7878,7 @@
         padding: 16px 12px;
         align-items: flex-start;
       }
-      .main-menu-content,
-      .main-menu-guide {
+      .main-menu-content {
         padding: 20px 16px;
         border-radius: 18px;
       }
@@ -7928,28 +7890,21 @@
         width: 42px;
         height: 42px;
       }
-      .guide-step-card {
-        flex-direction: column;
-        gap: 8px;
+      .how-to-modal-card {
+        padding: 20px 16px 16px;
+        border-radius: 16px;
       }
-      .guide-step-card-header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+      .how-to-modal-title {
+        font-size: 1.2rem;
       }
-      .guide-footer-actions {
-        flex-direction: column-reverse;
-        width: 100%;
-      }
-      .guide-footer-back,
-      .guide-footer-start {
-        width: 100%;
-        justify-content: center;
+      .how-to-step-card {
+        padding: 8px 10px;
       }
     }
 
     @media print {
-      .main-menu-page {
+      .main-menu-page,
+      .how-to-modal-overlay {
         display: none !important;
       }
     }
@@ -8024,100 +7979,55 @@
         </div>
       </div>
 
-      <!-- VIEW 2: HOW-TO GUIDE ("How to Use") -->
-      <div id="main-menu-guide" class="main-menu-guide" style="display: none;">
-        <div class="guide-header-row">
-          <button type="button" class="btn-text-action guide-back-btn" id="guide-back-btn" onclick="closeHowToGuide()">
-            ← Back to Menu
-          </button>
-        </div>
-
-        <div class="guide-hero">
-          <h2 class="guide-hero-title">How to Make Your Scavenger Hunt</h2>
-          <p class="guide-hero-subtitle">Follow these 3 simple steps to create an unforgettable scavenger hunt for your kids or players!</p>
-        </div>
-
-        <div class="guide-steps-list">
-          <!-- Step 1 Card -->
-          <div class="guide-step-card">
-            <div class="guide-step-card-header">
-              <span class="guide-step-number">Step 1</span>
-              <span class="guide-step-icon">📍</span>
-            </div>
-            <div class="guide-step-content">
-              <h3 class="guide-step-title">Select & Customize Hiding Spots</h3>
-              <p class="guide-step-body">
-                Choose where you want to hide each clue around your house or yard (like <em>Refrigerator</em>, <em>Washing Machine</em>, <em>Bookshelf</em>, etc.).
-              </p>
-              <ul class="guide-step-bullets">
-                <li><strong>Smart Mapping:</strong> Automatically pairs with a matching riddle or cipher tailored to letter count.</li>
-                <li><strong>Reorder Clues:</strong> Drag or use arrows to plan your hunt trail from first to last.</li>
-                <li><strong>Add or Remove:</strong> Clear all to start blank, or uncheck clues to adjust your hunt length.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Step 2 Card -->
-          <div class="guide-step-card">
-            <div class="guide-step-card-header">
-              <span class="guide-step-number">Step 2</span>
-              <span class="guide-step-icon">🎨</span>
-            </div>
-            <div class="guide-step-content">
-              <h3 class="guide-step-title">Choose Your Easter Design</h3>
-              <p class="guide-step-body">
-                Select your favorite visual style from our 4 Easter collections:
-              </p>
-              <div class="guide-themes-preview">
-                <span class="guide-theme-chip">🌸 Spring Pastel</span>
-                <span class="guide-theme-chip">🥚 Watercolor Eggs</span>
-                <span class="guide-theme-chip">🍭 Pastel Stripes</span>
-                <span class="guide-theme-chip">🥕 Easter Variety</span>
-              </div>
-              <ul class="guide-step-bullets">
-                <li><strong>Live Card Preview:</strong> See how each puzzle and border looks before printing.</li>
-                <li><strong>Answer Key Mode:</strong> View solutions and decoded location answers.</li>
-                <li><strong>Instant Customizer:</strong> Edit location answers right beside the card preview.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Step 3 Card -->
-          <div class="guide-step-card">
-            <div class="guide-step-card-header">
-              <span class="guide-step-number">Step 3</span>
-              <span class="guide-step-icon">🖨️</span>
-            </div>
-            <div class="guide-step-content">
-              <h3 class="guide-step-title">Download & Print</h3>
-              <p class="guide-step-body">
-                Generate high-resolution PDFs ready for any home printer:
-              </p>
-              <ul class="guide-step-bullets">
-                <li><strong>1 or 2 Per Page:</strong> Print full-page cards or paper-saving 2-per-page sheets with cut lines.</li>
-                <li><strong>Clue Cards:</strong> One click generates all player clues with vibrant themed borders.</li>
-                <li><strong>Answer Key:</strong> Complete reference sheet with all hiding spots and puzzle solutions.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="guide-footer-actions">
-          <button type="button" class="btn-secondary guide-footer-back" id="guide-footer-back-btn" onclick="closeHowToGuide()">
-            ← Back to Menu
-          </button>
-          <button type="button" class="btn-primary guide-footer-start" onclick="startHuntCreator()">
-            <span id="guide-footer-start-text">Start Creating Now</span>
-            <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L13.586 11H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-
     </div>
   </div>
 
+  <!-- HOW TO USE POPUP MODAL -->
+  <div id="how-to-modal" class="how-to-modal-overlay" style="display: none;" onclick="handleHowToModalBackdrop(event)">
+    <div class="how-to-modal-card" role="dialog" aria-modal="true" aria-labelledby="how-to-modal-title">
+      <!-- Top-right 'X' close button -->
+      <button type="button" class="how-to-modal-close" onclick="closeHowToModal()" aria-label="Close How to Use" title="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="how-to-modal-header">
+        <h2 id="how-to-modal-title" class="how-to-modal-title">How to Use</h2>
+        <p class="how-to-modal-subtitle">Follow these 3 simple steps to create your hunt:</p>
+      </div>
+
+      <div class="how-to-steps-list">
+        <!-- Step 1 -->
+        <div class="how-to-step-card">
+          <div class="how-to-step-num">1</div>
+          <div class="how-to-step-content">
+            <div class="how-to-step-title">Select Hiding Spots</div>
+            <p class="how-to-step-desc">Add, edit, reorder or remove any hiding spot</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="how-to-step-card">
+          <div class="how-to-step-num">2</div>
+          <div class="how-to-step-content">
+            <div class="how-to-step-title">Choose a Design</div>
+            <p class="how-to-step-desc">Pick an Easter theme and preview your cards & answer key live</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="how-to-step-card">
+          <div class="how-to-step-num">3</div>
+          <div class="how-to-step-content">
+            <div class="how-to-step-title">Download</div>
+            <p class="how-to-step-desc">Download printable clue cards and answers (1 or 2 per page)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="app-layout" id="app-layout" style="display: none;">
     <!-- Left Sidebar -->
     <aside class="app-sidebar" id="app-sidebar">
@@ -11606,6 +11516,9 @@ const EmbeddedAssets = {
     });
 
     window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeHowToModal();
+      }
       const step2 = document.getElementById('panel-step-2');
       if (step2 && step2.style.display !== 'none') {
         if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) {
@@ -15912,7 +15825,7 @@ When it's time to eat.</div>
         const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme1Borders) ? EmbeddedAssets.theme1Borders[1] : 'assets/theme 1/border/Border 1.png';
         return `<img class="print-border-img" src="${src}" alt="Border">`;
       } else if (theme === 2) {
-        return `<div class="egg-border-frame" style="--global-egg-width: 12%; background: transparent; display: block;">${EggBorderGenerator.renderFrameHtml(15)}</div>`;
+        return `<div class="egg-border-frame" style="--global-egg-width: 12%; background: transparent; display: block;">${EggBorderGenerator.renderFrameHtml(10)}</div>`;
       } else if (theme === 3) {
         const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme3Border) ? EmbeddedAssets.theme3Border : 'assets/theme 3/border.png';
         return `<img class="print-border-img" src="${src}" alt="Border">`;
@@ -15926,10 +15839,10 @@ When it's time to eat.</div>
     function getIntroPage2BorderHtml() {
       const theme = AppState.selectedTheme || 1;
       if (theme === 1) {
-        const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme1Borders) ? EmbeddedAssets.theme1Borders[2] : 'assets/theme 1/border/Border 2.png';
+        const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme1Borders) ? EmbeddedAssets.theme1Borders[3] : 'assets/theme 1/border/Border 3.png';
         return `<img class="print-border-img" src="${src}" alt="Border">`;
       } else if (theme === 2) {
-        return `<div class="egg-border-frame" style="--global-egg-width: 12%; background: transparent; display: block;">${EggBorderGenerator.renderFrameHtml(10)}</div>`;
+        return `<div class="egg-border-frame" style="--global-egg-width: 12%; background: transparent; display: block;">${EggBorderGenerator.renderFrameHtml(15)}</div>`;
       } else if (theme === 3) {
         const src = (typeof EmbeddedAssets !== 'undefined' && EmbeddedAssets.theme3Border) ? EmbeddedAssets.theme3Border : 'assets/theme 3/border.png';
         return `<img class="print-border-img" src="${src}" alt="Border">`;
@@ -15944,6 +15857,9 @@ When it's time to eat.</div>
       const activeClues = getActiveHuntClues();
       const count = activeClues.length > 0 ? activeClues.length : 12;
       const isTwoCol = count > 12;
+      const theme = AppState.selectedTheme || 1;
+      const isBaskervilleTheme = (theme === 2 || theme === 4);
+      const titleWeight = 400;
 
       const firstLead = (activeClues[0] && activeClues[0].location && activeClues[0].location.trim()) ? activeClues[0].location.trim() : 'television';
       const giftLead = (activeClues[count - 1] && activeClues[count - 1].location && activeClues[count - 1].location.trim()) ? activeClues[count - 1].location.trim() : 'cupboard';
@@ -16015,22 +15931,20 @@ When it's time to eat.</div>
         listHtml += `</div></div>`;
       }
 
-      const listX = isTwoCol ? 56 : 136;
-
       return `
         <div style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; font-family:var(--font-franklin);">
           <!-- Title -->
-          <div style="position:absolute; top:53px; left:0; width:100%; text-align:center; font-family:var(--font-baskerville); font-size:37px; font-weight:700; letter-spacing:1.5px; color:#2c1810; line-height:1.1; text-transform:uppercase;">
+          <div style="position:absolute; top:53px; left:0; width:100%; text-align:center; font-family:var(--font-baskerville); font-size:37px; font-weight:${titleWeight}; letter-spacing:1.5px; color:#2c1810; line-height:1.1; text-transform:uppercase;">
             HIDING ORDER!
           </div>
 
           <!-- Instructions -->
-          <div style="position:absolute; top:118px; left:40px; width:400px; font-family:var(--font-franklin); font-size:16px; font-weight:400; line-height:1.4; color:#2c1810; text-align:left;">
+          <div style="position:absolute; top:118px; left:40px; width:400px; font-family:var(--font-roboto); font-size:16px; font-weight:400; line-height:1.4; color:#2c1810; text-align:left;">
             Give CLUE 1 with the letter. Hide the remaining clues in the locations listed below. (CLUE 1's answer will lead them to the ${firstLead.toLowerCase()}, etc.) Clue ${count} will lead them to the ${giftLead.toLowerCase()} and the gift.
           </div>
 
           <!-- Clue List -->
-          <div style="position:absolute; top:246px; left:${listX}px; font-family:var(--font-franklin); font-size:14px; color:#2c1810;">
+          <div style="position:absolute; top:246px; left:0; width:100%; display:flex; justify-content:center; font-family:var(--font-franklin); font-size:14px; color:#2c1810;">
             ${listHtml}
           </div>
         </div>
@@ -16038,37 +15952,45 @@ When it's time to eat.</div>
     }
 
     function renderHappyEasterCardInnerHtml() {
-      const letterColors = [
-        "#5fa88a", // H
-        "#f87171", // a
-        "#fb923c", // p
-        "#a855f7", // p
-        "#f59e0b", // y
-        "transparent", // space
-        "#ec4899", // E
-        "#38bdf8", // a
-        "#84cc16", // s
-        "#f97316", // t
-        "#f43f5e", // e
-        "#10b981", // r
-        "#c026d3"  // !
-      ];
+      const theme = AppState.selectedTheme || 1;
+      const isBaskervilleTheme = (theme === 2 || theme === 4);
+      const titleWeight = isBaskervilleTheme ? 400 : 700;
 
-      const titleChars = Array.from("Happy Easter!");
       let titleSpans = "";
-      titleChars.forEach((ch, idx) => {
-        if (ch === " ") {
-          titleSpans += `<span style="display:inline-block; width:0.35em;">&nbsp;</span>`;
-        } else {
-          const col = letterColors[idx % letterColors.length] || "#7c3aed";
-          titleSpans += `<span style="color:${col}; display:inline-block;">${ch}</span>`;
-        }
-      });
+      if (isBaskervilleTheme) {
+        titleSpans = `<span style="color:#2c1810; display:inline-block;">Happy Easter!</span>`;
+      } else {
+        const letterColors = [
+          "#5fa88a", // H
+          "#f87171", // a
+          "#fb923c", // p
+          "#a855f7", // p
+          "#f59e0b", // y
+          "transparent", // space
+          "#ec4899", // E
+          "#38bdf8", // a
+          "#84cc16", // s
+          "#f97316", // t
+          "#f43f5e", // e
+          "#10b981", // r
+          "#c026d3"  // !
+        ];
+
+        const titleChars = Array.from("Happy Easter!");
+        titleChars.forEach((ch, idx) => {
+          if (ch === " ") {
+            titleSpans += `<span style="display:inline-block; width:0.35em;">&nbsp;</span>`;
+          } else {
+            const col = letterColors[idx % letterColors.length] || "#7c3aed";
+            titleSpans += `<span style="color:${col}; display:inline-block;">${ch}</span>`;
+          }
+        });
+      }
 
       return `
         <div style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none;">
           <!-- Title -->
-          <div style="position:absolute; top:49px; left:0; width:100%; text-align:center; font-family:var(--font-baskerville); font-size:43px; font-weight:700; letter-spacing:2.5px; line-height:1.1;">
+          <div style="position:absolute; top:49px; left:0; width:100%; text-align:center; font-family:var(--font-baskerville); font-size:43px; font-weight:${titleWeight}; letter-spacing:2.5px; line-height:1.1;">
             ${titleSpans}
           </div>
 
@@ -16297,15 +16219,10 @@ From your friend</div>
       return '';
     }
 
-    let guideReturnTarget = 'menu';
-
     function startHuntCreator() {
-      const menuContainer = document.querySelector('.main-menu-container');
-      if (menuContainer) menuContainer.classList.remove('guide-mode');
+      closeHowToModal();
       const menuPage = document.getElementById('main-menu-page');
-      const guideView = document.getElementById('main-menu-guide');
       const appLayout = document.getElementById('app-layout');
-      if (guideView) guideView.style.display = 'none';
       if (menuPage) menuPage.style.display = 'none';
       if (appLayout) {
         appLayout.style.display = 'flex';
@@ -16322,80 +16239,36 @@ From your friend</div>
     }
 
     function openHowToGuide() {
-      guideReturnTarget = 'menu';
-      const menuContainer = document.querySelector('.main-menu-container');
-      if (menuContainer) menuContainer.classList.add('guide-mode');
-      const menuPage = document.getElementById('main-menu-page');
-      const appLayout = document.getElementById('app-layout');
-      const menuContent = document.getElementById('main-menu-content');
-      const guideView = document.getElementById('main-menu-guide');
-      const backBtn = document.getElementById('guide-back-btn');
-      const footerBackBtn = document.getElementById('guide-footer-back-btn');
-      const footerStartBtn = document.getElementById('guide-footer-start-text');
-      if (backBtn) backBtn.textContent = '← Back to Menu';
-      if (footerBackBtn) footerBackBtn.textContent = '← Back to Menu';
-      if (footerStartBtn) footerStartBtn.textContent = 'Start Creating Now';
-      if (appLayout) appLayout.style.display = 'none';
-      if (menuContent) menuContent.style.display = 'none';
-      if (guideView) guideView.style.display = 'flex';
-      if (menuPage) menuPage.style.display = 'flex';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const modal = document.getElementById('how-to-modal');
+      if (modal) modal.style.display = 'flex';
     }
 
     function openHowToGuideFromApp() {
-      guideReturnTarget = 'app';
-      const menuContainer = document.querySelector('.main-menu-container');
-      if (menuContainer) menuContainer.classList.add('guide-mode');
-      const menuPage = document.getElementById('main-menu-page');
-      const appLayout = document.getElementById('app-layout');
-      const menuContent = document.getElementById('main-menu-content');
-      const guideView = document.getElementById('main-menu-guide');
-      const backBtn = document.getElementById('guide-back-btn');
-      const footerBackBtn = document.getElementById('guide-footer-back-btn');
-      const footerStartBtn = document.getElementById('guide-footer-start-text');
-      if (backBtn) backBtn.textContent = '← Back to Steps';
-      if (footerBackBtn) footerBackBtn.textContent = '← Back to Steps';
-      if (footerStartBtn) footerStartBtn.textContent = 'Continue Hunt';
-      if (appLayout) appLayout.style.display = 'none';
-      if (menuContent) menuContent.style.display = 'none';
-      if (guideView) guideView.style.display = 'flex';
-      if (menuPage) menuPage.style.display = 'flex';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const modal = document.getElementById('how-to-modal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeHowToModal() {
+      const modal = document.getElementById('how-to-modal');
+      if (modal) modal.style.display = 'none';
     }
 
     function closeHowToGuide() {
-      const menuContainer = document.querySelector('.main-menu-container');
-      if (guideReturnTarget === 'app') {
-        const menuPage = document.getElementById('main-menu-page');
-        const guideView = document.getElementById('main-menu-guide');
-        const appLayout = document.getElementById('app-layout');
-        if (menuContainer) menuContainer.classList.remove('guide-mode');
-        if (guideView) guideView.style.display = 'none';
-        if (menuPage) menuPage.style.display = 'none';
-        if (appLayout) {
-          appLayout.style.display = 'flex';
-          if (typeof updateStep1ColumnWidth === 'function') updateStep1ColumnWidth();
-          if (typeof updateStep1ScrollArrows === 'function') updateStep1ScrollArrows();
-        }
-      } else {
-        const menuContent = document.getElementById('main-menu-content');
-        const guideView = document.getElementById('main-menu-guide');
-        if (menuContainer) menuContainer.classList.remove('guide-mode');
-        if (guideView) guideView.style.display = 'none';
-        if (menuContent) menuContent.style.display = 'flex';
+      closeHowToModal();
+    }
+
+    function handleHowToModalBackdrop(e) {
+      if (e.target && e.target.id === 'how-to-modal') {
+        closeHowToModal();
       }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function returnToMainMenu() {
-      const menuContainer = document.querySelector('.main-menu-container');
-      if (menuContainer) menuContainer.classList.remove('guide-mode');
+      closeHowToModal();
       const menuPage = document.getElementById('main-menu-page');
       const appLayout = document.getElementById('app-layout');
       const menuContent = document.getElementById('main-menu-content');
-      const guideView = document.getElementById('main-menu-guide');
       if (appLayout) appLayout.style.display = 'none';
-      if (guideView) guideView.style.display = 'none';
       if (menuContent) menuContent.style.display = 'flex';
       if (menuPage) menuPage.style.display = 'flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });

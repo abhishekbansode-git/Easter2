@@ -2463,9 +2463,10 @@
     }
 
     .step3-control-column {
-      flex: 0 1 clamp(410px, 30vw, 470px);
-      width: clamp(410px, 30vw, 470px);
+      flex: 0 1 clamp(350px, 30vw, 470px);
+      width: clamp(350px, 30vw, 470px);
       max-width: 480px;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -2919,19 +2920,56 @@
       gap: 6px;
     }
 
-    /* Action Buttons in Step 3 */
+    /* Action Buttons in Step 2 */
     .deck-actions-card {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       margin-top: auto;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .deck-action-btn {
-      flex: 1;
+      flex: 1 1 0;
+      min-width: 0;
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      padding: 13px 20px;
-      font-size: 0.95rem;
+      gap: 8px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-sizing: border-box;
+      border-radius: 12px;
+    }
+
+    .deck-action-btn svg {
+      flex-shrink: 0;
+    }
+
+    .deck-btn-text-full {
+      display: inline;
+    }
+
+    .deck-btn-text-short {
+      display: none;
+    }
+
+    @media (max-width: 1366px) {
+      .deck-action-btn {
+        padding: 11px 10px;
+        font-size: 0.88rem;
+        gap: 6px;
+      }
+      .deck-btn-text-full {
+        display: none;
+      }
+      .deck-btn-text-short {
+        display: inline;
+      }
     }
 
     /* Studio Canvas Stage (Right Side) */
@@ -7481,7 +7519,7 @@
 
     .main-menu-container {
       width: 100%;
-      max-width: 680px;
+      max-width: 820px;
       margin: auto;
       transition: max-width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -7493,12 +7531,12 @@
     .main-menu-content {
       background: #ffffff;
       border: 1.5px solid #ede9fe;
-      border-radius: 24px;
-      padding: clamp(24px, 5vw, 40px);
+      border-radius: 28px;
+      padding: clamp(24px, 4vw, 38px);
       box-shadow: 0 20px 45px -10px rgba(124, 58, 237, 0.12), 0 0 0 1px rgba(124, 58, 237, 0.04);
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 26px;
       text-align: center;
       animation: menuFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -7515,20 +7553,6 @@
       gap: 8px;
     }
 
-    .menu-hero-badge {
-      width: 64px;
-      height: 64px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
-      border: 2px solid #f0abfc;
-      font-size: 2.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 20px rgba(217, 70, 239, 0.18);
-      margin-bottom: 4px;
-    }
-
     .menu-hero-title {
       font-family: var(--font-title);
       font-size: clamp(1.8rem, 4vw, 2.3rem);
@@ -7538,104 +7562,162 @@
       line-height: 1.15;
     }
 
-    .menu-hero-subtitle {
-      font-size: clamp(0.92rem, 2vw, 1.05rem);
-      color: #64748b;
-      margin: 0;
-      max-width: 480px;
-      line-height: 1.45;
+    /* 3 Steps Flow */
+    .main-steps-flow {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      margin: 4px 0;
+      box-sizing: border-box;
     }
 
-    .main-menu-options {
+    .main-step-item {
+      flex: 1 1 0;
+      min-width: 0;
+      background: linear-gradient(145deg, #ffffff 0%, #faf8fe 100%);
+      border: 1.5px solid #ede9fe;
+      border-radius: 20px;
+      padding: 20px 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-top: 4px;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-sizing: border-box;
     }
 
-    .menu-card-btn {
+    .main-step-item:hover {
+      transform: translateY(-2px);
+      border-color: #c4b5fd;
+      box-shadow: 0 8px 22px rgba(124, 58, 237, 0.1);
+    }
+
+    .main-step-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      color: #ffffff;
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 16px 20px;
+      justify-content: center;
+      box-shadow: 0 3px 8px rgba(124, 58, 237, 0.3);
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .main-step-title {
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #1e1b4b;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .main-step-desc {
+      font-size: 0.82rem;
+      color: #64748b;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .main-step-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a78bfa;
+      flex-shrink: 0;
+      padding: 0 2px;
+    }
+
+    /* Action Buttons */
+    .main-menu-actions {
+      display: flex;
+      align-items: stretch;
+      gap: 14px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .menu-action-btn {
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
       border-radius: 18px;
-      background: #ffffff;
-      border: 1.5px solid #e2e8f0;
       text-decoration: none;
       text-align: left;
       cursor: pointer;
       transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+    }
+
+    .menu-action-tutorial {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-      position: relative;
     }
 
-    .menu-card-btn:hover {
+    .menu-action-tutorial:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.1);
-      border-color: #c4b5fd;
+      box-shadow: 0 8px 24px rgba(220, 38, 38, 0.12);
+      border-color: #fca5a5;
+      background: #fff8f8;
     }
 
-    .menu-card-btn:active {
+    .menu-action-start {
+      background: #ffffff;
+      border: 1.5px solid #c4b5fd;
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+    }
+
+    .menu-action-start:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+      border-color: #7c3aed;
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.16);
+    }
+
+    .menu-action-btn:active {
       transform: scale(0.98);
     }
 
-    .menu-card-start {
-      border: 2px solid #c4b5fd;
-      background: linear-gradient(135deg, #ffffff 0%, #faf5ff 100%);
-      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.12);
-    }
-
-    .menu-card-start:hover {
-      border-color: #7c3aed;
-      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-      box-shadow: 0 10px 30px rgba(124, 58, 237, 0.18);
-    }
-
-    .menu-card-icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
+    .menu-action-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .menu-card-text {
+    .menu-action-text {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
       min-width: 0;
     }
 
-    .menu-card-title {
+    .menu-action-title {
       font-family: var(--font-title);
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       font-weight: 800;
       color: #1e1b4b;
       line-height: 1.2;
     }
 
-    .menu-card-desc {
-      font-size: 0.84rem;
-      color: #64748b;
-      line-height: 1.35;
-    }
-
-    .menu-card-pill {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      background: #ede9fe;
-      color: #7c3aed;
-      padding: 2px 7px;
-      border-radius: 999px;
-    }
-
-    .menu-card-arrow {
+    .menu-action-arrow {
       color: #94a3b8;
       display: flex;
       align-items: center;
@@ -7644,207 +7726,51 @@
       transition: transform 0.2s ease, color 0.2s ease;
     }
 
-    .menu-card-btn:hover .menu-card-arrow {
+    .menu-action-arrow.start-arrow {
       color: #7c3aed;
+    }
+
+    .menu-action-tutorial:hover .menu-action-arrow {
+      color: #dc2626;
       transform: translateX(3px);
     }
 
-    .menu-card-arrow.start-arrow {
-      color: #7c3aed;
+    .menu-action-start:hover .menu-action-arrow {
+      transform: translateX(4px);
     }
 
-    .main-menu-footer-note {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #94a3b8;
-      letter-spacing: 0.2px;
-    }
-
-    /* How-To Use Modal Popup Overlay */
-    .how-to-modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      z-index: 99999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      box-sizing: border-box;
-      animation: modalOverlayFadeIn 0.2s ease-out;
-    }
-
-    @keyframes modalOverlayFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .how-to-modal-card {
-      position: relative;
-      background: #ffffff;
-      border: 1.5px solid #ede9fe;
-      border-radius: 20px;
-      width: 100%;
-      max-width: 480px;
-      padding: 24px 22px 20px;
-      box-shadow: 0 24px 50px -12px rgba(124, 58, 237, 0.25), 0 10px 25px -5px rgba(0, 0, 0, 0.15);
-      box-sizing: border-box;
-      animation: modalPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    @keyframes modalPopIn {
-      from {
-        opacity: 0;
-        transform: scale(0.93) translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    .how-to-modal-close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1.5px solid #e2e8f0;
-      background: #f8fafc;
-      color: #64748b;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.18s ease;
-      padding: 0;
-    }
-
-    .how-to-modal-close:hover {
-      background: #ede9fe;
-      color: #7c3aed;
-      border-color: #c4b5fd;
-      transform: scale(1.08);
-    }
-
-    .how-to-modal-header {
-      padding-right: 36px;
-    }
-
-    .how-to-modal-title {
-      font-family: var(--font-title);
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #1e1b4b;
-      margin: 0;
-      line-height: 1.25;
-    }
-
-    .how-to-modal-subtitle {
-      font-size: 0.85rem;
-      color: #64748b;
-      margin: 4px 0 0;
-      line-height: 1.35;
-    }
-
-    .how-to-steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .how-to-step-card {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #f8fafc;
-      border: 1.5px solid #ede9fe;
-      border-radius: 12px;
-      padding: 10px 14px;
-      transition: all 0.15s ease;
-    }
-
-    .how-to-step-card:hover {
-      background: #f5f3ff;
-      border-color: #ddd6fe;
-    }
-
-    .how-to-step-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
-      color: #ffffff;
-      font-family: var(--font-title);
-      font-size: 0.86rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(124, 58, 237, 0.28);
-    }
-
-    .how-to-step-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .how-to-step-title {
-      font-family: var(--font-title);
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: #1e1b4b;
-      line-height: 1.25;
-    }
-
-    .how-to-step-desc {
-      font-size: 0.8rem;
-      color: #64748b;
-      line-height: 1.35;
-      margin: 0;
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 680px) {
       .main-menu-page {
         padding: 16px 12px;
         align-items: flex-start;
       }
       .main-menu-content {
         padding: 20px 16px;
-        border-radius: 18px;
+        border-radius: 20px;
+        gap: 20px;
       }
-      .menu-card-btn {
-        padding: 14px;
-        gap: 12px;
+      .main-steps-flow {
+        flex-direction: column;
+        gap: 8px;
       }
-      .menu-card-icon-box {
-        width: 42px;
-        height: 42px;
+      .main-step-item {
+        padding: 14px 16px;
       }
-      .how-to-modal-card {
-        padding: 20px 16px 16px;
-        border-radius: 16px;
+      .main-step-arrow {
+        transform: rotate(90deg);
+        margin: -2px 0;
       }
-      .how-to-modal-title {
-        font-size: 1.2rem;
+      .main-menu-actions {
+        flex-direction: column;
+        gap: 10px;
       }
-      .how-to-step-card {
-        padding: 8px 10px;
+      .menu-action-btn {
+        padding: 12px 18px;
       }
     }
 
     @media print {
-      .main-menu-page,
-      .how-to-modal-overlay {
+      .main-menu-page {
         display: none !important;
       }
     }
@@ -7855,61 +7781,80 @@
   <div id="main-menu-page" class="main-menu-page">
     <div class="main-menu-container">
 
-      <!-- VIEW 1: 3-BUTTON MAIN MENU -->
       <div id="main-menu-content" class="main-menu-content">
         <!-- Hero Branding -->
         <div class="main-menu-hero">
           <h1 class="menu-hero-title">Easter Hunt <span class="brand-title-accent">Creator</span></h1>
         </div>
 
-        <!-- 3 Main Menu Options -->
-        <div class="main-menu-options">
-          <!-- Option 1: How to Use -->
-          <button type="button" class="menu-card-btn menu-card-howto" onclick="openHowToGuide()">
-            <div class="menu-card-icon-box" style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); color: #7c3aed;">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-              </svg>
-            </div>
-            <div class="menu-card-text">
-              <span class="menu-card-title">How to Use</span>
-            </div>
-            <div class="menu-card-arrow">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </div>
-          </button>
+        <!-- 3 Steps Flow with connecting arrows -->
+        <div class="main-steps-flow">
+          <!-- Step 1 -->
+          <div class="main-step-item">
+            <div class="main-step-badge">1</div>
+            <div class="main-step-title">Select Hiding Spots</div>
+            <p class="main-step-desc">Add, edit, reorder or remove any hiding spot</p>
+          </div>
 
-          <!-- Option 2: Tutorial -->
-          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="menu-card-btn menu-card-tutorial">
-            <div class="menu-card-icon-box" style="background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); color: #dc2626;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <!-- Connecting Arrow 1 -> 2 -->
+          <div class="main-step-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="main-step-item">
+            <div class="main-step-badge">2</div>
+            <div class="main-step-title">Choose a Design</div>
+            <p class="main-step-desc">Pick a theme and preview your cards & answer key live</p>
+          </div>
+
+          <!-- Connecting Arrow 2 -> 3 -->
+          <div class="main-step-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="main-step-item">
+            <div class="main-step-badge">3</div>
+            <div class="main-step-title">Download</div>
+            <p class="main-step-desc">Download printable clue cards and answers (1 or 2 per page)</p>
+          </div>
+        </div>
+
+        <!-- Action Buttons: Tutorial & Start -->
+        <div class="main-menu-actions">
+          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="menu-action-btn menu-action-tutorial">
+            <div class="menu-action-icon-box" style="background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); color: #dc2626;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="5,3 19,12 5,21"/>
               </svg>
             </div>
-            <div class="menu-card-text">
-              <span class="menu-card-title">Tutorial</span>
+            <div class="menu-action-text">
+              <span class="menu-action-title">Watch Tutorial</span>
             </div>
-            <div class="menu-card-arrow">
+            <div class="menu-action-arrow tutorial-arrow">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </div>
           </a>
 
-          <!-- Option 3: Start -->
-          <button type="button" class="menu-card-btn menu-card-start" onclick="startHuntCreator()">
-            <div class="menu-card-icon-box" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); color: #ffffff;">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <button type="button" class="menu-action-btn menu-action-start" onclick="startHuntCreator()">
+            <div class="menu-action-icon-box" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); color: #ffffff;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
               </svg>
             </div>
-            <div class="menu-card-text">
-              <span class="menu-card-title" style="color: #7c3aed; font-size: 1.25rem;">Start</span>
+            <div class="menu-action-text">
+              <span class="menu-action-title" style="color: #7c3aed; font-size: 1.25rem;">Start</span>
             </div>
-            <div class="menu-card-arrow start-arrow">
+            <div class="menu-action-arrow start-arrow">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -7917,55 +7862,9 @@
             </div>
           </button>
         </div>
+
       </div>
 
-    </div>
-  </div>
-
-  <!-- HOW TO USE POPUP MODAL -->
-  <div id="how-to-modal" class="how-to-modal-overlay" style="display: none;" onclick="handleHowToModalBackdrop(event)">
-    <div class="how-to-modal-card" role="dialog" aria-modal="true" aria-labelledby="how-to-modal-title">
-      <!-- Top-right 'X' close button -->
-      <button type="button" class="how-to-modal-close" onclick="closeHowToModal()" aria-label="Close How to Use" title="Close">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="how-to-modal-header">
-        <h2 id="how-to-modal-title" class="how-to-modal-title">How to Use</h2>
-        <p class="how-to-modal-subtitle">Follow these 3 simple steps to create your hunt:</p>
-      </div>
-
-      <div class="how-to-steps-list">
-        <!-- Step 1 -->
-        <div class="how-to-step-card">
-          <div class="how-to-step-num">1</div>
-          <div class="how-to-step-content">
-            <div class="how-to-step-title">Select Hiding Spots</div>
-            <p class="how-to-step-desc">Add, edit, reorder or remove any hiding spot</p>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="how-to-step-card">
-          <div class="how-to-step-num">2</div>
-          <div class="how-to-step-content">
-            <div class="how-to-step-title">Choose a Design</div>
-            <p class="how-to-step-desc">Pick an Easter theme and preview your cards & answer key live</p>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="how-to-step-card">
-          <div class="how-to-step-num">3</div>
-          <div class="how-to-step-content">
-            <div class="how-to-step-title">Download</div>
-            <p class="how-to-step-desc">Download printable clue cards and answers (1 or 2 per page)</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="app-layout" id="app-layout" style="display: none;">
@@ -8012,18 +7911,6 @@
           </span>
           <div class="menu-info">
             <span class="menu-name">Main Menu</span>
-          </div>
-        </button>
-
-        <button type="button" class="sidebar-guide-btn" id="btn-sidebar-howto" onclick="openHowToGuideFromApp()" title="How to Make Your Hunt">
-          <span class="guide-circle">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>
-          </span>
-          <div class="guide-info">
-            <span class="guide-name">How to Use</span>
           </div>
         </button>
 
@@ -8187,14 +8074,16 @@
 
           <!-- 4. Action Buttons -->
           <div class="deck-actions-card" id="step3-actions-card">
-            <button type="button" class="btn-secondary deck-action-btn" onclick="goBackToStep1()">
+            <button type="button" class="btn-secondary deck-action-btn" onclick="goBackToStep1()" title="Back to Select Hiding Spots">
               <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L6.414 9H16a1 1 0 110 2H6.414l3.293 3.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
               </svg>
-              <span>Back: Select Hiding Spots</span>
+              <span class="deck-btn-text-full">Back: Hiding Spots</span>
+              <span class="deck-btn-text-short">Back</span>
             </button>
-            <button type="button" class="btn-primary deck-action-btn" onclick="proceedToStep3()">
-              <span>Next: Download</span>
+            <button type="button" class="btn-primary deck-action-btn" onclick="proceedToStep3()" title="Next: Download Clues">
+              <span class="deck-btn-text-full">Next: Download</span>
+              <span class="deck-btn-text-short">Download</span>
               <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L13.586 11H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>

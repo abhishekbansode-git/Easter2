@@ -2958,7 +2958,7 @@
       display: none;
     }
 
-    @media (max-width: 1366px) {
+    @media (min-width: 961px) and (max-width: 1366px) {
       .deck-action-btn {
         padding: 11px 10px;
         font-size: 0.88rem;
@@ -3346,6 +3346,14 @@
         justify-content: center;
         padding: 12px 18px;
         font-size: 0.92rem;
+      }
+
+      .deck-btn-text-full {
+        display: inline !important;
+      }
+
+      .deck-btn-text-short {
+        display: none !important;
       }
 
       .step3-action-bar {
@@ -10378,92 +10386,73 @@ const EmbeddedAssets = {
       hourToClockImg: { 9: 1, 12: 2, 7: 3, 3: 4, 8: 5 },
 
       getHourForLetter(letter, word) {
-        if (!letter) return 12;
+        if (!letter) return 9;
+        const res = this.getTableForWord(word);
         const upper = letter.toUpperCase();
-        const cleanWord = (word || '').toUpperCase();
-        if (cleanWord === 'SINK' && this.sinkHours[upper] !== undefined) {
-          return this.sinkHours[upper];
-        }
-        if (this.chairHours[upper] !== undefined) {
-          return this.chairHours[upper];
-        }
-        if (this.cipherLetterToHour[upper] !== undefined) {
-          return this.cipherLetterToHour[upper];
-        }
-        const code = upper.charCodeAt(0);
-        if (code >= 65 && code <= 90) {
-          return ((code - 65) % 12) + 1;
-        }
-        return 12;
+        return (res && res.letterToHour && res.letterToHour[upper]) || 9;
       },
 
       getTableForWord(word) {
-        const clean = (word || 'CHAIR').toUpperCase();
+        const clean = (word || 'CHAIR').toUpperCase().slice(0, 5);
         if (clean === 'SINK') {
           return {
             tableData: this.sinkTableData,
-            letterToHour: { ...this.cipherLetterToHour, ...this.sinkHours }
+            letterToHour: { 'S': 9, 'I': 12, 'N': 7, 'K': 3 }
           };
         }
         if (clean === 'CHAIR') {
           return {
             tableData: this.tableData,
-            letterToHour: this.cipherLetterToHour
+            letterToHour: { 'C': 9, 'H': 12, 'A': 7, 'I': 3, 'R': 8 }
           };
         }
 
-        const uniqueChars = Array.from(new Set(clean.split('')));
-        const letterToHour = { ...this.cipherLetterToHour };
-        const usedHours = new Set();
-        uniqueChars.forEach(ch => {
-          if (letterToHour[ch] !== undefined) {
-            usedHours.add(letterToHour[ch]);
+        const clockHours = [9, 12, 7, 3, 8];
+        const uniqueChars = [];
+        for (let i = 0; i < clean.length; i++) {
+          const ch = clean[i];
+          if (!uniqueChars.includes(ch)) {
+            uniqueChars.push(ch);
           }
-        });
+        }
 
-        let nextHour = 1;
-        uniqueChars.forEach(ch => {
-          if (letterToHour[ch] === undefined) {
-            while (usedHours.has(nextHour) && nextHour <= 12) {
-              nextHour++;
-            }
-            const assignedHr = nextHour <= 12 ? nextHour : (((ch.charCodeAt(0) - 65) % 12) + 1);
-            letterToHour[ch] = assignedHr;
-            usedHours.add(assignedHr);
+        const letterToHour = {};
+        const hourToLetter = {};
+        for (let i = 0; i < uniqueChars.length; i++) {
+          const hr = clockHours[i];
+          const ch = uniqueChars[i];
+          letterToHour[ch] = hr;
+          hourToLetter[hr] = ch;
+        }
+
+        const b1Nums = ["8", "2", "9", "4", "5", "11"];
+        const b2Nums = ["12", "7", "10", "6", "3", "1"];
+
+        const decoyPool = ['B', 'C', 'F', 'G', 'J', 'K', 'L', 'M', 'P', 'Q', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        const availableDecoys = decoyPool.filter(ch => !uniqueChars.includes(ch));
+        let decoyIdx = 0;
+
+        const b1Lets = [];
+        for (let i = 0; i < b1Nums.length; i++) {
+          const num = parseInt(b1Nums[i], 10);
+          if (hourToLetter[num] !== undefined) {
+            b1Lets.push(hourToLetter[num]);
+          } else {
+            b1Lets.push(availableDecoys[decoyIdx % availableDecoys.length]);
+            decoyIdx++;
           }
-        });
+        }
 
-        const b1Nums = [...this.tableData.block1.numbers];
-        const b1Lets = [...this.tableData.block1.letters];
-        const b2Nums = [...this.tableData.block2.numbers];
-        const b2Lets = [...this.tableData.block2.letters];
-
-        const allTableLetters = [...b1Lets, ...b2Lets];
-        const missingChars = uniqueChars.filter(ch => !allTableLetters.includes(ch));
-        const decoyReplacements = ['M', 'B', 'N', 'L', 'O', 'T'];
-
-        missingChars.forEach(ch => {
-          let replaced = false;
-          const assignedHr = String(letterToHour[ch]);
-          for (let i = 0; i < b2Lets.length; i++) {
-            if (!uniqueChars.includes(b2Lets[i]) && decoyReplacements.includes(b2Lets[i])) {
-              b2Lets[i] = ch;
-              b2Nums[i] = assignedHr;
-              replaced = true;
-              break;
-            }
+        const b2Lets = [];
+        for (let i = 0; i < b2Nums.length; i++) {
+          const num = parseInt(b2Nums[i], 10);
+          if (hourToLetter[num] !== undefined) {
+            b2Lets.push(hourToLetter[num]);
+          } else {
+            b2Lets.push(availableDecoys[decoyIdx % availableDecoys.length]);
+            decoyIdx++;
           }
-          if (!replaced) {
-            for (let i = 0; i < b1Lets.length; i++) {
-              if (!uniqueChars.includes(b1Lets[i])) {
-                b1Lets[i] = ch;
-                b1Nums[i] = assignedHr;
-                replaced = true;
-                break;
-              }
-            }
-          }
-        });
+        }
 
         return {
           tableData: {
@@ -15976,10 +15965,10 @@ From your friend</div>
       11: 0,   // Egg Scramble Shape Decoder -> no egg
       12: 14,  // Grid Arrow Decoder -> E14.png
       13: 0,   // Secret Egg Decoder -> no egg
-      14: 13,  // Mirrored Letter Grid -> E13.png
+      14: 45,  // Mirrored Letter Grid -> 45.png
       15: 0,   // Clock Cipher -> no egg
       16: 0,   // Strip Puzzle -> no egg
-      17: 12,  // Braille Cipher -> E12.png
+      17: 42,  // Braille Cipher -> 42.png
       18: 0,   // Hue Match Grid -> no egg
       19: 0,   // Keypad Tap Code -> no egg
       20: 0,   // Easter Egg Count Wheel -> no egg
@@ -15990,7 +15979,7 @@ From your friend</div>
       25: 0,   // Easter Cookie Letter Shift -> no egg
       26: 0,   // Spot The Difference -> no egg
       27: 0,   // Bunny Board Riddle -> no egg
-      28: 19,  // Picture Puzzle -> E19.png
+      28: 41,  // Picture Puzzle -> 41.png
       29: 8,   // Crossword Riddle -> E8.png
       30: 0,   // Color Coded -> no egg
       31: 0,   // 5x5 Coordinate Word Grid -> no egg

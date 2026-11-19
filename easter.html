@@ -3296,22 +3296,31 @@
         border-top: 1px solid #e2e8f0;
       }
 
+      #step3-actions-card .deck-action-btn,
       .deck-action-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 24px;
-        font-family: var(--font-title);
-        font-size: 1.05rem;
-        font-weight: 700;
-        border-radius: 12px;
-        box-sizing: border-box;
+        width: 100% !important;
+        flex: 0 0 auto !important;
+        min-height: 52px !important;
+        height: auto !important;
+        padding: 14px 24px !important;
+        font-family: var(--font-title) !important;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        line-height: 1.25 !important;
+        border-radius: 12px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        box-sizing: border-box !important;
+        -webkit-appearance: none !important;
       }
 
-      .deck-btn-text-full {
+      #step3-actions-card .deck-btn-text-full {
         display: inline !important;
       }
 
-      .deck-btn-text-short {
+      #step3-actions-card .deck-btn-text-short {
         display: none !important;
       }
 
@@ -3360,27 +3369,38 @@
     }
 
     @media (max-width: 650px) {
-      .deck-actions-card {
-        flex-direction: column-reverse;
-        width: 100%;
-        gap: 12px;
+      .deck-actions-card,
+      #step3-actions-card {
+        flex-direction: column-reverse !important;
+        width: 100% !important;
+        gap: 12px !important;
       }
 
+      #step3-actions-card .deck-action-btn,
       .deck-action-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 20px;
-        font-family: var(--font-title);
-        font-size: 1.02rem;
-        font-weight: 700;
-        border-radius: 12px;
+        width: 100% !important;
+        flex: 0 0 auto !important;
+        min-height: 52px !important;
+        height: auto !important;
+        padding: 14px 20px !important;
+        font-family: var(--font-title) !important;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        line-height: 1.25 !important;
+        border-radius: 12px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        box-sizing: border-box !important;
+        -webkit-appearance: none !important;
       }
 
-      .deck-btn-text-full {
+      #step3-actions-card .deck-btn-text-full {
         display: inline !important;
       }
 
-      .deck-btn-text-short {
+      #step3-actions-card .deck-btn-text-short {
         display: none !important;
       }
 
